@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-direction</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+
+div
+{
+width:350px;
+height:200px;
+border:1px solid black;
+
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;   /*  prova il vertical */
+-moz-box-direction:reverse;  /* provare normal*/
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-direction:reverse;
+
+/* W3C */
+display:box;
+box-orient:horizontal;
+box-direction:reverse;
+}
+
+</style>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-direction.html  -->
+<body>
+
+<h1>box-direction</h1>
+<p>Questa proprietà specifica la direzione di visualizzazione dei figli all'interno del box dell'elemento </p>
+
+<dl>
+	<dt>Accetta 3 argomenti</dt>
+    	<dd><b>normal</b>: Display children in horizontally boxes from left to right, and children in vertically boxes from top to bottom</dd>
+        <dd><b>reverse</b>: Display children in horizontally boxes from right to left, and children in vertically boxes from bottom to top</dd>
+        <dd><b>inherit</b>: The value of the box-direction property should be inherited from the parent element</dd>
+</dl>
+
+
+
+
+<div>
+<p>Cat</p>
+<p>Dog</p>
+<p>Horse</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

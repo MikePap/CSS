@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>word-wrap</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+
+p.test
+{
+width:150px; 
+border:1px solid #000000;
+/*word-wrap:normal;	 qui non c'è interrruzione della stringa */
+
+word-wrap:break-word;  
+
+}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Testo/word-wrap.html  -->
+<body>
+
+
+
+<h1>word-wrap</h1>
+
+<p class="nota">Proprietà che permette di spezzare le stringhe quando raggiungono il limite della larghezza per farle continuare alla riga successiva </p>
+
+<dl>
+	<dt>Accetta 2 argomenti</dt>
+    	<dd><b>normal</b>: si comporta in modo normale</dd>
+        <dd><b>break-word</b>: spezza le parole al raggiungimento del limite</dd>
+
+</dl>
+
+
+
+<p class="test"> This paragraph contains a very long word: 
+<span class="nota">questaèunaparolalungacheandrebbeoltrelalarhezzadell'elementosenonfosseper: </span>
+<span class="codice">word-wrap:break-word;</span>
+The long word will brake and wrap to the next line.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

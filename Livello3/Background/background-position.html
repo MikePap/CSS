@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>background-position  </title>
+<style type="text/css">
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);}
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+.nota{ color:rgb(250,120,0);}
+.codice{color:rgb(30,120,30);} 
+.blu{color: #00f; }
+pre{ color:rgb(30,120,30); background:rgb(230,230,230); padding:10px;  }
+
+dl{
+margin-left:10px;
+}
+dt{
+color:#666;
+}
+dd{
+color:rgb(100,150,255);
+}
+
+
+body{ /*
+background-image:url('../../../../Immagini/drupa.png');
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-position:center bottom; 
+*/
+
+background: url(../../../Immagini/news_default.png) no-repeat fixed 50% 95%, 
+url(../../../Immagini/drupa.png) no-repeat fixed right top;
+}
+
+</style>
+</head>
+<body>
+
+<h1>background-position</h1>
+<p>
+La proprietà <q>background-position</q> definisce la posizione dell'immagine, impostata in <q>background-image</q>, all'interno dell'elemento.  
+</p>
+
+
+
+<dl>
+	<dt>I valori possono essere del tipo:</dt>
+	<dd><b>percentuale</b>: <span class="nota">x% y%</span> (dove la x rappresenta il valore nel senso orizzontale e la y il verticale) </dd>
+	<dd><b>posizionale in unit</b>: <span class="nota">xpos e ypos</span> dove il pos può essere rappresentato in px, em, mm,cm ecc (es: 10px 50px => dove il primo valore è la posizione nel senso orizzontale e il secondo nel senso  verticale) </dd>
+	<dd><b>testuale</b>: rappresentata da <span class="nota">top, bottom, left, rigth e	center</span> o da una combinazione di questi  </dd>
+</dl>
+
+<p>
+E' possibile impostare un solo valore, due oppure quattro, sia esso di tipo testuale, percentuale o unit.  <br />
+<ins>Se impostati due valori</ins> il primo sarà uguale alla distanza dal margine sinistro al valore impostato (in orizzontale) ed il secondo dalla distanza dal margine in alto fino al valore impostato (in verticale). E' possibile combinare il tipo di  valori (<span class="codice">es: left(o right) 50% o 20px top(bottom)10% </span>). Sono possibili anche valore negativi (<span class="codice">es: -50px -150px</span>) <br />	
+<pre>
+<span class="blu">
+left(right) top(bottom)			<span class="nota">il primo valore rappresenta il senso orizzontale ed il secondo il senso verticale </span>
+</span>
+left 50%				<span class="nota">// immagine posizionata 0 a sinistra (a toccare il margine sinistro) e 50% dall'alto </span>		
+right 31px				<span class="nota">// o da destra (a toccare il margine destro) e 31px dall'alto </span>
+left bottom				<span class="nota">// 0 da sinistra e 0 dal basso(a toccare il basso) </span>
+20px top				<span class="nota">// 20px da sinistra e 0 dall'alto (a toccare il margine superiore)  </span>
+-10px -20px				<span class="nota">// l'immagine posizionata in alto a sinistra (perdendo in visualizzazione 10px da sinistra e 20px dall'alto) </span>
+</pre>
+
+<ins>Se impostato un solo valore</ins> il secondo sarà inteso essere <q>center</q> <br />
+<pre>
+center					<span class="nota">// l'immagine è posizionata al centro</span>
+top					<span class="nota">// 0 dall'alto e 50% da sinistra  </span>
+bottom					<span class="nota">// 0 dal basso e 50% da sinistra </span>
+left					<span class="nota">// 0 da sinistra e 50% dall'alto</span>
+right					<span class="nota">// 0 da destra e 50% dall'alto</span>
+31px					<span class="nota">// 31px da sinistra e 50% dall'alto</span>
+</pre>
+
+
+<ins>Se si impostano quattro valori</ins> bisogna usare una combinazione di valori testuali e valori percentuali (o unit) dove il primo e il terzo sono di tipo testuale ed il secondo e quarto sono di tipo percentuale (o unit);   
+</p>
+
+<pre>
+top 20px left 50px			<span class="nota">L'immagine è posizionata a 20px dal margine in alto e 50px dal margine sinistro  	</span>
+
+bottom 5px left 20%			<span class="nota">L'immagine è posizionata a 5px dal margine in basso e 20% dal margine sinistro</span>		
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

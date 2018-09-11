@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>first-child e last-child </title>
+<style type="text/css">
+
+h1{ margin: 50px 200px; background: #CCFF00;; }
+
+div > p:first-child{ color:red;}
+div > p:last-child{ color:green;}
+
+span:first-child{ color:red;}
+span:last-child{ color:blue;}
+
+p:first-child{ color:purple;} /* In questo caso il "first-child" non funziona perchè non si tratta di figli ma di una lista di elementi */
+/*p:first-of-type{ color:red;}  /* questo funziona  */
+p:last-child{ color:blue;}  /* Questo non ho capito perchè funziona considerando il motivo sopra */
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Selettori/first-child_ last-child.html  -->
+<body>
+
+<h1>:first-child e last-child  </h1>
+
+
+<div>
+<p>Paragrafo 1</p>
+<p>Paragrafo 2</p>
+<p>Paragrafo 3</p>
+<p>Paragrafo 4</p>
+<p>Paragrafo 5</p>
+<p>Paragrafo 6</p>
+<p>Paragrafo 7</p>
+<p>Paragrafo 8</p>
+</div>
+
+<p>Par 1 => In questo caso il "first-child" non funziona perchè non si tratta di figli ma di una lista di elementi</p>
+<p>Par 2</p>
+<p>Par 3</p>
+<p>Par 4</p>
+
+
+
+
+
+</body>
+</html>

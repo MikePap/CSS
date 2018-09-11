@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Definisco le regole per il corpo del documento */
+
+ /* * { color: Red; }  */
+
+
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; /* Seconda dichiarazione*/
+	font-size: 12px; /* Terza dichiarazione */
+	background-color: #CCCCCC;
+}
+
+/* Titolo di primo livello */
+h1 { color:#660000;
+}
+h3{ color:#0000FF}
+
+/* Paragrafo generico */
+.rosso p {
+	color: red;
+	font: 12px/1.5 Georgia, "Times New Roman", serif;
+}
+
+
+#div1 {
+	 background: Silver; /* Sfondo colr argento */
+	 width: 300px; 
+	  }
+
+#div2 {
+	 background: Silver;
+	 width: 300px; 
+	 position: absolute; 
+	 top: 400px;	 
+	 left: 400px;
+}
+div3 p{/* Il colore del testo del paragrafo sarà nero solo all'interno del div altrimenti sarà rosso come impostato alla riga 21  
+background : Silver;
+color : Black;
+*/}
+
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Grid in grid </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+
+body { 
+	display: grid;
+	grid-template-areas: "header"
+								"content"
+								"footer";
+
+	grid-template-columns: 100%; 
+}
+
+header { 
+    grid-area: header;
+    height: 10vh;
+    background: black;
+}
+header h3{
+    color: blue;
+}
+
+
+footer { 
+    grid-area: footer;
+    background: #404040; 
+    height: 10vh;
+}
+
+aside{
+    grid-area: sidebar;
+    background: #bfff00; color: #4d4d33;
+    height: 80vh;
+    display: none; 
+}
+
+main{
+	grid-area: content;    
+	background: black;
+	height: 80vh;
+    
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));	
+	grid-gap: 5px;
+
+	overflow: scroll;
+}
+
+main > img{
+	display: block;
+	box-shadow: -1px 0px 0px rgba(0,0,0,0.06);
+	width: 100%;		/*	In questo caso le immagini devono avere le stesse dimensioni	*/		
+}
+
+
+@media screen and (min-width: 768px){ 
+	body { 
+		display: grid;
+		grid: "header header"
+				"content sidebar"
+				"footer footer";
+
+		grid-template-columns: 1fr 25%;	/*	assegno il 25% al sidebar (aside) */
+	}
+
+	aside{
+		display: block;
+	}
+} 
+
+
+</style>
+</head>
+<body>
+
+<header>
+	<h3>Grid inside grid   </h3>
+</header>
+
+<main>
+	<img src="../../../Immagini/molitura_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/molitura_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/molitura_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_08.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_06.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_07.jpg" alt="description" title="tool tip" />
+</main>
+
+
+<aside>
+	<p>
+In questa struttura ho assegnato il «display: grid» sia all'elemento contenitore (body) che ad un suo elemento interno (main).
+	</p>
+	<p>
+In quest'ultimo ho inserito delle immagini costruendo un layout tipo quello fatto in questo <a href="es_griglia-immagini_elastica.html">esempio  </a> utilizzando «auto-fit» e «minmax». <br>
+Inoltre ho definito la proprietà «overflow: scroll» per l'elemento "main".
+	</p>
+</aside>
+
+<footer></footer>
+
+
+
+
+</body>
+</html>

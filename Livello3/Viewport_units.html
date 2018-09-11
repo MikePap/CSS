@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Unità di misura del Viewport  </title>
+<style type="text/css">
+html,body,h1,h2,h3,p,dl,dt,dd,pre,ul, embed{ margin:0; padding:0; }
+h1{ color: #00F; font-size: 31px; margin-left:100px; padding:10px; }
+h2{color:rgb(50,150,100); font-size:25px; margin-left:50px; padding:10px; }
+h3{ color:rgb(200,0,100); font-size:20px; margin-left:31px; padding:10px;}
+p{ padding:5px 15px; }
+dl{margin-left:20px;}
+dt{ color:#039; margin-bottom:5px;}
+dd{ color:#06F; margin-left:10px; }
+li{margin-left:31px;}
+.nota{ color:#F66;}
+.codice{ color:#060}
+pre{color:rgb(50,150,50); margin-left:10px; padding:5px; width:90%; background:rgb(230,230,230);  border:1px solid #CCC; }
+
+#box{
+width: 80vw;  height: 31vh; font-size:3vw;  background:#ff0;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Unità di misura del Viewport </h1>
+
+<p>
+IL terzo livello dei CSS ha introdotto delle proprietà che permettono di definire dei valori in base alla grandezza del viewport. Il <q>viewport</q> è l'area dove il browser restituisce il documento. Il set delle delle proprietà comprende quattro unità: 
+<dl>
+	<dd><b>vw</b>: 1% della larghezza del viewport </dd>
+	<dd><b>vh</b>: 1% dell'altezza del viewport </dd>
+	<dd><b>vmin</b>: 1% della parte più piccola</dd>
+	<dd><b>vmax</b>: 1% della parte più larga</dd>
+</dl>	
+</p>
+
+<p>
+In altre parole, nel caso di smartphone o tablet,  <br />
+<b>1 vmax</b> è uguale <b>1 vh</b> nella modalità <em>portrait</em> (posto in verticale); <br />
+<b>1 vmax</b> è uguale a <b>1 vm</b> nella modalità <em>landscape</em> (posto in orizzontale)
+</p>
+
+
+
+
+<div id="box">
+	<p> width: 80vw;  height: 31vh; font-size:3vw; </p>
+</div> 
+
+<p>
+Altro modo per ottenere questo risultato è usare l'<em>unità percentuale</em>. Con le percentuali però bisogna impostare le root &lt;html&gt; e &lt;body&gt; al 100%.  
+</p>
+
+<p class="nota">
+Il supporto è garantito nei browser aggiornati. Per <b>IE dalla versione 9. Safari</b> (su Windows) non le supporta. <br />
+Pertanto è meglio utilizzare la tecnica di impostare i tag &lt;html&gt; e &lt;body&gt; al 100%
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

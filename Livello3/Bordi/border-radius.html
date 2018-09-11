@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>border-radius</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+div{
+margin: 40px; 
+}
+
+#uno{
+border:2px solid #a1a1a1; padding:10px 40px;  background:#ddd; width:300px; 
+
+/*
+border-radius:25px; questo è equivalente a:
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:25px;
+border-bottom-left-radius:25px;
+*/
+
+border-radius: 25px 55px 25px 55px;	/* è uguale a 25px 55px	*/
+
+/*
+VECCHI METODI
+-moz-border-radius:25px;			
+-webkit-border-radius:25px;			
+*/
+}
+
+#due{
+border:2px solid #a1a1a1; /*padding:25px;*/  background:#ddd; 
+width:160px; height:160px; border-radius: 80px; 
+}
+/* Per aver un cerchio altezza e larghezza devono avere lo stesso valore e il border-radius deve essere impostato alla metà del loro valore (vedi il div #due)
+*/
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Bordi/border-radius.html  -->
+<body>
+
+
+
+<h1>border-radius</h1>
+<p class="nota">Proprietà che definisce l'arrotondamento degli angoli</p>
+
+<pre>
+<b>border-radius:25px;</b> è equivalente a:
+border-top-left-radius:25px;
+border-top-right-radius:25px;
+border-bottom-right-radius:25px;
+border-bottom-left-radius:25px;
+</pre>
+
+<p class="codice">ATTENZIONE BATTAGLIONE: non servono più i vari <q>moz</q> e <q>webkit</q> della situazione (non so sulle nuove versioni di IE ma credo  che non ci dovrebbero essere problemi)  </p>
+
+<div id="uno">The border-radius property allows you to add rounded corners to elements.</div>
+
+<div id="due">cerchio con border-radius</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

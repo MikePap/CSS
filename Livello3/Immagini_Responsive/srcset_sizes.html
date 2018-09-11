@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> Attributi srcset e sizes </title>
+<style type="text/css">
+body{
+font-family: 'Lato', sans-serif;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);} 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+code, pre{ color:rgb(50,150,50);  background:rgb(220,220,220); padding:10px;}
+tt, em{color:#6a9999}
+.grigio{color: grey;}
+.blu{color:#00f;}
+
+</style>
+</head>
+<body>
+
+
+
+<h1>Attributo srcset e sizes dell'elemento &lt;img&gt;  </h1>
+
+<p>
+Gli attributi <tt>srcset</tt> e <tt>sizes</tt> possono essere aggiunti all'elemento &lt;img&gt; per rendere <q>responsive</q> le immagini. <br />
+
+</p>
+
+<pre>
+&lt;img 
+	sizes="100vw" 
+	srcset="wolf-400.jpg 400w, wolf-800.jpg 800w, wolf-1600.jpg 1600w"
+	src="wolf-400.jpg" alt="The rad wolf" 
+&gt;
+</pre>
+<p>
+Definendo la <tt>sizes</tt> a '100vm' indichiamo al browser di restituire l'immagine in tutta la larghezza del viewport. <br />
+Nell'attributo <tt>srcset</tt> ho definito tre immagini affiancando all'URL dell'immagine un valore contrassegnato dalla lettera <b>w</b> che indica la larghezza dell'immagine. <br />
+A questo punto sarà il browser a decidere quale immagine visualizzare in base a dei calcoli fatti sulla base della grandezza del viewport nonchè alla risoluzione del dispositivo. <br />
+L'immagine definita nell'attributo <tt>src</tt> sarà quello di default nel caso il browser non supporti gli attributi <tt>srcset</tt> e <tt>sizes</tt>. 
+</p>
+
+<p>
+Il seguente è un esempio più complesso
+</p>
+
+<pre>
+&lt;img 
+	sizes="(max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
+	srcset="swing-200.jpg 200w, swing-400.jpg 400w, swing-800.jpg 800w, swing-1600.jpg 1600w"
+	src="swing-400.jpg" alt="Kettlebell Swing"
+&gt;
+
+</pre>
+<p>
+La differenza dal primo esempio è data nell'attributo <tt>sizes</tt> che indica al browser di restituire l'immagine al 100% di larghezza se il viewport è non più di 30em largo; nel caso fosse non oltre i 50em di restituirla alla metà (50vw or 50%) altrimenti di restituirla nel valore dato da <q>calc(33vm -100px)</q>. Quest'ultimo valore è quindi un valore di default nel caso non siano verificate le due precedenti 'media query'. <br />
+Dopo aver fatto questo lavoro il browser sceglierà l'immagine più appropriata fra quelle definite nell'attributo <tt>srcset</tt> in base alla densità dei pixel.
+</p>
+
+<h3>Differenze con l'uso dell'elemento &lt;picture&gt;  </h3>
+
+<p>
+Rispetto all'elemento <a href="picture.html">picture</a> l'uso di questi attributi nell'elemento &lt;img&gt; offre una soluzione più semplice in quanto a <q>styling</q>. Limpostazione delle regole di &lt;picture&gt; è più lunga e verbosa. Mentre nell'esempio visto sopra è il browser a fare tutto il lavoro e scegliere la migliore soluzione con l'elemento &lt;picture&gt; bisogna impostare diverse alternative con rispettivi elementi &lt;source&gt;. Ed il risultato degli esempi di cui sopra saranno oltretutto più perfetti. <br />
+</p>
+
+<p>
+L'uso di &lt;picture&gt; può invece tornare utile quando si vogliono rendere immagini differenti tra un dispositivo e l'altro. Nel caso, per esempio, si voglia visualizzare un immagine tagliata e quindi anche più leggera in un dispositivo più piccolo e un immagine più grande e quindi più pesante per un desktop. <br />
+Oppure bisogna utilizzare &lt;picture&gt; quando si vogliono utilizzare immagini <q>SVG</q> 
+</p>
+
+<pre>
+&lt;picture&gt;
+
+	&lt;source type="image/svg+xml" srcset="banner.svg" &gt;
+
+	&lt;img 
+		sizes="(min-width: 640px) 80vw, 100vw"
+		srcset="banner-300.jpg 300w,
+			banner-400.jpg 400w,
+			banner-700.jpg 700w,
+			banner-1200.jpg 1200w,
+			banner-1600.jpg 1600w,
+			banner-2000.jpg 2000w"
+		src="banner-default-fallback.jpg"
+		alt="Banner description"
+	&gt;
+
+&lt;/picture&gt;
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>
+

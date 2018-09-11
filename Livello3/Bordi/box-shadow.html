@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-shadow</title>
+
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+
+div
+{
+width:300px;
+height:100px;
+background-color:yellow;
+-moz-box-shadow: 10px 10px 12px 5px #888; /* Firefox */  /* '12px' =>blur e spread =>5px */
+-webkit-box-shadow: 10px 10px 12px  5px #888888; /* Safari and Chrome */
+box-shadow: 10px 10px 12px 5px #888888;
+}
+
+</style>
+
+<script type="text/javascript"  src="../../../../jquery-1.8.2.min.js"></script>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Bordi/box-shadow.html  -->
+<body>
+
+<h1>box-shadow</h1>
+<p class="nota">Proprietà che permette la creazione di ombreggiatura </p>
+
+<dl>
+	<dt>Accetta 2 argomenti obbligatori + 4 opzionali => box-shadow: h-shadow v-shadow blur spread color inset;</dt>
+    	<dd><b>h-shadow</b>: posizione orizzontale (valori negativi sono accettati)</dd>
+    	<dd><b>v-shadow</b>: posizione verticale (valori negativi sono accettati)</dd>
+    	<dd><b>blur</b>: valore di sfocatura espresso in 'px'</dd>
+    	<dd><b>spread</b>: dimensioni dell'ombra espresso in 'px'</dd>
+    	<dd><b>color</b>: colore dell'ombra</dd>
+    	<dd><b>inset</b>: imposta l'ombreggiatura all'interno dell'elemento</dd>
+
+</dl>
+
+
+<div></div>
+
+<p><b>Note:</b> Internet Explorer does not support the box-shadow property.</p>
+
+
+<button id="but">Elimina il box-shadow</button>
+
+
+<script  type="text/javascript">
+jQuery(document).ready(function(){
+//$("h1").css("color", "red" ); 
+
+$("#but").click(function(){
+//$("h1").css("color", "red" ); 
+$("div").css({"boxShadow":"none"});
+
+}); 
+
+
+
+}); // chiude ready 
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

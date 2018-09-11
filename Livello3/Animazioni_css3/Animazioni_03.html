@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> Animazioni 03 </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+.grigio{color:gray;}
+.azzurro{color:rgb(50,100,255);}
+.scuro{color:#333;}
+
+/* Impostazione di animazione all'interno della regola "@keyframes"	*/
+@keyframes animazione {
+from {background:red; height:100px;}
+to {background:yellow; height:800px;}
+}
+
+@-webkit-keyframes animazione {				/* Chrome */
+from {background:red; height:100px;}
+to {background:yellow; height:800px;}
+}
+
+#divo{
+width:100px;
+height:100px;
+margin:20px;
+background:red;
+}
+
+</style>
+
+<script type="text/javascript" src="../../../jQuery/jQuery-1.6.min.js"> </script>
+</head>
+
+<script  type="text/javascript">
+jQuery(document).ready(function(){
+
+$('#start').click(function(){
+$("#divo").css({"animation":" animazione 5s linear 2s infinite alternate"});
+}); // click
+
+$('#pausa').click(function(){
+$("#divo").css("animationPlayState", "paused");
+}); // click 
+
+$('#riprendi').click(function(){
+$("#divo").css("animationPlayState", "running");
+}); // click 
+
+}); // chiude ready 
+</script>
+
+
+<body>
+
+<h3>Animazioni terzo esempio</h3>
+
+<p class="nota">Qui a differenza dell'esempio 2 ho inserito nella regola <q>keyframes</q> due proprietà da animare </p>
+
+<button id="start">Start Animation</button>
+<button id="pausa">Stop Animation</button>
+<button id="riprendi">Restart Animation</button>
+
+<div id="divo"></div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

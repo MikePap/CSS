@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Discendenti</title>
+<style type="text/css">
+h1{ margin: 20px 200px; background: #0C6; }
+.codice{ color:#060;}
+.nota{ color:#F60;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+ul > li{ color:red;}
+
+div * span{ color:blue;} /* In questo caso lo span deve avere un genitore("p" nel nostro caso) che avrà come genitore il "div" */
+
+</style>
+
+
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Selettori/Discendenti.html  -->
+<body>
+
+<h1> Discendenti</h1>
+
+<p>
+Il segno <b> > </b>  è utilizzato per ricercare tutti gli elementi discendenti di un dato elemento, per cui con: <br />
+<span class="nota">ul > li {color:red; }</span> assegnerà il colore rosso a tutti gli elementi &lt;li&gt;  all'interno dell'elemento &lt;ul&gt;   <br />
+a differenza il segno <b>*</b> è utilizzato per ricercare tutti gli elementi che sono all'interno dell'elemento figlio: <br />
+<span class="nota">div * span {color:blue;}</span> assegnerà il colore blu agli &lt;span&gt; che sono all'interno di un elemento che a sua volta sta all'interno  del &lt;div&gt; 
+  
+</p>
+
+
+<div>
+<ul>
+	<li>li
+		<ul>
+			<li>secondo li</li>
+			
+		</ul>
+	</li>
+     <li>la</li>
+
+</ul>
+</div>
+
+
+<div>
+<p>
+Inizio testo del paragrafo il cui genitore è un &lt;div&gt; 
+<span> questa parte di testo è racchiusa in uno &lt;span&gt; che sta all'interno di un paragrafo che a sua volta fa parte di un &lt;div&gt;.</span> fine
+ del testo paragrafo
+</p>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

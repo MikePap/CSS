@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>perspective  </title>
+<style type="text/css">
+body{
+padding:10px;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); margin:0 50px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); margin:0 40px; }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); margin:0 31px; }
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+.nota{ color:rgb(250,120,0);}
+.grigio{color:gray;}
+.azzurro{color:rgb(100,150,255);}
+.scuro{color:#333;}
+tt, em{color:#6a9999}
+.codice{ color:rgb(30,120,30);}		
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+th{
+color:#FFF; background:#333; 
+}
+
+#div1 {
+position: relative;
+height: 150px;
+width: 150px;
+margin: 50px;
+padding: 10px;
+border: 1px solid black;
+-webkit-perspective: 150px;					
+perspective: 150px;
+}
+
+#div1f{
+padding: 50px;
+position: absolute; top:10px; 
+border: 1px solid black;
+background-color: red;
+}
+#div1f:hover{
+-webkit-transform: rotateX(45deg);			
+-moz-transform: rotateX(45deg);
+transform: rotateX(45deg);
+
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+
+#div2 {
+position: relative;
+height: 150px;
+width: 150px;
+margin: 50px;
+padding: 10px;
+border: 1px solid black;
+-webkit-perspective: 150px;					
+perspective: 150px;
+}
+
+#div2f{
+padding: 50px;
+position: absolute;
+border: 1px solid black;
+background-color: red;
+}
+#div2f:hover{
+-webkit-transform: rotateY(-45deg);			
+transform: rotateY(-45deg);
+
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+
+
+
+#div3 {
+position: relative;
+height: 150px; width: 150px;  margin: 50px; padding: 10px; border: 1px solid black;
+-webkit-perspective: 150px; /* Chrome, Safari, Opera */
+perspective: 150px;
+perspective-origin: 10% 10%;		/* provare: top, bottom, left, right 		*/
+}
+
+#div3f {
+padding: 50px; position: absolute;border: 1px solid black; background-color: red;
+}
+#div3f:hover{
+-webkit-transform: rotateX(45deg);
+transform: rotateX(45deg);
+
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+
+
+#div4 {
+position: relative;
+height: 150px; width: 150px;  margin: 50px;  border: 1px solid black;
+-webkit-perspective: 150px; /* Chrome, Safari, Opera */
+perspective: 150px;
+perspective-origin: 100% 50%;		/* provare: top, bottom, left, right 		*/
+}
+
+
+#div4f {
+width:100%; height:100%;
+position: absolute;  background-color: #ff0;
+}
+
+#div4f:hover{
+-webkit-transform: rotateY(5deg);
+transform:   rotateY(180deg) ;		/*  translateX(150px)		*/
+transform-origin: center 20px;
+
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h1>perspective</h1>
+
+<p>
+La proprietà <b>perspective </b> permette di definire il valore dei pixel che un elemento 3D è piazzato dalla vista. Permette di cambiare la prospettiva dell'elemento. <br />
+Quando si definisce la proprietà <q>perspective</q> per un elemento in pratica è l'elemento figlio che acquisisce la propsettiva e non l'elemento in se. <br />
+<span class="nota">IE lo supporta dalla versione 10. </span> Per firefox c'è bisogno del prefisso <em>moz</em> e per chrome, safari e opera del prefisso <em>webkit</em>. <br />
+
+<dl>
+	<dt>I valori definibili sono: </dt>
+	<dd><b>length</b>: valore che indica la distanza dalla vista </dd>
+	<dd><b>none</b>: valore di default; la prospettiva è impostata a zero o meglio non è impostata</dd>
+	<dd><b>initial</b>: imposta la proprietà al valore di default</dd>
+	<dd><b>inherit</b>: eredità la proprietà dsall'elemento genitore </dd>
+</dl>	
+</p>
+
+
+
+<div id="div1">Fatti i cazzi tua
+	<div id="div1f">HELLO</div>
+</div>
+ 
+
+<div id="div2">
+	<div id="div2f">HELLO</div>
+</div>
+
+
+
+<h1>perspective-origin</h1>
+
+<p>
+La proprietà <b>perspective-origin</b>  definisce dove un elemento 3D in base agli assi X e Y. Permette di cambiare la posizione di <em>bottom</em> di un elemento 3D. <br />
+Anche per questa proprietà come la <q>perspective</q> quando la si definisce per un elemento in pratica è l'elemento figlio che acquisisce la propsettiva e non l'elemento in se. <br />
+</p>
+
+<h3>Valori Proprietà</h3>
+
+<table id="" width="" border="1" cellspacing="3" cellpadding="3">
+<tr>
+	<th>Valori proprietà</th>
+	<th>Descrizione</th>
+</tr>
+<tr>
+	<td>x-axis</td>
+	<td>
+		Valori possibili (default: 50%): <br />
+		left <br />
+		center <br />
+		right <br />
+		length <br />
+		%
+	</td>
+</tr>
+<tr>
+	<td>y-axis</td>
+	<td>
+		Valori possibili (default: 50%): <br />
+		top <br />
+		center <br />
+		bottom <br />
+		length <br />
+		%
+	</td>
+</tr>
+<tr>
+	<td>initial</td>
+	<td>imposta la proprietà al valore di default</td>
+</tr>
+<tr>
+	<td>inherit</td>
+	<td>eredità la proprietà dsall'elemento genitore</td>
+</tr>
+	
+</table>
+
+
+<div id="div3">
+	<div id="div3f">HELLO</div>
+</div>
+
+
+<div id="div4">
+	<div id="div4f">HELLO</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

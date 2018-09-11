@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Esempio di grid shorthand</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+html, body{
+	margin: 0; padding: 0;
+}
+.link-home{
+	margin: 2em;    
+	text-align: center;    
+}
+
+#container {
+	display: grid;
+ 	grid: repeat(2, 60px) / auto-flow 80px;
+
+/* la precedente dichiarazione sarebbe uguale alle seguenti. 
+Da tenere presente che 80px fa riferimento alla "grid-auto-columns" 	*/
+/*
+	grid-template-rows: 60px 60px ;
+	grid-template-columns: none;
+	grid-template-areas: none;
+	grid-auto-rows: auto;
+	grid-auto-columns: 80px;
+	grid-auto-flow: column;
+	grid-column-gap: 0;
+	grid-row-gap: 0;
+*/
+}
+
+#container > div {
+    background-color: #8ca0ff;
+    width: 50px;
+    height: 50px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>La proprietà, scorciatoia, <span class="nota">grid</span></h1>
+
+<div id="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+
+
+
+<div class="link-home">
+    <a href="Grid_layout.html#grid">Home Grid</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

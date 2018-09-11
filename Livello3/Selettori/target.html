@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>target</title>
+<style type="text/css">
+h1{ margin: 50px 400px; background: #0C6; }
+
+.codice{ color:#060;}
+.nota{ color:#F60;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+:target{
+border: 2px solid #D4D4D4; background-color: #e5eecc; 
+/*display:block; 	NON FUNZIONA. Credevo che potesse visualizzare gli elementi targettati nascosti. 	*/
+}
+
+#news1, #news2{
+/*display:none; */ 
+}
+
+</style>
+</head>
+<body>
+
+<h1>Selettore : target</h1>
+
+<p><a href="#news1">Jump to New content 1</a></p>
+<p><a href="#news2">Jump to New content 2</a></p>
+
+
+<p id="news1"><b>New content 1...</b></p>
+<p id="news2"><b>New content 2...</b></p>
+
+
+
+
+</body>
+</html>

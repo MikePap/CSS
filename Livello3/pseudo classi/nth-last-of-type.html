@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:nth-last-of-type </title>
+<style type="text/css">
+
+h1{ margin: 50px 200px; background: #999900; }
+h4{color:#060; }
+.codice{ color:#060;}
+.nota{ color:#F60;}
+
+div:last-of-type{ color:blue;}
+
+body > p:not(:first-of-type):not(:last-of-type){ color:red;}
+/* p:not(:first-of-type):not(:last-of-type){ color:red;} anche senza body > è UGUALE */
+
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/pseudo classi/nth-last-of-type.html  -->
+<body>
+
+<h1>:nth-last-of-type()  </h1>
+<h4 class="codice">Funziona in tutti i browser tranne IE &lt; 9  </h4>
+
+
+<p>Paragrafo 1</p>
+<p>Paragrafo 2</p>
+<p>Paragrafo 3</p>
+<p>Paragrafo 4</p>
+<p>Paragrafo 5</p>
+<p>Paragrafo 6</p>
+<p>Paragrafo 7</p>
+<p>Paragrafo 8</p>
+
+
+<div>DIV 01</div>
+<div>DIV 02</div>
+<div>DIV 03</div>
+<div>DIV 04</div>
+<div>DIV 05</div>
+
+
+
+
+
+</body>
+</html>

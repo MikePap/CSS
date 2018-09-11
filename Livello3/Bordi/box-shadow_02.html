@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-shadow</title>
+<style type="text/css">
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);}
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+
+h1{ display: inline; text-align:center; margin-left:150px;  
+box-shadow:8px 8px 10px grey; 
+-moz-box-shadow:8px 8px 10px grey; /* il prefisso "-moz- vale per Mozilla Firefox  */
+-webkit-box-shadow:8px 8px 10px grey;  /* il prefisso "-webkit-" vale per Safari e chrome  */
+}
+
+div{ float:left;  width:300px; height:120px; margin:31px; padding:5px; }
+
+.box1{  background:#993300; border:1px solid black; 
+box-shadow:-8px 10px 0 grey; /* il terzo valore se viene omesso è come se fosse uguale a zero come in questo caso */
+-moz-box-shadow:-8px 10px 0 grey;
+-webkit-box-shadow:-8px 10px 0 grey; 
+}
+
+.box2{  background:#0066CC;  
+box-shadow:8px 8px 12px black; 
+-moz-box-shadow:8px 8px 12px black; /* il prefisso "-moz- vale per Mozilla Firefox  */
+-webkit-box-shadow:8px 8px 12px black;  /* il prefisso "-webkit-" vale per Safari e chrome  */
+}   
+.box3{ background:#999900; border:1px solid #000; 
+box-shadow:inset 8px 8px 8px grey; 
+-moz-box-shadow:inset 8px 8px 8px grey; 
+-webkit-box-shadow:inset 8px 8px 8px grey; 
+}
+.box4{ background: #009933;
+box-shadow: -10px -10px 30px red; 
+-moz-box-shadow: -10px -10px 30px red;
+-webkit-box-shadow: -10px -10px  30px red;
+}
+
+.box5{ background:#660033; border:2px solid; color:#FFF;  
+box-shadow: 15px -10px 15px black;
+-moz-box-shadow: 15px -10px 15px black;
+-webkit-box-shadow: 15px -10px 15px black;
+}
+
+.box6{ background:#FF3399; border:1px solid #FFFF00; 
+box-shadow:inset -8px -18px 12px grey; 
+-moz-box-shadow:inset -18px -8px 12px grey; 
+-webkit-box-shadow:inset -18px -8px 12px grey; 
+}
+
+
+</style>
+<script type="text/javascript" src="../../JQUERY/jQuery-1.4.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('dd').css('color', 'blue');
+
+$('.box6').css('box-shadow','inset -8px -18px 12px grey');
+
+
+}); // chiude ready 
+</script>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Bordi/box-shadow_02.html  -->
+<body>
+
+<h1>box-shadow</h1>
+<h3>Creazione di ombre sugli elementi. Internet Explorer è l'unico browser che non supporta box-shadow. Per Firefox c'è bisogno del prefisso "-moz-" e per Safari e Chrome di "-webkit-"</h3>
+<p class="codice">box-shadow:[inset(optional)] -- [value(x-coordinate offset)] -- [value(y-coordinate offset)] -- [value(shadow blurriness)] -- [value(color)]</p>
+<dl>
+    <dd>Il valore <b>inset</b> è <em>opzionale</em> e se specificato indica che l'ombra sarà interna all'elemento</dd>
+    <dd>Il primo valore fa riferimento alle coordinate offset left or right(per il <em>right</em> il valore deve essere negativo)</dd>
+    <dd>Il secondo valore fa riferimento alle coordinate offset top or bottom(per il <em>top</em> il valore deve essere negativo)</dd>
+    <dd>Il terzo valore è <em>opzionale</em> e specifica il valore della opacità dell'ombra</dd>
+    <dd>Il quarto valore specifica il colore dell'ombra</dd>
+</dl>
+
+<div class="box1">
+box1=> -8px 10px 0 grey 
+</div>
+
+<div class="box2">
+box2 => 8px 8px 12px black
+</div>
+
+<div class="box3">
+box3 => inset 8px 8px 8px grey
+</div>
+
+<div class="box4">
+box4 => -10px -10px 30px red
+</div>
+
+<div class="box5">
+box5 => 15px -10px 15px black <br />
+border => 2px solid bianco
+</div>
+
+<div class="box6">
+box6 => inset -8px -18px 12px grey <br />
+border => 1px solid giallo
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

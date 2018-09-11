@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Animazioni 06 </title>
+<style type="text/css">
+h1{ color:#006600;}
+h2{color:#2366b7  } 
+h3{ color:#663333;}
+pre{ color:rgb(20,150,30); font-weight:bold; background:rgb(230,230,230); padding:10px}
+dt{ color: #34817f; margin-bottom:5px; margin-left:31px;}		/* #6c47a2; */
+dd{ color:#0066FF; margin-left:20px;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+
+
+div, span{
+width: 100px;
+height: 100px;
+background: red;
+position: relative;
+}
+
+span {
+
+-webkit-animation: mymove 3s;							/* Chrome, Safari, Opera */
+-webkit-animation-iteration-count: 2;				/* Chrome, Safari, Opera */
+-webkit-animation-fill-mode: forwards;				/* Chrome, Safari, Opera */
+animation: mymove 3s;
+animation-iteration-count: 2;
+/*animation-fill-mode: forwards;*/
+animation-fill-mode: both;
+
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+	from {left: 0px;}
+	to {left: 800px;}
+}
+
+@keyframes mymove {
+	from {left: 0px;}
+	to {left: 800px;}
+}
+
+
+</style>
+</head>
+<body>
+
+
+<h1>Animazioni 06</h1>
+
+<button id="start">Start Animation</button>
+<button id="pausa">Stop Animation</button>
+<button id="riprendi">Restart Animation</button>
+
+
+<div id="divo"></div> 
+
+<p>
+Al rettangolo rosso è stato applicata un'animazione a cui è stata definita la proprietà <b>animation-fill-mode</b> con valore <b>forwards</b>. L'elemento a fine animazione rimarrà posizionato nella posizione finale dell'animazione. Se l'animazione viene interrotta e poi ripresa fino alla fine il risultato sarà che identico e cioè che il rettangolo si fermerà posizionato nella posizione finale dell'animazione. E' uguale a quello che succede negli SVG quando si apllica l'attributo <b>fill = freeze</b> 
+
+</p>
+
+<script type="text/javascript">
+
+var divo = document.getElementById('divo');
+var start = document.getElementById('start');
+var pausa = document.getElementById('pausa');
+var riprendi = document.getElementById('riprendi');
+
+
+start.addEventListener('click', function (){ 
+	divo.style.animation = "mymove 5s ease forwards";				
+	divo.style.webkitAnimation = "mymove 5s ease forwards";				// Chrome, Opera, Safari				
+}, false);
+
+
+pausa.addEventListener('click', function (){ 
+	divo.style.animationPlayState = "paused";
+	divo.style.webkitAnimationPlayState = "paused";							// Chrome, Opera, Safari				
+}, false);
+
+riprendi.addEventListener('click', function (){ 
+	divo.style.animationPlayState = "running";
+	divo.style.webkitAnimationPlayState = "running";						// Chrome, Opera, Safari				
+}, false);
+
+/*
+Senza il 'forwards' a fine l'animazione l'elemento ritornerebbe al punto iniziale di partenza. 
+
+
+*/
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+</body>
+</html>

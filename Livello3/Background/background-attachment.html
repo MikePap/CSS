@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>background-attachment</title>
+<style type="text/css">
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);}
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+dl{
+margin-left:10px;
+}
+dt{
+color:#666;
+}
+dd{
+color:rgb(100,150,255);
+}
+#box{ background-image:url(../../../Immagini/igp.gif); 
+ 
+/*-moz-background-size: 50% auto;*/
+  /*  background-origin: border-box; */ 
+ background-repeat:no-repeat; background-position:right top; 
+background-attachment: fixed; 
+}
+
+
+
+</style>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Background/background-attachment.html  -->
+<body>
+
+<h1>background-attachment</h1>
+
+<p>
+Questa proprietà permette di definire se l'immagine specificata nel <q>background-image</q> debba rimanere fissa oppure no.
+</p>
+
+<dl>
+	<dt>I valori impostabili sono: </dt>
+	<dd><b>scroll </b>: (default) l'immagine scorre insieme all'elemento; è come se fosse all'interno dell'elemento  </dd>
+	<dd><b>fixed</b>: l'immagine rimane fissa nel contesto del viewport </dd>
+	<dd><b>local</b>: l'immagine scorre insieme al contenuto dell'elemento </dd>
+	<dd><b>initial</b>: imposta la proprietà al suo valore di default</dd>
+	<dd><b>inherit</b>: eredita la proprietà dall'elemento genitore  </dd>
+
+</dl>
+
+
+
+
+<div id="box"> 
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+<p>
+If background images are specified, this property specifies whether they are fixed with regard to the viewport (‘fixed’) or scroll along with the element (‘scroll’) or its contents (‘local’). The property's value is given as a comma-separated list of &lt;attachment&gt; keywords where
+
+&lt;attachment&gt; = scroll | fixed | local
+
+Note that there is only one viewport per view. Even if an element has a scrolling mechanism (see the ‘overflow’ property [CSS21]), a ‘fixed’ background doesn't move with the element.
+
+The difference between ‘scroll’ and ‘local’ is only visible when the element has a scrolling mechanism: in the case of ‘scroll’, the background does not scroll with the element's content. (It is attached to the element's border, effectively.) In the case of ‘local’, the background scrolls along with the element's content. In this case, the background behind the element's border (if any) scrolls as well, even though the border itself does not scroll with the contents. The UA may, however, treat the ‘border-box’ value of ‘background-clip’ as ‘padding-box’ in cases where ‘background-attachment’ is ‘local’ and the contents of the element scroll.
+
+In paged media where there is no viewport, a ‘fixed’ background is fixed with respect to the page box.
+
+Even if the image is fixed, it is still only visible when it is in the background painting area of the element or otherwise unclipped. (See “The backgrounds of special elements” for the cases when background images are not clipped.) Thus, unless the image is tiled, it may be invisible. 
+</p>
+
+</div>
+
+
+</body>
+</html>

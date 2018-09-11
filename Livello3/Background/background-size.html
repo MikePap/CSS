@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>background-size</title>
+<style type="text/css">
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);}
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+dt{ color:#039; margin-bottom:5px;}
+dd{ color:#06F; margin-left:10px; }
+
+
+#box{ position:relative; margin:50px auto; width:400px; height:400px; background-color:#CCC;   
+background-image:url(../../../grafic/riviera.jpg);	/* width:250, height:165 */
+background-position:left top; 
+background-repeat: no-repeat; 
+/*background-size: 200px auto; */
+
+background-size: contain;
+/*background-size: cover;*/
+
+
+/*  background-origin: border-box; background-repeat: no-repeat round; background-size: 20% auto ; */
+
+/* NON SERVONO PIU' I PREFISSI  -moz-background-size: 50% auto ; */
+
+}
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Background/background-size.html  -->
+<body>
+
+
+<h1>background-size</h1>
+<h3>Stabilisce la grandezza del "background-image" (dell'immagine)</h3>
+
+<p>
+I valori con cui si può definire la proprietà sono:
+<dl>
+	<dd><b>auto</b>: applica i valori originali dell'immagine </dd>
+	<dd><b>width e height</b>: il primo valore imposta la 'width' ed il secondo la 'height'. Se specificato un solo valore l'altro sarà 'auto' </dd>
+	<dd><b>percentuali</b>: definizione dei valori in percentuale </dd>
+	<dd><b>cover</b>: scala l'immagine in tutta la larghezza dell'area di background, senza riguardo dell'altezza </dd>
+	<dd><b>contain</b>:  scala l'immagine in tutta altezza (contrario di cover)  </dd>
+	<dd><b>initial</b>: imposta la proprietà al suo valore di default</dd>
+	<dd><b>inherit</b>: eredita la proprietà dall'elemento genitore  </dd>
+
+</dl>	
+
+</p>
+
+
+<div id="box"></div>
+
+
+
+<p class="nota">Supportato nei 5 maggiori browser: Firefox, Chrome, Opera Safari e IE (per IE vale il solito discorso: dalla versione 9 in poi ). I prefissi non servono più anzi sono dannosi nel senso che bloccano l'esecuzione della proprietà  </p>
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+</body>
+</html>

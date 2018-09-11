@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Object-fit e Object-position  </title>
+<style type="text/css">
+html, body, div, figure{
+margin:0; padding:0;
+}
+body{
+font-family: 'Lato', sans-serif;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); margin-left:40px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); margin-left:31px; }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); margin-left:20px; }
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+code, pre{ color:rgb(50,150,50);  background:rgb(220,220,220); padding:10px;}
+tt, em{color:#6a9999}
+.grigio{color: grey;}
+.blu{color:#00f;}
+
+dl{margin-left:20px;}
+dt{ color:#039; margin-bottom:5px;}
+dd{ color:#06F; margin-left:10px; }
+
+p{padding:10px;	}
+
+
+div.fit{
+width:250px; height:250px; margin:20px; border:3px solid #ccc;
+}
+
+#immagine1{
+width:250px; height:250px;
+}
+#immagine2{
+width:250px; height:250px;
+object-fit: contain;
+overflow: hidden;
+}
+#immagine3{
+width:250px; height:250px;
+object-fit: fill;
+overflow: hidden;
+}
+#immagine4{
+width:250px; height:250px;
+object-fit: cover;
+overflow: hidden;
+}
+#immagine5{
+width:250px; height:250px;
+object-fit: scale-down;
+overflow: hidden;
+}
+#immagine6{
+width:250px; height:250px;
+object-fit: none;
+overflow: hidden;
+}
+
+
+div.position{
+width:250px; height:250px; margin:20px; border:3px solid #f00;
+}
+
+#immagine10{
+width:250px; height:250px;
+object-fit: contain;
+object-position: 0;
+overflow: hidden;
+}
+#immagine11{
+width:250px; height:250px;
+object-fit: contain;
+object-position: 50% 0;
+overflow: hidden;
+}
+#immagine12{
+width:250px; height:250px;
+object-fit: contain;
+object-position: 100% 0;
+overflow: hidden;
+}
+#immagine13{
+width:250px; height:250px;
+object-fit: contain;
+object-position: 10px 30px;
+overflow: hidden;
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+<h1>Object-fit e Object-position </h1> 
+
+<p>
+Si tratta di due proprietà che sono state introdotte nelle specifiche per essere utilizzate su <tt>elementi rimpiazzati</tt>. Questi sono elementi di cui  l'user agent (il motore di un browser) conosce solo le dimensioni intrinseche. Ovvero, quelli in cui altezza e larghezza sono definite dall'elemento stesso e non da ciò che lo circonda. <br />
+L'esempio più tipico di elemento rimpiazzato è &lt;img&gt; (un’immagine). Altri elementi rimpiazzati sono: &lt;input&gt;, &lt;textarea&gt;, &lt;select&gt; e &lt;object&gt;. Tutti gli altri elementi sono in genere considerati non rimpiazzati.
+</p>
+
+
+<h2>Object-fit</h2> 
+
+<p>
+Con <q>object-fit</q> possiamo specificare il modo in cui il contenuto di un elemento rimpiazzato si adatta al box costituito in base alla sua larghezza e alla sua altezza. <br />
+La proprietà prevede uno dei seguenti valori:
+<dl>
+	<dd>contain</dd>
+	<dd>fill</dd>
+	<dd>cover</dd>
+	<dd>scale-down</dd>
+	<dd>none</dd>
+</dl>
+</p>
+
+<p>Vediamoli degli esempi posizionando un'immagine all'interno del box genitore </p>
+
+<figure>
+	<img src="../../../Immagini/ulivo_02.jpg" alt="" title=""  />	
+ <figcaption>Immagine nelle sue dimensioni originali 500x350 </figcaption>
+</figure>
+
+
+<div class="fit">
+	<figure>
+		<img src="../../../Immagini/ulivo_02.jpg" alt="" title="" id="immagine1" />	
+		 <figcaption>Immagine scalata (250x250) </figcaption>
+	<fugure>	
+</div>
+<p class="nota">L'immagine è stata ridotta nelle dimensioni per poterla inserire nell'elemento genitore che è appunto 250x250  </p>
+
+
+<br />
+<div class="fit">
+	<figure>
+		<img src="../../../Immagini/ulivo_02.jpg" alt="" title="" id="immagine3" />	
+		 <figcaption>object-fit: <b>fill</b>  </figcaption>
+	<fugure>	
+</div>
+<p class="nota">Il risultato è uguale all'esempio visto sopra. L'immagine va ad occupare il box genitore adattandosi alle sue dimensioni 
+</p>
+
+
+
+<br />
+<div class="fit">
+	<figure>
+		<img src="../../../Immagini/ulivo_02.jpg" alt="" title="" id="immagine2" />	
+		 <figcaption>object-fit: <b>contain</b>  </figcaption>
+	<fugure>	
+</div>
+<p class="nota">L'immagine è stata ridimensionata per adattarsi alle dimensioni del suo box (la parte con il bordo), mantenendo il suo rapporto di aspetto originale
+</p>
+
+
+<br />
+<div class="fit">
+	<figure>
+		<img src="../../../Immagini/ulivo_02.jpg" alt="" title="" id="immagine5" />	
+		 <figcaption>object-fit: <b>scale-down</b>  </figcaption>
+	<fugure>	
+</div>
+<p class="nota">scale-down è uguale a contain
+</p>
+
+
+
+
+<br />
+<div class="fit">
+	<figure>
+		<img src="../../../Immagini/ulivo_02.jpg" alt="" title="" id="immagine4" />	
+		 <figcaption>object-fit: <b>cover</b>  </figcaption>
+	<fugure>	
+</div>
+<p class="nota">In questo caso l'immagine si estende su tutta l'area del box, ma per rispettare il rapporto d'aspetto viene ridimensionata e ritagliata quanto necessario.
+</p>
+
+
+<br />
+<div class="fit">
+	<figure>
+		<img src="../../../Immagini/ulivo_02.jpg" alt="" title="" id="immagine6" />	
+		 <figcaption>object-fit: <b>none</b>  </figcaption>
+	<fugure>	
+</div>
+<p class="nota">Qui l'immagine mantiene le sue dimensioni intrinseche originarie, non viene ridimensionata, si espande su tutto il box venendo ritagliata a partire dall'area centrale. Di tutte le soluzioni è quella che comporta la maggiore perdita di aree dell'immagine di partenza, è una sorta di zoom sulla zona centrale.</p>
+
+<br />
+
+<h2>Object-position</h2>
+
+<p>
+Con <q>object-position</q> possiamo invece intervenire sul posizionamento dell’oggetto nel contesto del suo box. <br />
+Vediamo degli esempi posizionando l'immagine all'interno di un box genitore di 250x250
+</p>
+
+<figure>
+	<img src="../../../Immagini/atena-05.png" alt="" title=""  />	
+ <figcaption>Immagine nelle sue dimensioni originali 300x521 </figcaption>
+</figure>
+
+
+<div class="position">
+	<figure>
+		<img src="../../../Immagini/atena-05.png" alt="" title="" id="immagine10" />	
+	<fugure>	
+</div> 
+<p class="codice">Object-fit:<b>contain</b>;	object-position: <b> 0</b></p>
+
+<div class="position">
+	<figure>
+		<img src="../../../Immagini/atena-05.png" alt="" title="" id="immagine11" />	
+	<fugure>	
+</div> 
+<p class="codice">Object-fit:<b>contain</b>;	object-position: <b>50% 0</b> oppure <b>object-position: 50%</b> </p>
+
+
+<div class="position">
+	<figure>
+		<img src="../../../Immagini/atena-05.png" alt="" title="" id="immagine12" />	
+	<fugure>	
+</div> 
+<p class="codice">Object-fit:<b>contain</b>;	object-position: <b>100%</b> oppure <b>object-position: 100% 0</b>  </p>
+
+
+<div class="position">
+	<figure>
+		<img src="../../../Immagini/atena-05.png" alt="" title="" id="immagine13" />	
+	<fugure>	
+</div> 
+<p class="codice">Object-fit:<b>contain</b>;	object-position: <b>10px 30px</b>  </p>
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>
+

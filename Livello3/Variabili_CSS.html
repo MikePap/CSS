@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>CSS Variables</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../baseLocali.css" />
+<style type="text/css">
+/*
+Impostazione della variabile "colore" nella root. Ha quindi valore globale
+:root {
+	--colore: blue;
+	color: var(--colore);
+}
+*/
+
+:root {
+--primaryColor: lightgreen;
+--buttonBgColor: var(--primaryColor);
+}
+
+/* Classe Base */
+.button {
+background: var(--buttonBgColor);
+}
+
+/* Modifica Classe */
+
+.button--blue {
+--buttonBgColor: lightblue;
+}
+
+.button--giallo {
+--buttonBgColor: yellow;
+background: var(--buttonBgColor);
+}
+
+
+div {
+--color: red;
+color: var(--color);
+}
+
+/*
+#blu {
+color: var(--colore);
+}
+*/
+
+
+</style>
+</head>
+<body>
+
+<h1>CSS Custom Properties (Variabili CSS)</h1>
+
+<p>
+Le variabili nei CSS sono finalmente appprodate. Questo ci permette di poter aggiornare proprietà precedentemente definite. <br>
+Per definire una variabile basta far precedere il suo nome da due trattini ( <span class="nota">--</span> ). <br />
+Per poterla richiamare bisogna usare la parola chiave <b>var</b> e racchiudere il nome della variabile in una parentesi tonda ( <span class="nota">var(--nomeVariabile)</span> )
+</p>
+
+<pre>
+div {
+	--color: red;				<span class="nota">Impostazione della variabile di nome "color"</span>
+	color: var(--color);			<span class="nota">Richiamo variabile</span>
+}
+</pre>
+
+<div id="divo">Io sono il divo rosso</div> 
+
+
+<h3>Variabili CSS e JavaScript</h3>
+<p>
+Se si vuole impostare una varibile utilizzando «JavaScript» lo possiamo fare utilizzando il metodo <span class="rosso">setProperty</span>:
+</p>
+<pre>
+document.documentElement.style.setProperty('--nomeVariaqbile', 'valoreProprietà')
+</pre>
+<p>
+Una volta definita, tale variabile, la	possiamo richiamare per un qualsivoglia elemento, per esempio:
+</p>
+<pre>
+document.documentElement.style.setProperty('--colore', 'blue');		<span class="nota">definizione variabile "colore"</span>
+var parBlu = document.getElementById("blu"); 
+parBlu.style['color'] = 'var(--colore)';				<span class="nota">richiamo variabile per l'elemento</span>
+</pre>
+<p id="blu">
+Ovviamente la precedente dichiarazione, definisce la variabile nella <span class="nota">:root</span>. Ha quindi valore globale.
+</p>
+
+
+<h3>Aggiornare parti di dichiarazione</h3>
+<p>
+L'utilità delle variabili CSS la notiamo soprattutto quando si vuole aggiornare una porzione di una dichiarazione. <br /> 
+Per esempio considerando di voler cambiare solo una parte del «background» di un elemento all'hover su tale elemento, possiamo agire così:
+</p>
+<pre>
+.button-gradient {
+	background: linear-gradient(var(--gradientAngle), var(--gradientStart),var(--gradientStop));
+	--gradientAngle: 60deg;
+	--gradientStart: lightpink;
+	--gradientStop: lightyellow;
+}
+
+.button-gradient:hover {
+	--gradientAngle: 0deg;
+}
+</pre>
+<p>
+In questo caso abbiamo agito nel cambiamento soltanto del primo parametro del «linear-gradient» e non sull'intero «background». Cosa che invece avremmo dovuto fare senza l'uso delle variabili
+</p>
+
+
+<h3>Modifica delle variabili in corso d'opera (tipo BEM) </h3>
+<p>
+Considerando il caso che si voglia cambiare la proprietà di un elemento, lo possiamo fare dichiarando due variabili, in cui una fa riferimento all'altra. <br />
+Supponendo di voler cambiare il «background» di alcuni pulsanti, possiamo agire nel modo segurente:
+</p>
+<pre>
+:root {
+--primaryColor: lightgreen;			<span class="nota">definizione della variabile "primaryColor"</span>
+--buttonBgColor: var(--primaryColor);		<span class="nota">definizione di una seconda variabile ("buttonBgColor") che richiama la precedente</span>
+}
+
+<span class="grigio">Impostazione del «background» alla classe "button"</span>
+.button {
+background: var(--buttonBgColor);
+}
+
+<span class="grigio">Modifica della variabile e quindi del «background» per un elemento che abbia anche la classe "button--blue"</span>
+.button--blue {
+--buttonBgColor: lightblue;
+}
+</pre>
+<p>Il risultato sarà il seguente:</p>
+<button class="button">Pulsante 1</button>
+<button class="button button--blue">Pulsante 2</button>
+<p>
+Quest'approcio, di tipo BEM, lo possiamo ottenere definendo gli elementi nell'HTML nel seguente modo:
+</p>
+<pre>
+&lt;button class="button"&gt;Pulsante 1&lt;/button&gt;
+&lt;button class="button button--blue"&gt;Pulsante 2&lt;/button&gt;
+</pre>
+<p>
+Ciò a dire che se il secondo pulsante ha come seconda classe "button--blue", oppure che tale classe sia stata definita nei CSS, allora l'acquisisce altrimenti acquisisce soltanto la classe "button" 
+</p>
+
+
+<h3>Dichiarare nel local scope</h3>
+<p>
+Alcuni utilizzano l'approcio del «global scope», cioè definire le variabili nella «:root», ma ciò non è una necessità. Possono anche essere dichiarate all'interno di una dichiarazione di un elemento ed essere specifica a tale elemento in quanto è valida all'interno di quello «scope» e cioè all'interno del blocco identificato dalle parentesi graffe { }. <br />
+Per esempio se vogliamo utilizzare la variabile "buttonBgColor", definita nell'esempio precedente, per impostare il «background» di un eventuale pulsante, possiamo dichiarare nel seguente modo:
+</p>
+<pre>
+<span class="grigio">Nei CSS</span>
+.button--giallo {
+--buttonBgColor: yellow;
+background: var(--buttonBgColor);
+}
+<span class="grigio">Mentre nell'HTML</span>
+&lt;button class="button--giallo"&gt;Pulsante 3&lt;/button&gt;
+</pre>
+<button class="button--giallo">Pulsante 3</button>
+
+
+<h3>Valori di default</h3>
+<p>
+Il metodo «var» utilizzato per richiamare le variabili definite può accettare due parametri. Vediamo l'esempio:
+</p>
+<pre>
+:root {
+  --colorPrimary: red;
+}
+
+.button {
+background: var(--bgColor, var(--colorPrimary));			<span class="nota">«var» è impostato con due argomenti</span>
+<span class="grigio">Se "bgColor" non viene definito sarà accettato "colorPrimary"</span>
+  
+<span class="grigio">Ora definiamo "bgColor", e quindi sarà lui a prevalere</span>
+--bgColor: lightgreen;
+}
+</pre>
+<p>
+Qui può tornare interessante l'uso di JavaScript per definire "--bgColor", per esempio col metodo «classList.toggle», qualora non fosse stato definito nei CSS
+</p>
+
+
+<h2>@supports e valori di backup</h2>
+<p>
+Il metodo dei CSS <span class="nota">@supports</span> lo si può utilizzare anche con le variabili CSS ma potrebbe essere piuttosto laborioso e complesso infatti lo possiamo notare dall'esempio seguente
+</p>
+<pre>
+@supports(--color: red) {
+	// code here implementing variables
+}
+</pre>
+<p>
+Dall'esempio si capisce che il metodo «@support» andrebbe utilizzato per ogni definizione di variabile ed eventuali modifiche. L'alternativa sarebbe quella di definire valori di backup, quindi per il caso precedente dovremmo definire cosi:
+</p>
+<pre>
+div {
+	--color: red;
+	color: red;
+	color: var(--color);
+}
+</pre>
+<p>
+Anche cosi la cosa diventerebbe noiosa ma se si vuole ottenere i vantaggi sopra-descritti bisogna faticare, almeno fino a quando il supporto sarà totale.
+</p>
+
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+<script>
+// Definizione variabile di nome "colore"
+document.documentElement.style.setProperty('--colore', 'blue')
+var parBlu = document.getElementById("blu"); 
+parBlu.style['color'] = 'var(--colore)';						// richiamo variabile per l'elemento
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
+

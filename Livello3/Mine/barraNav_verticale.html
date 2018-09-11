@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento</title>
+<style type="text/css">
+html,body,div,p,span,a,ul,li{ margin:0; padding:0; }
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); }
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+
+#box{ position:relative; margin:50px auto; width:800px; height:500px; background:#CCC; border:1px solid; }
+#content{ position:absolute; left:120px; top:0; height:100%; background:#FFF; z-index:1; }
+#box div.bloccoA{ position:absolute; left:0; top:0; z-index:3;  }
+
+div.bloccoA ul{ position:relative; width:120px; background:#FF0000; /*border-bottom:1px solid;*/ }
+div.bloccoA ul li:hover{ background:rgb(200,200,0);}
+
+ul li{ list-style-type:none; border-bottom:1px solid;   }
+ul li a:link, ul li a:visited{ text-decoration:none; display:block; }
+ul li a:hover{ background: #C60;}
+
+ul ul li{ margin-left:120px; display:none;}
+
+div.bloccoA ul ul:hover > li{ display:block;}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Mine/barraNav_verticale.html  -->
+<body>
+
+<h1>Barra di Navigazione verticale</h1>
+
+<div id="box">
+
+<div id="content">Content Content Content Content Content Content Content Content Content Content Content Content Content Content ContentContent Content Content </div>
+
+<div class="bloccoA">
+					<ul>
+    		        	<li class="r_puglia">Puglia</li>
+						                    			<ul class="puglia">
+                        											<li class="pr_bari">Bari</li>
+											                        <li class="pr_lecce">Lecce</li>
+											                        <li><a href="#">Bridisi</a></li>
+											                        <li><a href="#">Taranto</a></li>
+											                        <li class="pr_foggia">Foggia</li>
+                    									</ul>                                             
+           		    	<li class="r_sicilia">Sicilia</li>
+           		    	<li class="r_campania">Campania</li>
+                    </ul>
+</div><!--bloccoA-->
+
+</div><!--box-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

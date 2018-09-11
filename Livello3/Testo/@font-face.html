@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>@font-face</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+pre{color:rgb(50,150,50); margin-left:5px; }
+
+
+@font-face
+{
+font-family: myFirstFont;
+src: url('Sansation_Light.ttf')  /* questo font non è presente per cui non sarà prodotto */
+    ,url('Sansation_Light.eot') format("opentype"); /* IE */
+}
+
+div{font-family:myFirstFont;}
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Testo/@font-face.html  -->
+<body>
+
+
+<h1>@font-face</h1>
+<p class="nota">Proprietà che permette di utilizzare anche dei font che i browser possono non supportare. Il file del font può stare posizionato sia localmente che in un sul remoto. Basterà soltanto impostarlo con l'attributo "src"</p>
+
+<dl>
+	<dt>The @font-face rule is supported in all mojor browsers. </dt>
+
+		<dd>Internet Explorer only support fonts of type .eot</dd>
+		<dd>Firefox, Chrome, Safari, and Opera support fonts of type .ttf and .otf</dd>
+</dl>        
+
+<p>L’unico problema, se così si può definire, riguarda la gestione dei vari formati di font. Per una resa cross-browser totale si dovrà prevedere l’uso di tre formati: EOT (Embedded OpenType), WOFF e TTF (TrueType). Basterà poi usare questa sintassi per importare e definire il font nel CSS:</p>
+
+<pre>
+@font-face {
+ font-family: 'il-mio-font';
+ src: url('il-mio-font.eot'); /* per IE9 in modalità compatibilità */
+ src: url('il-mio-font.eot?iefix') format('eot'), /* per IE8 */
+ url('il-mio-font.woff') format('woff'), /* per IE9, IE10, Chrome, Opera, Firefox */
+ url('il-mio-font.ttf')  format('truetype'), /* per Safari, Android, iOS */
+}
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

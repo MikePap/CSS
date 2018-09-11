@@ -1,0 +1,15 @@
+
+Se l'installazione della stampante non avviene correttamente,per esempio lo scanner non funziona?:
+
+- Andare a controllare la gestione periferiche e controllare se è presente un punto interrogativo o esclamativo in corrispondenza di Epson
+  Start->Pannello di controllo->Sistema->Hardware->Gestione Periferiche  
+
+- Se è presente ? o ! premere il tasto destro su di esso e disattivare la periferica
+
+- Disinstallare il programma Epson e riinstallarlo
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>opacity e rgba </title>
+<style type="text/css">
+
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+pre{color:rgb(50,150,50); margin-left:5px; }
+
+#box1{ 
+float:left;  margin:30px; padding:2px 5px; width:250px; height:200px; color:#000000; background-color:rgb(250,50,50);
+opacity:0.5; 
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";		/* per IE8  */
+filter: alpha(opacity=50);								/* per IE6 e IE7 */
+}
+
+
+#box2{ float:left;  margin:30px; width:250px; padding:2px 5px; height:200px; color:#000000; background-color:rgba(250,50,50, 0.5);   }
+#box3{ float:left;  margin:30px; width:250px; padding:2px 5px; height:200px; color:#000000; background-color:rgb(250,50,50);}
+
+.opacita_testo{ color:rgba(0,0,0, 0.5); }
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/opacity_rgba.html  -->
+<body>
+
+<h1>opacity e rgba</h1>
+
+<dl>
+     <dd>La proprietà <b>opacity"</b> applicata ad un elemento fa ricadere tale impostazione anche su tutti gli elementi figli compreso il testo. </dd>
+     <dd>A differenza della precedente la proprietà <b>"rgba"</b> assegna l'opacità solo all'elemento su cui è applicata</dd>
+</dl>
+<p class="nota">
+La proprietà <q>opacity</q> è supportata  da IE solo dalla versione 9 però è possibile adattarla anche per IE8, IE7 e IE6:
+<dl>
+	<dd><b>-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"</b>  per IE8 </dd>
+	<dd><b>filter: alpha(opacity=50)</b>  per IE6 e IE7 </dd>
+	
+</dl>	
+</p>
+
+<div id="box1">div a cui è stata assegnata la proprietà "opacity:0.5". <br /> Il testo contenuto in tale div eredità anch'esso la trasparenza</div>
+
+<div id="box2">In questo caso applicando, invece, la proprietà "rgba" al div l'opacità viene assegnata al solo div e non è ereditata dal testo contenuto in esso </div>
+
+<div id="box3"><span class="opacita_testo">In questo terzo div ho applicato la proprietà "rgba" al solo testo che risulta trasparente</span></div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>nth-child(n) </title>
+<style type="text/css">
+h1{ font-size:24px; margin: 50px 200px; background: #00FF99; }
+h3{ font-size:16px; color:#CC6699; }
+h4{color:#060; }
+.codice{ color:#060;}
+.nota{ color:#F60;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+code, pre{ color:rgb(50,150,50);}
+
+#divo1 > p:nth-child(2){
+	background:#ff0000;
+}
+
+#divo2 > p:nth-child(n+2){
+	background:#f00;
+}
+
+
+#divo3 > p:nth-child(-n+2){
+	background:#f00;
+}
+
+
+#divo4 > p:nth-child(3n){
+	background:#f00;
+}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/pseudo classi/nth-child_01.html  -->
+<body>
+
+<h1>nth-child(n)</h1>
+
+<p>La <b>n</b> stabilisce l'indice dell'elemento <b>all'interno del genitore</b>. La numerazione parte da "1" e non da "0". <br />
+Se gli elementi a cui si imposta <tt>nth-child()</tt> non sono racchiusi in un'altro elemento hanno come genitore "root" (il 'document.body)<br /> 
+<span class="nota">Funziona in tutti i browser. Per IE dalla versione 9  </span>	
+</p>
+
+<hr />
+
+<pre>
+#divo1 > p:nth-child(2){
+	background:#ff0000;
+}
+</pre>
+
+<div id="divo1">
+	<p>Primo paragrafo del div</p>
+	<p>Secondo paragrafo del div</p>
+	<p>Terzo paragrafo del div</p>
+	<p>Quarto paragrafo del div</p>
+</div>
+
+<hr />
+
+<h1>nth-child(n+numero)</h1>
+
+<hr />
+<pre>
+#divo2 > p:nth-child(n+2){
+	background:#f00;
+}
+</pre>
+
+<div id="divo2">
+	<p>paragrafo 1</p>
+	<p>paragrafo 2</p>
+	<p>paragrafo 3</p>
+	<p>paragrafo 4</p>
+	<p>paragrafo 5</p>
+	<p>paragrafo 6</p>
+</div> 
+
+<hr />
+
+<pre>
+#divo3 > p:nth-child(-n+2){
+	background:#f00;
+}
+</pre>
+<div id="divo3">
+	<p>paragrafo 1</p>
+	<p>paragrafo 2</p>
+	<p>paragrafo 3</p>
+	<p>paragrafo 4</p>
+	<p>paragrafo 5</p>
+	<p>paragrafo 6</p>
+</div> 
+
+<hr />
+
+<pre>
+#divo4 > p:nth-child(3n){
+	background:#f00;
+}
+</pre>
+
+<div id="divo4">
+	<p>paragrafo 1</p>
+	<p>paragrafo 2</p>
+	<p>paragrafo 3</p>
+	<p>paragrafo 4</p>
+	<p>paragrafo 5</p>
+	<p>paragrafo 6</p>
+	<p>paragrafo 7</p>
+	<p>paragrafo 8</p>
+	<p>paragrafo 9</p>
+</div> 
+
+<hr />
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>

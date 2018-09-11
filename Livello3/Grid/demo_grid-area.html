@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Esempio grid-areas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+#container {
+    display: grid;
+    width: 100vw; height: 100vh;
+    grid-template-areas: "logo stats"
+                        "score stats"
+                        "board board"
+                        "... controls";  
+
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 150px 100px 1fr 30px;
+    grid-gap: 10px;
+}
+
+.logo { 
+    grid-area: logo; 
+    background: green;
+}
+.score { 
+    grid-area: score; 
+    background: blue;
+}
+.stats { 
+    grid-area: stats; 
+    background: orange;
+ }
+.board { 
+    grid-area: board; 
+    background: yellow;
+}
+.controls { 
+    grid-area: controls;
+    background: red; 
+}
+
+
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+</style>
+</head>
+<body>
+
+<div id="container">
+    <div class="logo" >Logo</div>
+    <div class="score">Score</div>
+    <div class="stats">Stats</div>
+    <div class="board">
+        Board <br> 
+        <p class="link-home" ><a href="Grid_layout.html#grid-area">Home Grid</a></p>   
+    </div>
+    <div class="controls">Controls</div>
+</div>
+
+
+
+</body>
+</html>

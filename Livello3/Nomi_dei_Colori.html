@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Nomi dei Colori</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+/*
+h1{ margin: 50px 200px; background: #FF0000; }
+
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+.codice{ color:#060;}
+
+
+div{ float:left; width:100px; height:80px; margin:20px; text-align:center; border:1px solid;}
+div.nero{ color:#999;}
+*/
+
+body{
+color: #fff; background: #000;
+}
+
+#colori {
+display: flex;
+flex-flow: row wrap;
+margin: 31px;  
+width: 900px;
+}
+#colori div {
+border: 1px solid #fff; 
+width: 100px; height: 80px;
+flex: auto;
+}
+
+.nero{
+color: black;
+}
+
+
+#arancioni > div{
+width: 40vw;
+height: 10vh;
+margin: 31px auto;	
+border: 1 px solid #ccc;
+color: #ccc;
+}
+
+
+#divo1{
+background: rgb(226, 73, 47);
+}
+#divo2{
+background: rgb(225, 82, 61);
+}
+#divo3{
+background: rgb(221, 65, 36);
+}
+
+
+</style>
+</head>
+<body>
+
+
+<h1>Nomi dei Colori</h1>
+
+<p>Sono 147 i nomi dei colori definiti nei CSS3 (18 standard + 129). <br>
+Gli standard sono: <span class="nota">aqua, black, blue, fuchsia, gray, grey, green, lime, maroon, navy, olive, purple, red, silver, teal, white,  yellow e coral.</span>
+</p>
+
+
+<div id="colori">
+	<div style="background:aqua" class="nero">aqua</div>
+	<div style="background:black">black</div>
+	<div style="background:blue">blue</div>
+	<div style="background:fuchsia">fuchsia</div>
+	<div style="background:gray">gray</div>
+	<div style="background:grey">grey</div>
+	<div style="background:green">green</div>
+	<div style="background:lime" class="nero">lime</div>
+	<div style="background:maroon">maroon</div>
+	<div style="background:navy">navy</div>
+	<div style="background:olive">olive</div>
+	<div style="background:purple">purple</div>
+	<div style="background:red">red</div>
+	<div style="background:silver">silver</div>
+	<div style="background:teal">teal</div>
+	<div style="background:white" class="nero">white</div>
+	<div style="background:yellow" class="nero">yellow</div>
+	<div style="background:coral">coral</div>
+</div> 
+
+
+<div id="arancioni">
+
+	<div id="divo1">rgb(226, 73, 47)</div> 
+
+	<div id="divo2">rgb(225, 82, 61)</div> 
+
+	<div id="divo3">rgb(221, 65, 36)</div> 
+
+</div>
+
+
+
+
+</body>
+</html>

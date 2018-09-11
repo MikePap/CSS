@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>translate</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+div{
+width:100px;
+height:75px;
+background-color:red;
+border:1px solid black;
+}
+div#div2{
+transform:translate(150px,100px);
+
+/*
+-moz-transform:translate(150px,100px); 
+-webkit-transform:translate(150px,100px); 
+-o-transform:translate(150px,100px); 
+*/
+}
+
+</style>
+<script type="text/javascript" src="../../../../jQuery/jQuery-1.9.1.min.js"> </script>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Transform_2D/translate.html -->
+<body>
+
+
+<h1>translate</h1>
+<p class="nota">Proprietà che permette di cambiare la posizione x ed y  (left - top) di un elemento</p>
+
+<p><b>Note:</b> Internet Explorer does not support the transform property.</p>
+
+<dl>
+	<dt>E' possibile modificare anche solo una delle due posizioni con i metodi:</dt>
+		<dd>translateX(n)</dd>
+        <dd>translateY(n)</dd>
+</dl>
+
+
+<button id="jj">click me</button>
+
+<div>Hello. This is a DIV element.</div>
+
+<div id="div2">Hello. This is a DIV element.</div>
+
+
+<script  type="text/javascript">
+jQuery(document).ready(function(){
+
+$("#jj").click(function(){
+
+//$("#div2").css({"transform":"translate(50px)", "transition":"3s ease-in"  });
+
+$("#div2").css({"transform":"translate(+10px, 100px)", "transition":"1s ease-in"  });
+
+});
+
+}); // chiude ready 
+</script>
+
+
+
+
+
+</body>
+</html>

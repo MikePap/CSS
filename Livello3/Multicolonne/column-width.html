@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>column-width</title>
+
+<style type="text/css">
+body{
+font-family: Georgia, "Times New Roman", Times, serif; font-size:100%; text-align:left; ; 
+}
+
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+
+
+.newspaper{
+/*
+-moz-column-count:3; 
+-webkit-column-count:3; 
+column-count:3;
+*/
+
+-moz-column-width:20em;		/* Firefox	*/
+-webkit-column-width:20em; /* Safari and Chrome */
+column-width:20em;
+
+}
+
+
+</style>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Multicolonne/column-width.html  -->
+<body>
+
+
+<h1>column-width</h1>
+
+<p>Proprietà che permette di stabilire la larghezza delle colonne. <span class="nota"> E' supportata solo da Opera. Safari e Chrome necessitano l'uso della parola chiave <b>webkit</b>; firefox di <b>moz</b></span> <br />
+<span class="codice"> La cosa fantastica di questa proprietà è che permette di creare un discorso <q>responsive</q>; nell'esempio seguente di un lungo articolo, avendo semplicemente impostato la nostra proprietà <q>column-width: 20em</q> obbliga alla restituzione dell'articolo nella larghezza di 20em. Ciò vuol dire che se il viewport è per esempio largo 30em l'articolo sarà reso in una sola colonna e se invece il viewport è 45em l'articolo sarà invece reso in 2 colonne e cosi via. <br />
+Se oltre alla <q>column-width</q> gli impostiamo anche la proprietà <q>column-count</q>, per esempio a 3, si avrà un effetto responsive quando il viewport sarà inferiore a 60em, nel senso che il numero delle colonne si ridurrà di conseguenza, mentre quando il viewport sarà oltre i 60em le colonne rimarranno sempre 3 e sarà invece la larghezza ad aumenterà di conseguenza.  </span> <br />
+<span class="nota">
+E' supportata da tutti i browser.  Chrome, Opera e Safari necessitano il <b>webkit</b>, Firefox il <b>moz</b>. IE lo supporta senza parola chiave dalla versione 10</span>
+</p> 
+
+
+<div class="newspaper">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+</div>
+

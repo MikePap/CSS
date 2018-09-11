@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-orient </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+
+
+div{
+width:350px;
+height:200px;
+border:1px solid black; background:#CCC;
+   
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;	/* horizontal , vertical, inline-axis, block-axis*/
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+
+/* W3C */
+display:box;
+box-orient:horizontal;
+}
+div p{
+margin:10px; 
+}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-orient.html  -->
+<body>
+
+<h1>box-orient</h1>
+
+<p>The box-orient property specifies whether the children of a box should be laid out horizontally or vertically.</p>
+<p class="nota">Cambia l'orientamento(display-block) dell'elemento specificato</p>
+
+<dl>
+	<dt>Parametri</dt>
+	<dd><b>horizontal</b>: Lay out children from left to right in a horizontal line</dd>
+	<dd><b>vertical</b>: Lay out children from top to bottom vertically</dd>
+	<dd><b>inline-axis:</b> Lay out children along the inline axis (map to horizontal)</dd>
+	<dd><b>block-axis:</b> Lay out children along the block axis (map to vertical)</dd>
+</dl>	
+
+
+<div>
+<p>Cat</p>
+<p>Dog</p>
+<p>Horse</p>
+</div>
+
+<div>
+<p>Cat</p>
+<p>Dog</p>
+<p>Horse</p>
+</div>
+
+<div>
+<p>Cat</p>
+<p>Dog</p>
+<p>Horse</p>
+</div>
+
+
+
+<p><b>Note:</b> The box-orient property è supportato solo in  Firefox </p>
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

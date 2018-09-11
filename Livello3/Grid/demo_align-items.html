@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title>Esempi con align-items </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+#grid {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+/*    grid-template-rows: 100px ;*/
+
+    justify-content: center;
+/*  align-content: space-around;*/
+/*  justify-items: center;*/
+
+}
+
+#grid1 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    align-items: strech;
+}
+#grid2 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    align-items: start;
+}
+#grid3 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    align-items: end;
+}
+#grid4 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    align-items: center;
+}
+#gridx {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    align-items: stretch;
+}
+#gridy {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    align-items: end;
+}
+
+
+
+.item1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: skyblue;
+}
+.item2 {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background-color: skyblue;
+}
+.item3 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: lightcoral;
+}
+
+
+</style>
+</head>
+<body>
+
+<h3>Esempio senza "align-items" </h3>
+
+<div id="grid">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>align-items: stretch </h3>
+<p>"stretch" è il default, per cui non cambia niente. L'altezza dell'elemento non è modificata </p>
+<div id="grid1">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>align-items: start </h3>
+<p>Qui si nota la prima differenza. L'altezza dell'elemento si restringe fino a racchiudere il contenuto ma spostandosi verso l'alto.<br>
+Ma solo se l'altezza del contenuto è inferiore  all'altezza dell'elemento
+</p>
+<div id="grid2">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>align-items: end </h3>
+<div id="grid3">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>align-items: center </h3>
+<div id="grid4">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+
+<h3>Contenuto superiore all'altezza dell'elemento </h3>
+<div id="gridx">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo e qui mi voglio dilungare un pò. 
+        Ciò a dire che i grid mi hanno sconvolto, non me ma la mia posizione. Non so se è chiaro
+    </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<br><br><br><br>
+
+<p>
+In quest'ultimo esempio dato che il contenuto del terzo elemento è maggiore della sua altezza, si può notare che quest'ultima
+si allunga per mostrare tutto il contenuto senza tagliarlo. <br>
+Automaticamente si allungano anche gli altri elementi dove il contenuto è inferiore. 
+Ma quest'ultimo comportamento, sui primi due elementi, succede di default o quando "align-items: stretch", altrimenti 
+si allunga solo il terzo elemento e gli altri si comportano secondo il valore definito da align-items, 
+come si nota nell'esempio seguente dove ho definito "align-items: end" 
+</p>    
+
+
+<div id="gridy">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo e qui mi voglio dilungare un pò. 
+        Ciò a dire che i grid mi hanno sconvolto, non me ma la mia posizione. Non so se è chiaro
+    </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<br><br><br><br>
+
+
+<div class="link-home">
+    <a href="Grid_layout.html#align-items">Home Grid</a>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Menù orzzontale</title>
+<style type="text/css">
+html,body,div,p,h1,h2,h3,h4,h5,h6,input,textarea,select,span,ul,li,a,img{
+margin: 0;padding:0;
+}
+/* ASSEGNAZIONE DEL "box-sizing:border-box" A TUTTI GLI ELEMENTI DEL DOCUMENTO UTILIZZANDO IL SELETTORE UNIVERSALE * (valido anche in IE 8) */
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+
+
+#box{ position:relative; margin:50px auto; width:302px; height:325px; background:#333; border:1px solid; /*z-index:3;*/ }
+
+#br_puglia{ position:absolute; top:0; left:0; width:100px; border:1px solid #FFF; z-index:2; }
+#br_campania{ position:absolute; top:0; left:100px; width:100px; border:1px solid #FFF; z-index:2; }
+#br_sicilia{ position:absolute; top:0; left:200px; width:100px; border:1px solid #FFF; z-index:2; } 
+
+ 
+ul{ 
+padding:5px 0 0 0; font-size:16px; text-align:center;  color:rgb(50,50,250); background:rgb(0,0,0);   
+transition:display 1s linear;
+-moz-transition:display 1s linear;
+} 
+ul li{ 
+list-style-type:none; height:20px; font-size:14px; color:#F00; background-color:rgba(50,50,50,0.6); text-align:left; display:none; 
+border-top:1px solid #FF0; 
+transition:display 1s linear;		/* NON FUNZIONA per il display	*/
+} 
+ul li a{
+display:block; color:#F00; font-size:14px; padding:2px;
+}
+ul li a:link,  ul li a:visited{ 
+text-decoration:none; 
+} 
+ul li a:hover{  
+background-color:rgb(180,180,180);
+}
+ul:hover > li{ 
+display:block;
+}
+
+/* *************** sottomenù	*************** */
+ul li ul li:first-child{
+margin-top: -21px;
+}
+ul li ul li{ 
+width:100px; margin-left:98px;  display:none; 
+}
+ul li ul li a{
+display:block; 
+}
+ul li ul li a:link, ul li ul li a:visited{ 
+background:rgba(50,50,50,0.6); border:1px solid #FF0;
+}
+ul li ul li a:hover{
+background-color:rgb(180,180,180);
+}
+ul li:hover > ul li { 
+display:block;
+}
+
+/*	********* H1  ******** */
+h1 span{
+display:none; 
+font-size:15px;
+transition:color 1s linear;
+-moz-transition:color 1s linear;
+}
+h1:hover > span{
+display:block;
+/* Nel momento in cui lo span viene dichiarato 'display:block' diventa di fatti un elemento di blocco, per cui si va a posizionare sotto 	*/
+}
+
+
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Mine/barraNav_orizzontale.html  -->
+<body>
+
+<h1>Barra di Navigazione menù orizzontalee 
+	<span id="spanna">heilà sono span (funziona solo se sto all'interno del mio genitore)</span> 
+</h1>
+<p class="nota">Funziona anche in IE 8</p>
+
+<div id="box">
+	<div id="br_puglia"> 
+		<ul> Puglia
+			<li>Bari
+				<ul>
+					<li><a href="#">Andria</a></li>
+					<li><a href="#">Monopoli</a></li>
+					<li><a href="#">Polignano</a></li>
+					<li><a href="#">Capurso</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Taranto</a></li>
+			<li><a href="#">Brindisi</a></li>
+			<li>Lecce
+				<ul>
+					<li><a href="#otranto">Otranto</a></li>
+					<li><a href="#nardo">Nardò</a></li>                            
+				</ul>	                          
+			</li>
+			<li><a href="#">Foggia</a></li>
+		</ul>   
+                      
+	</div><!-- br_puglia -->
+      
+	<div id="br_campania">  
+		<ul>Campania                                   
+			<li><a href="#">Napoli</a></li>
+			<li><a href="#">Salerno</a></li>
+			<li><a href="#">Caserta</a></li>
+			<li><a href="#">Benevento</a></li>	        
+		</ul>   
+	</div><!-- br_campania --> 
+   
+	<div id="br_sicilia"> 
+		<ul> Sicilia
+			<li><a href="#">Palermo</a></li>
+			<li><a href="#">Catania</a></li>
+			<li><a href="#">Enna</a></li>
+			<li><a href="#">Siracusa</a></li>
+		</ul>   
+	</div><!-- br_sicilia -->
+   
+ 
+</div><!-- box -->
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

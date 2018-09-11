@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Griglia immagini di diverse dimensioni </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+
+body{
+background: black;
+}
+
+main{
+	width: 90vw;
+	margin: 31px auto;	
+
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));		
+	grid-gap: 0.8rem;
+
+	grid-auto-flow: dense;
+}
+
+img{
+	display: block;
+	width: 100%;	
+	box-shadow:	4px 4px 5px #ccc;
+	align-self: center;
+}
+img:nth-child(3) {
+	grid-row: span 2;		
+}
+img:nth-child(5) {
+	grid-column: span 2;		
+	grid-row: span 2;	
+}
+img:nth-child(8) {
+	grid-column: span 2;	
+}
+img:nth-child(10) {
+	grid-row: span 2;		
+}
+img:nth-child(14) {
+	grid-column: span 2;		
+	grid-row: span 2;	
+}
+img:nth-child(17) {
+	grid-column: span 2;	
+}
+
+h2{
+text-shadow: 2px 2px 2px #fdff00;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Griglia con immagini di diverse dimensioni</h2>
+
+<main>
+	<img src="../../../Immagini/molitura_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/molitura_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/500x700.png" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/1000x700.png" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/1000x350.png" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/500x700_2.png" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/1000x700_2.png" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/1000x350_2.png" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_01.jpg" alt="description" title="tool tip" />
+</main>
+
+
+<!--
+
+500 	x 	350		immagini normale	(occupa una cella)
+1000	x	350		immagine doppia in larghezza (occupa due celle orizzontali)		[8, 17]
+500	x	700		immagine doppia in altezza		(occupa due celle in verticale)	[3, 10]
+1000	x	700		immagine doppia in ambo le dimensioni	(occupa quattro celle)	[5, 14]
+
+-->	
+
+
+
+
+</body>
+</html>

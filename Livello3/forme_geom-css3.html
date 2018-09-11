@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>creare forme con i css3  </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+
+div{
+float:left; margin:20px 10px; padding:0; background:rgb(230,230,230); cursor:pointer;
+}
+
+
+#cerchio{ 
+width: 100px; height: 100px; background:blue; 
+-moz-border-radius: 50px; -webkit-border-radius: 50px; border-radius: 50px; 
+}
+
+#ovale{ 
+width: 200px; height: 100px; background: red; 
+/*border-radius: 100px 50px; */
+border-radius: 100px / 50px; 
+}
+
+#triangolo{ 
+width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 100px solid purple; 
+overflow:visible; 
+}
+#jk{
+color:#F00; margin-top:20px; padding-top:20px;	position:absolute; bottom:5px; left:0;  
+}
+
+#triangolo1{ 
+width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 100px solid #CCF; 
+border-radius:0 0 50px 50px;  
+}
+#triangolo11{ 
+width: 0; height: 0; 
+border-left: 100px solid #CCF; border-top: 50px solid transparent; border-bottom: 50px solid transparent; border-right:60px solid transparent;
+border-radius:0 50px 50px 0;  
+}
+
+#triangolo2{ 
+width: 0; height: 0; border-left: 50px solid #FF0; border-right: 50px solid lime; border-bottom: 100px solid purple; 
+}
+
+#star { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 100px solid red; position: relative; } 
+#star-six:after{ 
+width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-top: 100px solid red; position: absolute; content: ""; top: 30px; left: -50px; 
+/*NON FUNZIONA	*/
+}
+
+#pentagono{ 
+position: relative; width: 54px; border-style: solid; border-color: lime transparent; 
+border-width: 50px 18px 0;  
+/* è come se fosse 
+border-top-width:50px; border-left-width:18px; border-right-width:18px; border-bottom:0; 
+*/
+} 
+#pentagono:before { content: "hello"; position: absolute; height: 0; width: 0; top: -85px; left: -18px; border-width: 0 45px 35px; border-style: solid; border-color: transparent transparent yellow; 
+}
+
+#quadrilatero1{
+position: relative; width:400px; border-style: solid;	/* da notare che l'altezza non è dichiarata'	*/ 
+border-color: gray transparent;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 0px 28px 80px;		/* top:0 i bordi laterali sono entrambi di 28px ma 'transparent' e bottom:80px   */ 
+}
+#quadrilatero2{
+position: relative; width:250px; border-style: solid;	/* da notare che l'altezza non è dichiarata'	*/ 
+border-color: gray transparent;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 0px 28px 80px;		/* i bordi laterali sono entrambi di 28px ma 'transparent'   */ 
+}
+
+#quadrilatero3{
+position: relative; width:250px; height:30px; border-style: solid;	/* qui l'altezza è dichiarata'	*/ 
+border-color: gray transparent;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 0px 28px 80px;		/* i bordi laterali sono entrambi di 28px ma 'transparent'   */ 
+border-top-right-radius:25px; border-top-left-radius:25px;
+}
+
+#quadrilatero4{
+position: relative; width:400px; height:0;  border-style: solid;	/* qui 	*/ 
+border-color: gray transparent;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 40px 28px 80px;		/* i bordi laterali sono entrambi di 28px ma 'transparent'   */ 
+border-top-right-radius:30px; border-top-left-radius:60px;
+}
+
+#quadrilatero44{
+position: relative; width:400px; height:31px;  border-style: solid; 	/* qui 	*/ 
+border-color: gray transparent;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 40px 28px 80px;		/* i bordi laterali sono entrambi di 28px ma 'transparent'   */ 
+border-top-right-radius:30px; border-top-left-radius:60px;
+}
+#quadrilatero44 p{
+margin:0; padding:31px 0 5px 0; 
+}
+
+
+
+#triangolado{ 
+border-color: ;
+width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; /*border-bottom: 100px solid purple;*/ 
+
+
+}
+
+
+</style>
+<script type="text/javascript" src="../../../../jquery-1.8.2.min.js"></script>
+</head>
+<body>
+
+<h1>Creazione di forme geometriche con i CSS3</h1>
+
+
+
+<div id="cerchio"></div> 
+
+<div id="ovale"></div> 
+
+<div id="triangolo"></div> 
+<div id="triangolo1">uno</div> 
+<div id="triangolo11">div 11 </div> 
+<div id="triangolo2"></div> 
+
+<div id="star">dovrebbe essere una stella </div> 
+
+
+<div id="pentagono"></div> 
+
+<div id="quadrilatero1"></div> 
+<div id="quadrilatero2">non è dichiarata l'altezza ma si produce attraverso questo testo </div> 
+<div id="quadrilatero3">qui l'altezza è dichiarata ed è di 30px; produce che se il testo supera questo valore si va a posizionare sopra il bordo inferiore</div> 
+<div id="quadrilatero4">qui l'altezza è uguale a 0 e si crea questa situazione particolare e interessante</div> 
+<div id="quadrilatero44">
+<p>
+qui l'altezza è dichiarata ed è di 31px; questo testo l'ho messo in un &lt;p&gt; a cui ho impostato un <q>padding-top</q>:31px </p>
+</div> 
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+<p> <button id="pulsante">clik me</button> </p>
+
+<div id="triangolado"></div> 
+
+
+<script  type="text/javascript">
+
+
+var triangolado = document.getElementById('triangolado');
+var pulsante = document.getElementById('pulsante');
+pulsante.addEventListener('click', function (){
+	triangolado.style['borderTopColor'] = 'blue';
+	triangolado.style['borderTopStyle'] = 'solid';
+	triangolado.style['borderTopWidth'] = '100px';
+	triangolado.style['transition'] = '300ms ease-in';
+}, false);
+
+
+/*
+jQuery(document).ready(function(){
+//$("h1").css('color', 'blue');
+
+$("#pulsante").click(function(){
+//$("#triangolado").css({'border-bottom-color':'blue', 'border-bottom-style':'solid', 'border-bottom-width':'100px'}); 
+$("#triangolado").css({'border-top-color':'blue', 'border-top-style':'solid', 'border-top-width':100, "transition":"500ms ease-in"   })
+//.animate({'border-bottom-width':100}, 1500);
+; 
+}); // click 
+}); // chiude ready 
+*/
+
+
+</script>
+
+
+<!--
+http://localhost/BookPHP/CSS_Example/Livello3/Mine/forme_geom-css3.html
+-->
+
+
+
+</body>
+</html>

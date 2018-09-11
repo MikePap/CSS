@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> Background-Blend-Mode </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../baseLocali.css" />
+<style type="text/css">
+
+div.box-img{
+	margin: 31px;
+	display: grid;
+
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+
+div.box-img > div{
+	width: 100%; height: 532px;			/*	532 è l'altezza dell'immagine Venafro.jpg	*/
+}
+
+div.box-img > div:nth-child(1) {
+	background: url(../../Immagini/Venafro.jpg) no-repeat center; 
+	background-size: cover;
+}
+div.box-img > div:nth-child(2) {
+	background: url(../../Immagini/Venafro.jpg) no-repeat center;
+	background-color:	gold;	
+	background-size: cover;
+	background-blend-mode: multiply;	
+}
+
+div.pulsanti{
+margin: 2em;
+}
+
+div.pulsanti > select {
+margin-right: 1em;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Background-Blend-Mode</h1>
+
+
+<div class="box-img"> 
+	<div></div>
+	<div></div>
+</div>
+
+
+<div class="pulsanti">
+
+	<label>Colore Sfondo</label>
+	<select name="colore-sfondo" id="colore-sfondo">
+		<option value="blue">Blu</option>
+		<option value="aqua">Celeste</option>
+		<option value="gold">Gold</option>
+		<option value="crimson">Rosso</option>
+		<option value="purple">Purple</option>
+		<option value="lightsalmon">Salmone</option>
+		<option value="lightgreen">Verde chiaro</option>
+		<option value="lawngreen">Verde erba</option>
+		<option value="darkgray">Grigio</option>
+	</select>
+
+	<label>Blend-Mode </label>
+	<select name="blend-mode" id="blend-mode">
+		<option value="normal">normal</option>
+		<option value="multiply">multiply</option>
+		<option value="screen">screen</option>
+		<option value="overlay">overlay</option>
+		<option value="darken">darken</option>
+		<option value="lighten">lighten</option>
+		<option value="color-dodge">color-dodge</option>
+		<option value="color-burn">color-burn</option>
+		<option value="hard-light">hard-light</option>
+		<option value="soft-light">soft-light</option>
+		<option value="difference">difference</option>
+		<option value="exclusion">exclusion</option>
+		<option value="hue">hue</option>
+		<option value="saturation">saturation</option>
+		<option value="luminosity">luminosity</option>
+		<option value="color">color</option>
+	</select>
+
+</div> 
+
+<script type="text/javascript">
+
+var img2 = document.querySelector('div.box-img > div:nth-child(2)');
+
+var blendMode = document.getElementById("blend-mode"); 
+blendMode.value = 'multiply';													// impostazione default pulsanti Blend Mode
+
+blendMode.addEventListener("change", function(){ 
+	img2.style['backgroundBlendMode'] = this.value;
+},false);
+
+
+var coloreSfondo = document.getElementById("colore-sfondo"); 
+coloreSfondo.value = 'gold';													// impostazione default pulsanti colore di sfondo
+
+coloreSfondo.addEventListener("change", function(){ 
+	img2.style['backgroundColor'] = this.value;	
+},false);
+	
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+

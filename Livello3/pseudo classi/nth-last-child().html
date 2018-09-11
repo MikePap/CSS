@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>:nth-last-child() </title>
+<style type="text/css">
+
+h1{ margin: 50px 200px; background:#00CCFF;  }
+
+.codice{ color:#060;}
+.nota{ color:#F60;}
+code, pre{ color:rgb(50,150,50);}
+
+div:last-child{ color:red;}
+
+tr:nth-last-child(-n+3){ background:#00FFCC;}
+
+/*tr:nth-last-child(n+3){ background:#00FFCC;}*/
+
+.foo:nth-last-child(odd){ color:red;} /*  */ 
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/pseudo classi/nth-last-child().html  -->
+<body>
+
+<h1>:nth-last-child()</h1>
+<p class="nota">Funziona in tutti i browser tranne IE &lt; 9  </p>
+<table>
+<tr>
+    <td>tr 1</td>
+</tr>   
+<tr>
+    <td>tr 2</td>
+</tr>   
+<tr>
+    <td>tr 3</td>
+</tr>   
+<tr>
+    <td>tr4</td>
+</tr>   
+<tr>
+    <td>tr 5</td>
+</tr>   
+<tr>
+    <td>tr 6</td>
+</tr>   
+
+
+</table>
+
+
+<p class="foo">paragrafo 1</p>
+<p class="foo">paragrafo 2</p>
+<p class="foo">paragrafo 3</p>
+<p class="foo">paragrafo 4</p>
+<p class="foo">paragrafo 5</p>
+<p class="foo">paragrafo 6</p>
+
+<div>DIV 01</div>
+<div>DIV 02</div>
+<div>DIV 03</div>
+<div>DIV 04</div>
+<div>DIV 05</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

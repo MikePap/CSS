@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Loader  </title>
+<!--
+<link rel="stylesheet" href="loader.css" type="text/css"/>
+-->
+
+<style type="text/css">
+
+html,body,div,p,h1,h2,h3,h4,h5,h6,input,textarea,select,span,ul,li,a,img{
+margin: 0;padding:10px;
+}
+/* ASSEGNAZIONE DEL "box-sizing:border-box" A TUTTI GLI ELEMENTI DEL DOCUMENTO UTILIZZANDO IL SELETTORE UNIVERSALE * (valido anche in IE 8) */
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+
+
+#divo{
+position: relative; margin:0; width:400px; height:200px; background:#FF0; border:2px solid #CCC; 
+}
+
+
+</style>
+</head>
+<body>
+
+
+<button id="mostraLoader">Carica il loader</button>
+
+<button id="nascondiLoader">ferma il loader</button>
+
+<br /><br />
+
+
+<div class="conteneur_general_load_10"><div class="cle_bleu_load_10"></div></div>
+
+
+
+<script type="text/javascript">
+
+function caricaCSS(scriptCSS){
+	var linkElem = document.createElement('link');
+	linkElem.setAttribute('rel', 'stylesheet');
+	linkElem.setAttribute('type', 'text/css');
+	linkElem.setAttribute('href', scriptCSS);
+	linkElem.setAttribute('id', 'cssLoader');
+	document.head.appendChild(linkElem);
+	var elemLoader = document.getElementById('cssLoader');		// ho impostato questo attributo per poter in seguito verificare la sua esistenza
+//	console.log(elemLoader);
+	return linkElem;
+}  
+
+var mostraLoader = document.getElementById('mostraLoader');
+var nascondiLoader = document.getElementById('nascondiLoader');
+var boxLoader = document.querySelector('div.conteneur_general_load_10');
+
+mostraLoader.addEventListener('click', 
+function(){
+	var elemLoader = document.getElementById('cssLoader');
+//	La verifica seguente mi permette di controllare se l'elemento <link rel="stylesheet" ... id='cssLoader'> è stato già caricato. 
+	if(elemLoader){
+		boxLoader.style.display = 'block';
+	}else{
+		boxLoader.style.display = 'block';
+		var css = caricaCSS("loader.css");							// carica file .css	
+	}
+}, false);
+
+nascondiLoader.addEventListener('click', function (){
+	boxLoader.style.display = 'none';
+}, false);
+
+// ### In Opera, però, il loader non riprende l'animazione dopo che lo si è nascosto 
+
+</script>
+
+
+<div id="divo"></div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

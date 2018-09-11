@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Matrix</title>
+<style type="text/css">
+html, body{ margin:0; padding:5px;  }
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+
+div{
+width:100px;
+height:75px;
+background-color:red;
+border:1px solid black;
+}
+div#div2{
+transform:matrix(0.866,0.5,-0.5,0.866,0,0);  /* NON L'HO CAPITA */
+-moz-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Firefox */
+-webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Safari and Chrome */
+-o-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Opera */
+}
+
+
+
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Transform_2D/Matrix.html -->
+<body>
+
+<h1>Matrix</h1>
+
+<p> <span class="nota">Permette di combinare in un'unica  tutte le proprietà di <strong>transform</strong>.</span> Ma è troppo complicato da comprendere quindi anche se semplifica i CSS con una definizione più corta e leggera non ne vale la pena perderci un tempo in più. <br />
+Se proprio non hai un cazzo da fare <a href="http://www.useragentman.com/blog/2011/01/07/css3-matrix-transform-for-the-mathematically-challenged/">dai un'occhiata qui</a>
+  </p>
+
+
+
+<div>Hello. This is a DIV element.</div>
+
+<div id="div2">Hello. This is a DIV element.</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

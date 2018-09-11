@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>box shadow 4 </title>
+<style type="text/css">
+
+body { background: dimgrey; color: silver; text-align: center; }
+.s {
+  display: inline-block;
+  margin: 1em;
+  width: 12.3em; height: 5.9em;
+  border-radius: .35em;
+  background:    url(http://imgsrc.hubblesite.org/hu/db/images/hs-2007-16-e-small_web.jpg) 0 50%;
+  transition: .85s;
+  cursor: pointer;
+}
+.s1 {
+  box-shadow: 0 0 .35em black, 0 0 0 .5em, 
+    inset 12.3em 0;
+}
+.s2 {
+  box-shadow: 0 0 .35em black, 0 0 0 .5em, 
+    inset 0 6em;
+}
+.s3 {
+ box-shadow: 0 0 .35em black, 0 0 0 .5em, 
+    inset -12.3em 0;
+}
+.s4 {
+  box-shadow: 0 0 .35em black, 0 0 0 .5em, 
+    inset 0 -6em;
+}
+.s:hover {
+  box-shadow: 0 0 .35em black, 0 0 0 .5em, 
+    inset 0 0;
+}
+</style>
+</head>
+<body>
+
+<div class='s s1'></div>
+<div class='s s2'></div>
+<div class='s s3'></div>
+<div class='s s4'></div>
+
+
+</body>
+</html>

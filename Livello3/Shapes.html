@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Shapes livello 1  </title>
+
+<!--
+<script type="text/javascript" src="../../polyfill/shapes-polyfill.js"></script>
+-->	
+
+
+
+<style type="text/css">
+body{
+font-family: 'Lato', sans-serif;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);} 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+code, pre{ color:rgb(50,150,50);}
+tt, em{color:#6a9999}
+.grigio{color: grey;}
+.blu{color:#00f;}
+ul > li{ color:blue; }
+
+div.box {
+width: 800px; margin:0 auto; padding: 20px; border:1px solid #ccc;
+}
+
+/*	////////////// Cerchio //////////////////////////////////////		*/
+.shape1{
+shape-outside: circle(40%);					
+/*	è come se fosse: 40% at 100px 100px perchè 100 è la metà di 200 che corrisponde a 'width' e 'height'  */		
+-webkit-shape-outside: circle(40% at 50px 30px);		
+shape-margin: 10px;
+-webkit-shape-margin: 10px;
+width: 200px;
+height: 200px;
+float: left;
+}
+
+/*	////////////// Cerchio //////////////////////////////////////		*/
+
+.shape2{
+shape-outside: circle(40% at 0 0);					
+-webkit-shape-outside: circle(40% at 0px 0px);		
+shape-margin: 10px;
+-webkit-shape-margin: 10px;
+width: 200px;
+height: 200px;
+float: left;
+}
+
+/*	//////////////// Ellisse ////////////////////////////////////		*/
+
+.shape3{
+shape-outside: ellipse(50px 140px);					
+-webkit-shape-outside: ellipse(50px 140px);		
+shape-margin: 10px;
+-webkit-shape-margin: 10px;
+width: 150px;
+height: 300px;
+float: left;
+}
+
+
+/*	//////////////// Poligono ////////////////////////////////////		*/
+
+.shape4{
+shape-outside: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+-webkit-shape-outside: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+shape-margin: 10px;
+-webkit-shape-margin: 10px;
+width: 300px;
+height: 300px;
+float: left;
+}
+
+/*	//////////////// Poligono con due forme ////////////////////////////////////		*/
+
+.left-shape{
+shape-outside: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+-webkit-shape-outside: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+float: left;
+width: 200px;
+height: 250px;
+}
+
+.right-shape{
+shape-outside: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+-webkit-shape-outside: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+float: right;
+width: 200px;
+height: 250px;
+}
+
+
+/*	//////////////// Rettangolo arrotondato ////////////////////////////////////		*/
+
+.shape5{
+shape-outside: inset(30px 25px 30px 40px round 40px);
+-webkit-shape-outside: inset(30px 25px 30px 40px round 40px );
+shape-margin: 10px;
+-webkit-shape-margin: 10px;
+width: 300px;
+height: 150px;
+float: left;
+}
+
+/*	//////////////// Immagine IGP ////////////////////////////////////		*/
+
+.shape6{
+shape-outside: circle(50%);
+-webkit-shape-outside: circle(50%);
+float: left;
+margin:5px;
+}
+
+
+/*	//////////////// Immagine ulivo ////////////////////////////////////		*/
+.shape7{
+shape-outside: circle(48%);
+-webkit-shape-outside: circle(48%);
+clip-path: circle(40%);
+-webkit-clip-path: circle(45%);
+width: 300px;
+height: 300px;
+float: left;
+/*margin:5px;*/
+}
+
+
+/*	//////////////// Immagine bottiglia ////////////////////////////////////		*/
+.shape8{
+shape-outside: polygon(34% 0, 36% 20%, 50% 29%, 51% 57%, 100% 73%, 100% 97%, 47% 83%, 47% 100%, 0 100%, 0 0);
+-webkit-shape-outside: polygon(34% 0, 36% 20%, 50% 29%, 51% 57%, 100% 73%, 100% 97%, 47% 83%, 47% 100%, 0 100%, 0 0);
+float: left;
+/*margin:5px;*/
+}
+
+
+/*	//////////////// Immagine bottiglia 2 ////////////////////////////////////		*/
+.shape9{
+shape-outside: url(../../Immagini/occhiAperti-02.png);
+shape-image-threshold: 0.5;
+-webkit-shape-outside: url(../../Immagini/occhiAperti-02.png);
+-webkit-shape-image-threshold: 0.5;
+shape-margin: 15px;
+-webkit-shape-margin: 15px;
+width: 297px;
+height: 435px;  
+float: left;
+}
+
+/*	//////////////// Animazione shape ////////////////////////////////////		*/
+.shape10{
+shape-outside: circle(30%);					
+/*	è come se fosse: 40% at 100px 100px perchè 100 è la metà di 200 che corrisponde a 'width' e 'height'  */		
+-webkit-shape-outside: circle(40% at 50px 30px);		
+width: 200px;
+height: 200px;
+float: left;
+transition: shape-outside 1s;
+}
+.shape10:hover{
+shape-outside: circle(50%);
+-webkit-shape-outside: circle(50%);		
+}
+
+/*	//////////////// Immagine IGP Animata ////////////////////////////////////		*/
+
+.shape11{
+shape-outside: circle(30%);
+-webkit-shape-outside: circle(30%);
+float: left;
+/*margin:20px;*/
+/*
+shape-margin: 10px;
+-webkit-shape-margin: 15px;
+*/
+width:60px;	
+transition: shape-outside, width 1s;
+/*-webkit-transition: -webkit-shape-outside, width 1s;*/
+}
+.shape11:hover{
+shape-outside: circle(50%);
+-webkit-shape-outside: circle(50%);
+width:120px;
+/*margin:0;*/
+}
+
+
+#imm{
+margin:31px;
+/*
+width:60px;	
+margin:20px;
+
+transition: margin 1s;
+*/
+}
+
+#imm:hover{
+/*
+width:120px;
+
+margin:0;	
+*/
+}
+
+
+</style>
+
+<script type="text/javascript" src="../../polyfill/shapes-polyfill.min.js"></script>
+
+<!--
+<script type="text/javascript" src="https://github.com/adobe-webplatform/css-shapes-polyfill/blob/master/shapes-polyfill.js"></script>
+-->	
+
+
+
+
+</head>
+<body>
+
+<h1>Shapes</h1>
+
+<p>
+La specifica consente di definire unicamente forme attorno alle quali far scorrere esternamente il testo. Ciò si imposta attraverso la proprietà <tt>shape-outside</tt>. Inizialmente era stata anche prevista la proprietà shape-inside. <br />
+La forma attorno a cui far scorrere il testo può essere di quattro tipi:
+<ul>
+	<li>un cerchio (funzione circle);</li>
+	<li>un’ellissi (funzione ellipse);</li>
+	<li>un poligono regolare o irregolare (funzione polygon);</li>
+	<li>un rettangolo, eventualmente con angoli arrotondati (funzione inset).</li>
+	
+</ul>
+</p>
+
+
+<h2>La funzione circle</h2>
+
+<p>
+Serve a creare una forma circolare. Nell'esempio seguente abbiamo un elemento contenitore (box1) e al suo interno un &lt;div&gt; con classe <tt>shape</tt> insieme a una serie di paragrafi con il testo. Il div con classe <tt>shape</tt> sarà la base per la creazione della nostra forma circolare. <br />
+Il &lt;div class="shape"&gt; è flottato a sinistra ed ha un <tt>shape-outside</tt> del 40% e <em>width</em> e <em>height</em> di 200px.  Il 40% è il valore raggio della forma circolare rispetto al box di riferimento che è di 200px. Il raggio sarà quindi di 80px per un totale diametro di 160px a cui va ad aggiungersi il margine definito con la proprietà <tt>shape-margin</tt>; nulla ci vieta di impostare il margine con la proprietà <tt>margin</tt> anzichè <tt>shape-margin</tt>. <br />
+In altre parole il valore del raggio definito nella proprietà <tt>shape-outside</tt> non deve superare il 50% altrimenti si avrà un sforamento del cerchio con la conseguente perdita della sua forma. 
+</p>
+
+<div class="box">
+ <div class="shape1"></div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><!--box1-->	
+
+<p>
+E' possibile posizionare la forma in modo differente. Questo lo si fa  definendo altri due parametri alla proprietà <tt>shapes-outside</tt> che nel caso del cerchio corrispondono alle sue coordinate. 
+</p>
+<pre>
+shape-outside: circle(40% at 50px 31px);			<span class="nota">i due valori sono preceduti dalla parola chiave 'at'</span>	
+
+</pre>
+
+<p>Nell'esempio seguente si è impostato lo <tt>shape-outside</tt>:  circle(<span class="codice">40% at 0 0</span>) </p>
+
+<div class="box">
+ <div class="shape2"></div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><!--box-->	
+
+
+<h2>La funzione ellipse</h2>
+
+<p>L'unica differenza rispetto a circle è che questa funzione richiede la dichiarazione di due valori per il raggio, il primo per l’asse orizzontale, il secondo per quello verticale. <br />
+Nell'esempio seguente si è definito <span class="codice">shape-outside: ellipse(50px 140px)</span>	con <span class="codice">width:150px</span> 
+e <span class="codice">height:300px</span>.
+</p>
+
+<div class="box">
+ <div class="shape3"></div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><!--box-->	
+
+
+
+<h2>La funzione polygon</h2>
+
+<p>
+Con la funzione polygon possiamo creare forme estremamente complesse, da poligoni regolari con n lati a poligoni dal profilo irregolare. Il numero di lati minimo previsto per questi poligoni è pari a tre (un triangolo). <br />
+Per tracciare un poligono si devono definire tante coppie di valori di coordinate quanti sono i vertici del poligono stesso. Ecco, ad esempio, come si definisce un triangolo equilatero:
+</p>
+<pre>
+shape-outside: polygon(50% 0%, 0% 100%, 100% 100%);
+</pre>
+<p>
+Considerando che l’angolo superiore sinistro del box coincide con il punto 0 0, il primo vertice si trova a metà (50%) sull’asse orizzontale e a 0 su quello verticale. E così via per gli altri due vertici. <br />
+Disegnare poligoni può essere un pò complicato ma c'è uno strumento creato da Bennett Feely per creare forme da adattare alla proprietà CSS clip-path. Dal momento che la notazione è identica a quella delle shape CSS, possiamo sfruttarlo per i nostri scopi anche in questo contesto: <a href="http://bennettfeely.com/clippy/">clippy</a> <br />
+Il tool mette a disposizione molte forme predefinite liberamente modificabili spostando i vertici del poligono. È anche possibile dimensionare a piacere il box di riferimento e caricare da un URL esterno un’immagine da usare come base e guida. Quando avremo creato la forma che ci interessa, basterà copiare la funzione polygon con i suoi valori e incollarla nel contesto della nostra proprietà <tt>shape-outside</tt> invece che con <tt>clip-path</tt>.
+</p>
+
+
+<div class="box">
+ <div class="shape4"></div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<p>Ecco un'altro esempio di <tt>polygon</tt> dove si create due forme posizionate con <tt>float</tt> una a sinistra e l'altra a destra </p>
+
+<div class="box">
+<div class="left-shape"></div>
+<div class="right-shape"></div>
+
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<h2>Rettangoli con la funzione inset</h2>
+
+<p>
+La funzione <tt>inset</tt> consente di creare forme rettangolari, eventualmente con angoli arrotondati.
+</p>
+<pre>
+shape-outside: inset(30px 25px 30px 40px round 40px);
+</pre>
+
+<p>
+la funzione viene definita settando quattro valori (lato superiore, destro, inferiore e sinistro nell’ordine) con cui si imposta lo spostamento del rettangolo rispetto ai lati del box di riferimento. Chiaramente se si impostano a zero tutti e quattro i valori risulterà che la forma avrà la stessa dimensione del box di riferimento. La parola chiave <tt>round</tt> server a creare angoli arrotondati per il rettangolo
+</p>
+
+<div class="box">
+ <div class="shape5"></div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ </div>
+
+
+<h3>Considerazione finale</h3>
+<p>
+Alle forme non va applicato un posizionamento assoluto o relativo, la loro posizione top-left coinciderà con l'angolo in alto a sinistra; sarà quindi sufficiente applicare la proprietà <tt>float</tt>. <br />
+Sarà molto utile capire il funzionamento di questa proprietà verificandolo nel <em>dev-tool</em> di google nella sezione <tt>Elements</tt>
+</p>
+
+
+
+<h2>Usare le immagini</h2>
+
+<p>
+Nella pratica più comune, invece, il testo scorrerà intorno a forme create a partire da immagini. Quello che dobbiamo fare è scegliere la funzione che più si adatta all’immagine e procedere nei modi che abbiamo visto (vedere i CSS).
+</p>
+
+<div class="box">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani
+<img src="../../Immagini/igp.gif" class="shape6">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ </div>
+
+<h3>Utilizzo di clip-path</h3>
+
+<p>
+Nel caso della figura circolare di cui sopra  è stato abbastanza semplice per un discorso di dimensioni. Se invece abbiamo una figura più grande che occupa gran parte del box genitore e andiamo ad applicargli le stesse definizioni avremo molto probabilmente che il testo si vada a confondere con lo sfondo della figura. In questo caso può diventare utile tagliare la figura con la proprietà <tt>clip-path</tt>
+</p>
+
+<div class="box">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani
+<img src="../../Immagini/ulivo_05.jpg" class="shape7">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+</p>
+</div>
+
+
+<h3>Usare immagini con canale alpha</h3>
+
+<p>
+Nell'esempio che segue ho caricato l'immagine in <a href="http://bennettfeely.com/clippy/">Clippy</a> e gli ho creato la forma desiderata (non proprio perfetta) e impostata nella proprietà <tt>shape-outside</tt> (vedere CSS)
+</p>
+
+
+<div class="box">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani
+<img src="../../Immagini/occhiAperti-02.png" class="shape8">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+</p>
+
+</div>
+
+<p>
+ma ci sarebbe un'altro modo per ottenere un <b>risultato più perfetto</b>. Si tratta infatti di un file PNG con un canale alpha trasparente. In questo scenario, la specifica delle CSS Shapes prevede la possibilità di ricavare la forma direttamente dall’immagine, senza ricorrere ad alcuna funzione. Il profilo ricavato coinciderà con la parte opaca, non trasparente dell’immagine. Il livello di adattamento del testo al profilo è in questo caso molto preciso. Vediamo come procedere nel CSS.
+</p>
+
+
+<div class="box">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani
+<img src="../../Immagini/occhiAperti-02.png" class="shape9">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor
+</p>
+</div>
+
+<p>
+Per la proprietà <tt>shape-outside</tt> si fornisce come valore l’url dell’immagine e si imposta la proprietà <tt>shape-image-threshold</tt> con un valore compreso tra 0.0 e 1.0. Questa proprietà serve a definire la <q>soglia di trasparenza dei pixel</q> che contribuiscono a creare la forma. Un valore pari a 0.5 è quasi sempre perfetto per ottenere il risultato desiderato.
+</p>
+
+
+<h2>Animare una shape</h2>
+
+
+<div class="box">
+ <div class="shape10"></div>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><!--box-->	
+
+
+<p></p>
+
+<div class="box">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani
+<img id="imm" src="../../Immagini/igp.gif" class="shape11" width="" />
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+ </div>
+
+
+
+
+
+
+
+
+
+
+<!--
+
+http://localhost/Immagini/pizza.jpg
+
+http://localhost/Immagini/atena-05.png
+
+http://www.abcoliodoliva.com/img/occhiAperti-02.png
+
+
+http://www.html.it/articoli/515948/
+http://www.html.it/articoli/515948/statua-2.png
+
+-->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>
+

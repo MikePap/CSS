@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> demo 1 - min-content max-content auto </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+.box-grid {
+width: 750px; border: 1px solid;
+display: grid;
+
+grid-template-columns: min-content max-content auto;
+}
+
+.uno{
+    grid-column-start:1/1;
+    background: red;    
+}
+
+.due{
+    grid-column-start:2/2;
+    background: green;
+}
+.tre{
+    grid-column-start:3/3;
+    background: yellow;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h1>Esempi con «min-content», «max-content» e  «auto»</h1>
+
+<pre>
+<span class="grigio">HTML</span>
+&lt;div class="box-grid"&gt;
+    &lt;div class="uno"&gt;The cat jumped over the moon&lt;/div&gt;
+    &lt;div class="due"&gt;The cat jumped over the moon&lt;/div&gt;
+    &lt;div class="tre"&gt;The cat jumped over the moon. The cat jumped over the moon. The cat jumped over the moon &lt;/div&gt;
+&lt;/div&gt;
+
+<span class="grigio">CSS</span>
+.box-grid {
+    width: 750px; border: 1px solid;
+    display: grid;
+    grid-template-columns: min-content max-content auto;
+}
+
+.uno{
+    grid-column-start:1/1;
+    background: red;    
+}
+
+.due{
+    grid-column-start:2/2;
+    background: green;
+}
+.tre{
+    grid-column-start:3/3;
+    background: yellow;
+}
+
+</pre>
+
+<div class="box-grid">
+    <div class="uno" >The cat jumped over the moon</div>
+    <div class="due" >The cat jumped over the moon</div>
+    <div class="tre" >The cat jumped over the moon. The cat jumped over the moon. The cat jumped over the moon</div>
+</div>
+
+<p>
+Notiamo che il primo &lt;div&gt; prende la larghezza della parola più lunga che è "jumped", 
+mentre il secondo &lt;div&gt; prende la larghezza di tutta la frase. 
+Il terzo &lt;div&gt; grazie alla proprietà «auto» gestisce lo spazio rimanente
+</p>
+<p>
+Per cui ciò che desta più attenzione è il «max-content» perchè se la frase, contenuta nel div, è molto lunga finisce per strabordare 
+e l'effetto risulta indesiderato.
+</p>    
+
+
+<div class="box-grid">
+    <div class="uno" >The cat jumped over the moon</div>
+    <div class="due" >
+        The cat jumped over the moon.  The cat jumped over the moon. The cat jumped over the moon.
+    </div>
+    <div class="tre" >The cat jumped over the moon. The cat jumped over the moon. The cat jumped over the moon</div>
+</div>
+
+
+<div class="link-home">
+    <a href="Grid_layout.html#min-max_content">Home Grid</a> 
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Esempi flex-grow-shrink-basis  </title>
+<style type="text/css">
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); background:#CCC; margin:10px 50px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); background:#CCC; margin:10px 40px; }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); background:#CCC; margin:10px 31px; }
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+.nota{ color:rgb(250,120,0);}
+.grigio{color:gray;}
+.azzurro{color:rgb(100,150,255);}
+.scuro{color:#333;}
+tt, em{color:#6a9999}
+.codice{ color:rgb(30,120,30);}		
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+
+/*	#################################################################	*/
+
+
+.flex-grow1, .flex-grow1A, .flex-grow1B, .flex-grow2, .flex-grow3, .flex-grow4, .flex-grow4A, .flex-grow5, .flex-grow5A, .flex-grow6, .flex-grow7, .flex-grow7A, .flex-grow8, .flex-grow8A, .flex-grow9, .flex-grow10, .flex-grow11, .flex-grow12, .flex-grow12B   {
+	width: 400px; height: 100px; margin:5px 0; border: 1px solid #555; font: 14px Arial;
+
+	display: -webkit-flex;
+	-webkit-flex-direction: row;
+	display: flex;
+	flex-direction: row;
+}
+
+
+/*	######################	*/
+
+.flex-grow1 > div { 
+	background: lime; /*width: 150px;*/
+	flex: 1 0 auto;
+
+	-webkit-transition: width 0.7s ease-out;
+	transition: width 0.7s ease-out;
+}
+.flex-grow1 > div:hover{
+	width: 100px;
+}
+
+/*	######################	*/
+
+.flex-grow1A > div { 
+	background: lime; 
+	flex: 1 0 auto;
+
+}
+
+
+/*	#################################################################	*/
+
+.flex-grow2 > div { 
+	background: lime; 
+	flex: 0 0 0;
+
+	-webkit-transition: width 0.7s ease-out;
+	transition: width 0.7s ease-out;
+}
+.flex-grow2 > div:hover{
+	width: 100px;
+}
+
+/*	#################################################################	*/
+
+.flex-grow3 > div { 
+	background: lime; 
+	flex: 0 0 auto;
+}
+.flex-grow3 > div:hover{
+	width: 100px;
+}
+
+
+/*	#################################################################	*/
+
+.flex-grow4 > div { 
+	background: lime; width: 200px;
+	flex: 0 0 auto;
+}
+
+/*	#################################################################	*/
+
+.flex-grow4A > div { 
+	background: lime; width: 200px;
+	flex: 0 0 390px;
+}
+
+
+
+
+
+/*	############    Con più elementi      #####################################################	*/
+
+.flex-grow5 > div { 
+	background: orange;  border:1px solid; width: 100px;
+	flex: 1 0 auto;
+}
+
+
+/*	#################################################################	*/
+
+.flex-grow6 > div { 
+	background: orange;  border:1px solid; 
+	flex: 0 0 auto;
+}
+
+/*	#################################################################	*/
+
+.flex-grow7 > div { 
+	background: orange;  border:1px solid; width:100px;
+	flex: 0 0 auto;
+}
+
+/*	##################################	*/
+
+.flex-grow7A > div { 
+	background: orange;  border:1px solid; width:100px;
+	flex: 0.3 0 auto;
+}
+
+/*	#################################################################	*/
+
+.flex-grow8 > div { 
+	background: orange;  border:1px solid; width:60px;
+	flex: 0 1 auto;
+
+}
+
+/*	#################################################################	*/
+
+.flex-grow8A > div { 
+	background: orange;  border:1px solid; width:60px;
+	flex: 0 1 auto;
+
+/*	word-wrap:break-word;*/
+	overflow:hidden; 
+}
+
+
+/*	#################################################################	*/
+
+.flex-grow9 > div { 
+	background: yellow;  border:1px solid; width:200px; 
+	flex: 0 1 auto;
+}
+
+/*	#################################################################	*/
+
+.flex-grow10 > div { 
+	background: yellow;  border:1px solid; 
+	flex: 0 1 auto;
+}
+
+/*	#################################################################	*/
+
+.flex-grow11 > div:nth-child(1) { 
+	background: yellow;  
+	flex: 3 0 0;
+}
+.flex-grow11 > div:nth-child(2) { 
+	background: red;  
+	flex: 1 0 0;
+}
+.flex-grow11 > div:nth-child(3) { 
+	background: lime;  
+	flex: 2 0 0;
+}
+
+
+
+/*	#################################################################	*/
+
+.flex-grow12 .uno{
+flex:2 0 100px;
+}
+.flex-grow12 .due{
+flex: 0 0 80px;
+}
+.flex-grow12 .tre{
+flex: 2 0 100px;
+}
+
+/*	///////////////	*/
+
+.uno{
+background:red;
+}
+.due{
+background:green;
+}
+.tre{
+background:yellow;
+}
+
+
+/*	#################################################################	*/
+
+.flex-grow12B .uno{
+flex: 2 0 100px;
+}
+.flex-grow12B .due{
+flex: 0 0 80px;
+}
+.flex-grow12B .tre{
+flex: 1 0 100px;
+}
+
+/*	#################################################################	*/
+
+div.misura1{
+width:400px; height:	31px; background:#ccc; margin:5px 0;
+}
+div.misura2{
+width:390px; height:	31px; background:#ccc;
+}
+
+
+/*
+	-webkit-transition: width 0.7s ease-out;
+	transition: width 0.7s ease-out;
+
+*/
+</style>
+</head>
+<body>
+
+
+<h1> flex-grow, flex-shrink e flex-basis</h1>
+
+<p>
+I valori <b>flex-grow</b>, <b>flex-shrink</b> e <b>flex-basis</b> sono accettati dalla proprietà <em>flex</em> ( o <em>inline-flex</em> )  <span class="nota"> per ogni singolo elemento</span> per determinare o modificare la sua dimensione di 'width'. <br />
+In altre parole se ( oltre al genitore ) definiamo la proprietà flex per un singolo elemento del flex container lo si può condizionare ad assumere valori differenti rispetto a quelli definiti dalla proprietà <em>width</em>. <br />
+E' consigliato utilizzare la shorthand flex per impostarli tutti i tre piuttosto che singolarmente: 
+<pre>
+flex: 1 1 0%;			<span class="nota">sono i valori di default di tutte e tre </span>
+<span class="azzurro">è come se si scrivesse --> flex-grow: 1, flex-shrink:1, flex-basis:0%  </span>
+
+</pre>
+</p>
+
+<h2>flex-grow</h2>
+<span class="azzurro">Permete di determinare di quanto un elemento del flex container  <b>deve crescere</b> relativamente agli altri elementi del flex container  quando c'è dello spazio eccedente  </span>
+<p>
+Nell'esempio seguente sono impostati i valori default di tutti e tre : <b>flex: 1 1 0%;</b>. Succede che la larghezza si espande fino a raggiungere quella del genitore. Anche se s'imposta una 'width', non sarà tenuta in considerazione. Non cambia niente anche con <em>flex-basis</em> ad 'auto' oppure <b>flex: 1 0 0</b>.    
+</p>
+<div class="misura1">div genitore width: 400px</div> 
+
+<div class="flex-grow1">
+	<div>elemento</div>
+</div>
+
+<p>
+Lo stesso effetto lo abbiamo se impostiamo: <b>flex: 1 1 auto</b> oppure  <b>flex:1 0 auto</b> o <b>flex: auto</b> o <b>flex: 1</b>
+</p>
+<div class="flex-grow1A">
+	<div>elemento</div>
+</div>
+
+
+<p>
+Ora impostiamo la <em>flex-grow</em> a valore 0 e il <em>flex-basis</em> a 0 ( <b>flex: 0 0 0</b> ). Succede che l'elemento si allarga per contenere il testo all'interno di esso (questo funziona solo in Firefox; negli altri browser l'elemento non viene visualizzato).  
+</p>
+<div class="flex-grow2">
+	<div>elemento</div>
+</div>
+
+<p>
+Nell'esempio precedente ho creato un effetto <em>hover</em> che mi faccia aumentare la <em>width</em> ma non funziona. Nel seguente esempio invece, ho impostato i <em>flex-basis</em> ad <em>auto</em> ( <b>flex: 0 0 auto</b> ) e come si può notare l'effetto <em>hover</em> funziona e la width aumenta. <br />
+<span class="nota">Si desume quindi che il valore della <em>flex-grow</em> è relativo alla <em>flex-basis</em> che se impostata ad <em>auto</em> influenza la crescita della width </span>
+</p>
+<div class="flex-grow3">
+	<div>elemento</div>
+</div>
+
+<p>
+Da quanto detto su vediamo altri due esempi che dimostrano di come <tt>flex-grow</tt> dipende da <tt>flex-basis</tt>. Nel seguente è impostata una width di 200px all'lemento con <b>flex:0 0 auto</b>. Niente di particolare, l'elemento prende i suoi 200px grazie al fatto che il <tt>flex-basis</tt> è <em>auto</em>
+</p>
+<div class="flex-grow4">
+	<div>elemento</div>
+</div>
+
+<p>
+Mentre nell'esempio seguente invece assegnamo sempre una width di 200px all'elemento ma impostiamo un <tt>flex-basis</tt> differente <b>flex: 0 0 390px</b>
+</p>
+
+<div class="flex-grow4A">
+	<div>elemento</div>
+</div>
+
+<p>
+Impostando un <em>flex-basis</em> di 390px si ha che l'elemento assume tutto quel valore
+</p>
+
+
+
+
+<h3>Esempi con più elementi</h3>
+
+
+
+
+<p>
+Ora vediamo con più elementi ripetendo gli stessi passaggi. Impostando <b>flex: 1 0 0</b> per tutti i tre elementi che hanno tutti impostata una 'width:100' succede che lo spazio rimanente viene distribuito sui tre elementi quindi ognuno avrà alla fine una width di circa 133,33. Anche se non s'imposta la width il risultato sarà lo stesso. Stessa cosa se impostato <b>flex: 1 0 auto</b> 
+
+</p>
+<div class="flex-grow5">
+	<div>elem 1</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+
+<p>
+Mentre con <b>flex: 0 0 auto</b> <ins>senza width impostata</ins>, succede che gli elementi si allargano per contenere il testo all'interno di esso 
+</p>
+<div class="flex-grow6">
+	<div>elem 1</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+<p>
+Invece con <b>flex: 0 0	 auto</b> <ins>con la width impostata a 100</ins>, succede che gli elementi rimangono col valore della width impostata 
+</p>
+<div class="flex-grow7">
+	<div>elem 1</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+<p>
+Ora aumentiamo la <em>flex-grow</em> di un valore compreso fra 0 e 1. Se impostiamo <b>flex: 0.3 0 auto</b> con la 'width:100' avremo che la width di ognuno aumenterà di 30( 400-300 = 100; 100*0.3 = 30 ) e quindi ogni elemento avrà una width finale di 130(100+30 = 130) per un totale di 390. <span class="nota">Funziona solo in Firefox (NO in Chrome e Opera e nemmeno negli altri)</span>
+</p>
+<div class="flex-grow7A">
+	<div>elem 1</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+
+<p>
+Nei seguenti esempi si impostano dei valori differenti di <tt>flex-grow</tt> e <tt>flex-basis</tt> per ogni elemento. 
+</p>
+
+<div class="flex-grow12">
+	<div class="uno">2 0 100px </div>
+	<div class="due">0 0 80px</div>
+	<div class="tre">2 0 100px</div>
+</div>
+
+<div class="flex-grow12B">
+	<div class="uno">2 0 100px </div>
+	<div class="due">0 0 80px</div>
+	<div class="tre">1 0 100px</div>
+</div>
+
+<p>
+Si notano delle differenze dal primo al secondo esempio.	Per capire come viene distribuito lo spazio ci vengono in aiuto le seguenti formule 
+<dl>
+	<dd><b>Spazio Disponibile</b> = [larghezza container] - [somma dei flex-basis di ogni elemento]</dd>
+	<dd><b>Unità di ingrandimento</b> = [Spazio Disponibile] / [somma dei flex-grow di ogni elemento]</dd>
+	<dd><b>Grandezza elemento</b> = [flex basis] + [(Unità di ingrandimento) x (flex-grow)]</dd>
+</dl>	
+</p>
+<p>
+Applicandole  al secondo esempio avremo:
+<dl>
+	<dd>Spazio Disponibile = 400 - 280 = 120 (dove 280 => 100 + 80 + 100)</dd>
+	<dd>Unità di ingrandimento = 120 / 3 = 40 (dove 3 => 2 + 0 + 1) </dd>
+	<dd>grandezza elemento 1 = 100 + (40*2) = 180 px</dd>
+	<dd>grandezza elemento 2 = 80 + (40*0) = 80 px (non c'è aumento)</dd>
+	<dd>grandezza elemento 3 = 100 + (40*1) = 140 px</dd>
+</dl>	
+</p>
+
+
+
+<h3>Influenza del testo</h3>
+
+<p>
+ Il testo che è contenuto in un flex container è automaticamente avvolto in un elemento flex ( flex item ). <br />
+Considerando l'esempio seguente dove il testo contenuto nel primo elemento è esorbitante succede che fuoriesce sia lateralmente ( dove la lettera 'j' è battuta senza interruzioni fino a eccedere la larghezza totale dei tre elementi ) sia verso il basso perchè in questo caso è impostata una 'height' il cui valore non è sufficiente a contenere il testo in eccesso.
+</p>
+
+<div class="flex-grow8">
+	<div>elem 1  jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj aaaaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbb ccccccccccccc 
+	</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+<br />
+<br />
+
+<p>
+La soluzione potrebbe essere l'utilizzo di un paio di proprietà quali <b>word-wrap:break-word</b> associato a <b>overflow:scroll</b> oppure <b>overflow:hidden</b> 
+</p>
+<div class="flex-grow8A">
+	<div>elem 1  jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj aaaaaaaaa aaaaaaaaa aaaaaaaa aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbb ccccccccccccc 
+	</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+<h2>flex-shrink</h2>
+
+<p class="azzurro">Permette  di determinare quanto un elemento del flex container può <b>restringersi</b> relativamente agli altri elementi del flex container  quando c'è dello spazio eccedente.  </p>
+
+
+<p>
+Nel primo esempio poniamo <b>flex: 0 1 auto</b>; Si nota che tutti e tre gli elementi, che hanno una <ins>larghezza di 200px</ins>, si restringono ugualmente per rientrare nello spazio del genitore che è di 400px 
+</p>
+<div class="flex-grow9">
+	<div>elem 1</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+<p>
+Se invece <ins>non si definisce la larghezza</ins> con <b>flex: 0 1 auto</b> si ha che l'elemento si allarga per contenere il testo all'interno di esso.
+</p>
+<div class="flex-grow10">
+	<div>elem 1</div>
+	<div>elem 2</div>
+	<div>elem 3</div>
+</div>
+
+
+<h3>Rendere gli elementi multipli uno dell'altro</h3>
+
+<p>
+Se si vuole rendere gli elementi di un contenitore <tt>flex</tt> multipli uno dell'altro si può agire solo sul <tt>flex-grow</tt> di ognuno lasciando a zero gli altri 
+</p>
+
+<div class="flex-grow11">
+	<div>3 0 0 </div>
+	<div>1 0 0</div>
+	<div>2 0 0</div>
+</div>
+
+<p>
+Si ha che il primo elemento che ha <tt>flex-grow</tt> 3 (giallo) sarà il triplo dell'elemento 2 (rosso ) ed una volta e mezzo del terzo elemento (verde)
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>

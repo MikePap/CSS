@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> demo grid-auto-flow </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+#grid {
+    height: 200px;
+    width: 200px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+    grid-auto-flow: column;  /* or 'row', 'row dense', 'column dense' */
+}
+
+#item1 {
+	grid-row-start: 3;
+	background-color: green;
+}
+
+#item2 {
+	background-color: yellow;
+}
+
+#item3 {
+	background-color: blue;
+}
+
+#item4 {
+	grid-column-start: 2;
+	background-color: red;
+}
+
+#item5 {
+	background-color: aqua;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>grid-auto-flow</h1>
+
+
+<div id="grid">
+  <div id="item1"></div>
+  <div id="item2"></div>
+  <div id="item3"></div>
+  <div id="item4"></div>
+  <div id="item5"></div>
+</div>
+<select id="direction" onchange="changeGridAutoFlow()">
+  <option value="column">column</option>
+  <option value="row">row</option>
+</select>
+<input id="dense" type="checkbox" onchange="changeGridAutoFlow()">
+<label for="dense">dense</label>
+
+<br><br>
+<p>
+Per capire qualcosa bisogna fare le prove con la selct e il checkbox e vedere i cambiamenti. 
+Dopotutto non è molto complicato. <br>
+Bisogna fare attenzione al primo elemento (verde) a cui è stato assegnato «grid-row-start: 3» e al quarto (rosso) a cui è stasto assegnato «grid-column-start: 2». <br>
+Il discorso «dense» diviene importante a seguito di questi due cambiamenti.
+</p>
+
+<div class="link-home">
+    <a href="Grid_layout.html#grid-autoflow">Home Grid</a>
+</div>
+
+
+<script>
+
+function changeGridAutoFlow(){
+  var valSelect, valCheck, valore;
+  var box = document.getElementById('grid');
+  var checkImnput = document.querySelector('#dense');
+  valCheck = checkImnput.checked;
+  var seletta = document.querySelector('#direction');
+  valSelect = seletta.value;
+
+  if(valCheck === true){
+    valore = valSelect + ' dense';
+    box.style['gridAutoFlow'] = valore;
+  }else{
+    box.style['gridAutoFlow'] = valSelect;
+  }
+}//
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

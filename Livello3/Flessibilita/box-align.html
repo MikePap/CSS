@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-align </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+.codice{ color:#060}
+
+div{
+width:350px;
+height:100px;
+border:1px solid black; background:#009999;
+  
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-pack:center;
+-moz-box-align:end;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-pack:center;
+-webkit-box-align:end;
+
+/* W3C */
+display:box;
+box-orient:horizontal;
+box-pack:center;
+box-align:end;
+}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-align.html  -->
+<body>
+
+<h1>box-align</h1>
+<p class="nota">Specifica l'allineamento in verticale dei figli dell'elemento box(div). </p>
+<dl>
+	<dt>Accetta i seguenti parametri:</dt>
+    	<dd><b>start</b>: posiziona gli elementi in alto </dd>
+        <dd><b>end</b>: posiziona gli elementi in basso</dd>
+        <dd><b>center</b>: posiziomento centrale</dd>
+        <dd><b>baseline</b>: If box-orient is inline-axis or horizontal, all children are placed with their baselines aligned</dd>
+        <dd><b>stretch</b>: gli elementi figli sono allungati a formare un unico blocco</dd>
+</dl>
+
+
+
+
+<div>
+<p>birillo </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

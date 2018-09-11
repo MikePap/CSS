@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Animazione 05  </title>
+<style type="text/css">
+h1{ color:#006600;}
+h2{color:#2366b7  } 
+h3{ color:#663333;}
+pre{ color:rgb(20,150,30); font-weight:bold; background:rgb(230,230,230); padding:10px}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+
+
+#divo{
+width:100px;
+height:100px;
+background:red;
+opacity:1;
+animation: move 1s steps(10) infinite alternate;
+-webkit-animation: move 1s steps(10) infinite alternate;
+}
+
+@keyframes move {
+	from { width: 100px; height:100px; }
+	to{ width: 300px; height:200px;  }
+}
+
+@-webkit-keyframes move {
+	from { width: 100px; height:100px; }
+	to{ width: 300px; height:200px;  }
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<h1>Animazioni 05</h1>
+
+<div id="divo"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

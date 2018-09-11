@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Transizioni 02 </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+
+
+#divo{
+position:absolute; top:100px; left:300px; width:400px; height:150px; border:1px solid; 
+}
+#divo p{
+padding: 10px; text-align:center; z-index:0;
+}
+#primapagina{
+float:left; 
+}
+#ultimapagina{
+float:right; 
+}
+
+#divo div{
+position:absolute; top:0; left:0; width:200px; height:150px;
+}
+
+#div1{
+background:red; z-index:1;
+}
+#div2{
+background:green; z-index:2;
+}
+#div3{
+background:blue; z-index:3;
+}
+#div4{
+background:yellow; z-index:4;
+}
+#div5{
+background:orange; z-index:5;
+}
+#div6{
+background:black; z-index:6;
+}
+
+</style>
+
+<script type="text/javascript" src="../../../../jQuery/jQuery-1.9.1.min.js"> </script>
+
+<script  type="text/javascript">
+jQuery(document).ready(function(){
+
+function handler(event) {
+var target = $(event.target);				// <div> 'target' su cui avviene l'evento. In questo caso evento 'click'
+var posizione = target.position();			
+var sinistra = posizione.left;			// posizione 'left' del div target 
+//var target = $(event.currentTarget);
+if(target.is("div")){
+//if(target.nodeName == "DIV"){
+var num = $("#divo div").length;		// 6 
+var primo = num - (num-1);			// 6 - 5 = 1 (il primo div)
+var successivo = parseInt(target.next().css("z-index"))+1;			// è lo z-index del div successivo maggiorato di uno 
+var precedente = parseInt(target.prev().css("z-index"))+1;			// è lo z-index del div precedente maggiorato di uno
+var me = target.css("z-index");					// z-index del div target
+//alert(primo);
+if(sinistra == 0){				// se il <div> target sta a sinistra (si intende la pagina sinistra) 
+if(target.is(":last-child")){			// se si tratta dell'ultimo <div> (div6) 
+target.css({"transform":"translateX(200px)", "transition":"100ms ease-in", "z-index":primo});		// spostamento a destra 
+} // if(target.is(":last-child")){
+else{
+target.css("z-index", successivo);
+target.css({"transform":"translateX(200px)", "transition":"100ms ease-in", "z-index":successivo});	// spostamento a sinistra 
+//target.css({"transform":"translateX(100px)", "transform-origin": "100% 0", "transition":"1000ms ease-in", });	 
+//target.css({"transform":"skewY(30deg)", "transform-origin": "100% 0", "transition":"1000ms ease-in", });	 
+//target.css({"transform":"translateX(200px) skewY(0deg)", "transform-origin": "0 0", "transition":"1000ms ease-in", });	 
+//target.css({"transform": "skewY(10deg)", "transition":"50ms ease-in"}); 
+//target.css({"transform": "skewY(0deg)", "transition":"50ms ease-in"}); 
+} // else 
+} // if(sinistra == 0){
+else{							// se il <div> target sta a destra (si intende la pagina destra) 
+if(target.is(":first-child")){		// se si tratta del primo <div> (div1)
+target.css({"transform":"translateX(0px)", "transition":"100ms ease-in", "z-index":primo});		// spostamento a sinistra 
+//alert(me);
+} // if(target.is(":first-child")){
+else{
+target.css({"transform":"translateX(0px)", "transition":"100ms ease-in", "z-index":precedente});	// spostamento a sinistra 
+//alert(me);
+} // else 
+} // else
+} // if(target.is("div")) {
+}; // chiude la funzione  handler
+
+$("#divo div").click(handler);		// fa scattare l'evento 'click' sulla funzione "handler" 
+
+}); // chiude ready 
+</script>
+
+
+</head>
+<body>
+
+<h1>Creazione di quaderno </h1>
+
+
+<div id="divo">
+	<p id="primapagina">
+		Tutto è bene quel <br /> che finisce bene
+	</p>
+	<p id="ultimapagina">
+		IL libro delle favole	
+	</p>
+
+	<div id="div1"></div> 
+	<div id="div2"></div>
+	<div id="div3"></div> 
+	<div id="div4"></div> 
+	<div id="div5"></div> 
+	<div id="div6"></div> 
+
+</div><!--divo-->
+ 
+
+<!--
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

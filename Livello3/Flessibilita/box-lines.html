@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-lines</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+.codice{ color:#006600;}
+
+
+.container
+{
+width:300px;
+border:1px dotted black;
+
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-lines:multiple;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-lines:multiple;
+
+/* W3C */
+display:box;
+box-orient:horizontal;
+box-lines:multiple;  /*  */
+}
+
+.box
+{
+width:100px;
+
+/* Firefox */
+-moz-box-flex: 1.0;
+
+/* Safari and Chrome */
+-webkit-box-flex: 1.0;
+
+/* W3C */
+box-flex: 1.0;
+}
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-lines.html  -->
+<body>
+
+
+<h1>box-lines</h1>
+
+<p class="nota">
+The box-lines property specifies whether columns will go onto a new line whenever it runs out of space in the parent box. </p>
+
+<dl>
+	<dt>Accetta 2 parametri</dt>
+    	<dd><b>single</b>: tutti i figli verranno sistemati in una singola colonna o riga ((elements that do not fit will simply be considered overflow))</dd>
+        <dd><b>multiple</b>: in tal caso il box si espanderà fino a contenere tutti i figli</dd>
+
+</dl>
+
+<div class="container">
+  <div class="box">11111111111</div>
+  <div class="box">22222222222</div>
+  <div class="box">33333333333</div>
+  <div class="box">44444444444</div>
+</div>
+
+
+<p>E' supportato solo da OPera (al momento); infatti, come si intende da questo esempio, se ci fosse il supporto la parte di stringa che fuoriesce si andrebbe a posizionare a capo perchè il box si espanderebbe in una nuova riga dato che ha come valore impostato "multiple".</p>
+
+<p>
+<b>Tip</b>: By default, a horizontal box will lay out its children in a single row, and a vertical box will lay out its children in a single column.
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

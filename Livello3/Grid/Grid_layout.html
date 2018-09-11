@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Grid layout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+
+h4{
+font-size:1.2em; font-weight:bold; color:#888; margin:10px 50px;	
+}
+
+#grid-repeat {
+  display: grid;
+  grid-template-columns: repeat(2, 50px 1fr) 100px;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  background-color: #8cffa0;
+  padding: 10px;
+}
+
+#grid-repeat > div {
+  background-color: #8ca0ff;
+  padding: 5px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>Grid Layout</h1>
+
+
+<section class="listaArgomenti">
+	<select name="sezioni" class="sezioni">
+		<option value="seleziona">Seleziona l'argomento</option>
+
+		<optgroup label="Terminolgia e concetti" >
+			<option value="s1">In generale</option>
+			<option value="s2">Linee e aree grid e grid track</option>
+		</optgroup>
+
+		<optgroup label="Container grid">
+			<option value="s3">Proprietà relative al grid container</option>
+			<option value="s3a">Valori proprietà grid container</option>			
+			<option value="s4">Repeat</option>
+			<option value="s4a">auto-fill, auto-fit e minmax</option>			
+			<option value="s5">Grid esplicite ed implicite</option>
+		</optgroup>
+
+		<optgroup label="Elementi del grid container">
+			<option value="s6">Proprietà relative agli elementi grid</option>
+			<option value="s7">Posizionamento degli elementi nel container</option>
+			<option value="s8">Ordinamentoi degli elementi nel container</option>
+			<option value="s9">Sovrapposizione di elementi del grid</option>
+			<option value="s10">Posizionamento assoluto degli elementi</option>
+		</optgroup>
+
+		<optgroup label="Allineamento grid container"> 
+			<option value="s11">Proprietà Allineamento</option>
+			<option value="s12">justify-content</option>
+			<option value="s13">align-content</option>
+			<option value="s14">justify-items</option>
+			<option value="s15">align-items</option>
+			<option value="s16">justify-self</option>
+			<option value="s17">align-self</option>									
+		</optgroup>
+
+		<optgroup label="Esempi">
+			<option value="s18">Grid e flex container </option>
+			<option value="s19">Griglia di immagini elastica</option>
+			<option value="s20">Griglia immagini di diverse dimensioni</option>
+			<option value="s21">Elasticità verticale di oggetti</option>
+<<<<<<< HEAD
+			<option value="s22">Grid inside grid</option>
+=======
+			
+>>>>>>> c1885a4... Aggiunti esempi Grid layout.
+		</optgroup>
+
+	</select>
+</section>
+
+
+<h2>Terminolgia e concetti</h2>
+<section id="s1">
+	<h3>In generale</h3>
+	<p>
+Il «Grid layout» si basa sul concetto di disporre un «container» formato da linee orizzontali e verticali (<span class="nota">grid lines</span>) 
+che si intersecano per formare delle aree separate (<span class="nota">grid areas</span>) in cui verranno posizionati gli oggetti. <br>
+	</p>    
+	<p>
+Un «grid container» viene creato impostando la proprietà <b>display</b> a <span class="nota"> grid</span> o <span class="nota"> inline-grid</span> ad un elemento. 
+Questo crea un un contesto di formattazione di tipo griglia per il suo contenuto. <br>
+Tale contesto viene applicato soltanto ai primi elementi figli e non a elementi interni a quest'ultimi. <br>
+Il seguente è un semplice esempio:
+	</p>
+	<pre>
+<span class="grigio">HTML</span>    
+&lt;div class="box-grid"&gt;
+    &lt;div class="item"&gt; &lt;/div&gt;
+&lt;/div&gt;
+
+<span class="grigio">CSS</span>
+div.box-grid {
+    width: 300px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px;
+}
+
+.item {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    background-color: lightblue;
+}
+	</pre>
+
+	<p>  <svg style="max-height:15em;" viewBox="0 0 586 418"><defs><path id="a2" d="M0 5h460v305H0z"/><mask id="b2" width="470" height="315" x="-5" y="-5"><path fill="#fff" d="M-5 0h470v315H-5z"/><use xlink:href="#a2"/></mask></defs><g fill="none" fill-rule="evenodd"><g transform="translate(21 6)"><use fill="#D8D8D8" xlink:href="#a2"/><use stroke="#595959" stroke-width="10" mask="url(#b2)" xlink:href="#a2"/></g><path stroke="#595959" stroke-width="5" d="M328.5 11v305M21 163.5h460" stroke-linecap="square"/><path stroke="#7ED321" stroke-width="5" d="M173.5 6v315"/><text fill="#000" font-size="24" transform="translate(486 -7)"><tspan x="45.3" y="24">1</tspan></text><text fill="#000" font-size="24" transform="translate(486 -7)"><tspan x="45.3" y="177">2</tspan></text><text fill="#000" font-size="24" transform="translate(486 -7)"><tspan x="44.3" y="333">3</tspan></text><text fill="#000" font-size="24" transform="translate(486 -7)"><tspan x="74.6" y="24">-3</tspan></text><text fill="#000" font-size="24" transform="translate(486 -7)"><tspan x="74.6" y="177">-2</tspan></text><text fill="#000" font-size="24" transform="translate(486 -7)"><tspan x="73.6" y="333">-1</tspan></text><path stroke="#979797" stroke-width="3" d="M486 8.5h35m-35 155h35m-35 155h35M18.5 321v35m155-35v35m155-35v35m155-35v35"/><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="13.3" y="64">1</tspan></text><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="170.3" y="64">2</tspan></text><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="323.3" y="64">3</tspan></text><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="477.3" y="64">4</tspan></text><text fill="#000" font-size="24" transform="translate(2 317)"><tspan x=".6" y="96">-4</tspan></text><text fill="#000" font-size="24" transform="translate(2 317)"><tspan x="158.6" y="96">-3 </tspan></text><text fill="#000" font-size="24" transform="translate(2 317)"><tspan x="312.6" y="96">-2</tspan></text><text fill="#000" font-size="24" transform="translate(2 317)"><tspan x="468.6" y="96">-1</tspan></text><path fill="#4A90E2" fill-opacity=".75" d="M176 166h305v150H176z"/><text fill="#000" font-size="24" transform="translate(-2 -7)"><tspan x="299.204" y="254">.item</tspan></text></g></svg></p>
+
+	<p>
+Invece di usare «grid-column-start» e «grid-column-end» possiamo dare «grid-column» e «grid-row» separate da uno slash (/). <br> 
+Quindi rifacendoci all'esempio precedente potremmo dare:
+	</p>
+	<pre>
+.item {
+    grid-column: 2/4;
+    grid-row: 2/3;
+    background-color: lightgreen;
+}
+	</pre>
+
+	<p>
+E' oltremodo possibile nominare le linee grid in modo da poterle referenziare più facilmente
+	</p>    
+	<pre>
+.box-grid {
+    width: 300px; border: 1px solid;        
+    display: grid;
+
+    grid-template-columns: 100px [x1] 100px 100px [x2];
+    grid-template-rows: 100px [y2] 100px [y2];
+}
+  
+.item {
+    grid-column-start: x1;
+    grid-column-end: x2;
+    grid-row-start: y2;
+    grid-row-end: y2;    
+
+    background-color: lightblue;
+}
+	</pre>    
+
+</section>
+
+<section id="s2">
+	<h3 id="grid-area">Linee e aree grid e grid track</h3>
+	<p>
+Le <b>linee grid</b> sono linee orizzontali e verticali che formano la base della struttura del grid.
+Sono utilizzate per posizionare gli elementi all'interno della struttura. 
+	</p>
+
+	<p>
+Una <b>grid area</b> è formata da una o più «grid cell» e delimitata da quattro linee grid. 
+Pertanto ci si può riferire ad essa dandogli un nome grazie alla proprietà <span class="nota">grid-template-areas</span>
+	</p>    
+	<pre>
+.box-grid {
+    width: 450px; border: 1px solid;        
+    display: grid;
+
+    grid-template-columns: 150px 150px 150px;           <span class="nota">tre colonne</span>
+    grid-template-rows: 150px 150px;                    <span class="nota">due righe</span>
+    grid-template-areas: "a b b"
+                         "a b b";
+}
+
+.item-1 {
+    grid-area: a;
+    background-color: lightgreen;
+}
+
+.item-2 {
+    grid-area: b;
+    background-color: lightblue;  
+}  
+	</pre>    
+	<p>  <svg style="max-height:15em;" viewBox="0 0 531 386"><defs><path id="a4" d="M0 0h460v305H0z"/><mask id="b4" width="470" height="315" x="-5" y="-5"><path fill="#fff" d="M-5-5h470v315H-5z"/><use xlink:href="#a4"/></mask></defs><g fill="none" fill-rule="evenodd"><g transform="translate(8 11)"><use fill="#D8D8D8" xlink:href="#a4"/><use stroke="#595959" stroke-width="10" mask="url(#b4)" xlink:href="#a4"/></g><path stroke="#595959" stroke-width="5" d="M315.5 11v305M8 163.5h460M160.5 11v305" stroke-linecap="square"/><path fill="#4A90E2" fill-opacity=".75" d="M163 11h305v305H163z"/><path fill="#7ED321" fill-opacity=".75" d="M8 11h150v305H8z"/><text fill="#000" font-size="24" transform="translate(-2 -7)"><tspan x="273.804" y="177">.item-2</tspan></text><text fill="#000" font-size="24" transform="translate(473 -7)"><tspan x="45.3" y="24">1</tspan></text><text fill="#000" font-size="24" transform="translate(473 -7)"><tspan x="45.3" y="177">2</tspan></text><text fill="#000" font-size="24" transform="translate(473 -7)"><tspan x="44.3" y="333">3</tspan></text><path stroke="#979797" stroke-width="3" d="M473 8.5h35m-35 155h35m-35 155h35M5.5 321v35m155-35v35m155-35v35m155-35v35"/><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x=".3" y="64">1</tspan></text><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="157.3" y="64">2</tspan></text><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="310.3" y="64">3</tspan></text><text fill="#000" font-size="24" transform="translate(-2 317)"><tspan x="464.3" y="64">4</tspan></text><text fill="#000" font-size="24" transform="translate(-2 -7)"><tspan x="41.304" y="177">.item-1</tspan></text></g></svg></p>
+
+	<p>Qui c'è un altro <a href="demo_grid-area.html">esempio</a></p>
+
+	<p>
+ Il <b>grid track</b> è lo spazio che intercorre tra due linee grid orizzontali o verticali. 
+	</p>
+
+</section>
+
+
+<h2>Definizione del grid container</h2>
+<section id="s3">
+	<h3>Proprietà relative al grid container</h3>
+	<p>
+Le proprietà che permettono di definire un «grid container» sono le seguenti:
+	</p>
+	<dl>
+		<dt><b>grid-template-columns</b> e <b>grid-template-rows</b></dt>
+		<dt><b>grid-template-areas</b></dt>
+			<dd>grid-template</dd>
+		<dt><b>grid-column-gap</b> e <b>grid-row-gap</b></dt>
+			<dd>grid-gap</dd>
+		<dt><b>grid-auto-columns</b> e <b>grid-auto-rows</b></dt>			
+		<dt><b>grid-auto-flow</b></dt>
+			<dd>grid</dd>
+	</dl>
+
+	<h4>grid-template-columns e  grid-template-rows</h4>
+	<p>
+Sono le due proprietà che permettono di strutturare la griglia in quanto la prima (grid-template-columns) permette di definire 
+lo spazio che intercorre tra le linee verticali per formare le colonne della griglia 
+e la seconda (grid-template-rows) quello tra le linee orizzontali a formare le righe.
+	</p>
+<<<<<<< HEAD
+=======
+	<p>
+I valori sono definiti separati da spazi vuoti ed espressi con le unità usate nei CSS quali px, em, rem, % ecc... <br>
+Oltre a questi la specifica ne ha introdotto altri: l'unità <b>fr</b>, <b>min-content, max-content</b> e <b>auto</b>.
+	</p>
+	<p>L'unità «fr» divide automaticamente lo spazio rimanente. </p>
+	<pre>
+.box-grid {
+    width: 750px; border: 1px solid;
+    display: grid;
+    grid-template-columns: 150px 1fr 2fr;
+}
+
+#uno{
+    grid-column-start:1/1;			<span class="nota">** va bene anche 1/2</span>
+}
+#due{
+    grid-column-start:2/2;			<span class="nota">** va bene anche 2/3</span>
+}
+#tre{
+    grid-column-start:3/3;			<span class="nota">** va bene anche 3/4</span>
+}
+	</pre>
+
+	<p> <svg viewBox="0 0 770 135"><defs><path id="a8" d="M0 0h760v125H0z"/><mask id="b8" width="770" height="135" x="-5" y="-5"><path fill="#fff" d="M-5-5h770v135H-5z"/><use xlink:href="#a8"/></mask></defs><g fill="none" fill-rule="evenodd"><g transform="translate(5 5)"><use fill="#D8D8D8" xlink:href="#a8"/><use stroke="#595959" stroke-width="10" mask="url(#b8)" xlink:href="#a8"/></g><path stroke="#595959" stroke-width="5" d="M362.5 5l.12 125M157.5 5v125" stroke-linecap="square"/><text fill="#000" font-size="36" transform="translate(5 5)"><tspan x="21" y="72">150px</tspan></text><text fill="#000" font-size="36" transform="translate(5 5)"><tspan x="534" y="72">2fr</tspan></text><text fill="#000" font-size="36" transform="translate(5 5)"><tspan x="229" y="72">1fr</tspan></text><path stroke="#9012FE" stroke-width="2" d="M165 120h190m-179.2 3l-10.8-3 10.8-3m168.4 6l10.8-3-10.8-3m25.8 3h390m-379.2 3l-10.8-3 10.8-3m368.4 6l10.8-3-10.8-3" stroke-linecap="square"/><text fill="#000" font-size="18" transform="translate(5 5)"><tspan x="228" y="109">200px</tspan></text><text fill="#000" font-size="18" transform="translate(5 5)"><tspan x="534" y="109">400px</tspan></text></g></svg></p>
+	<p>
+Notiamo che se abbiamo una larghezza totale di 750px ed il primo &lt;div&gt; ha una larghezza definita di 150px,
+avremo una parte restante di 600px; di questa il terzo &lt;div&gt; occuperà il doppio del secondo
+	</p>    
+	<p id="min-max_content">
+		<b>min-content</b> rappresenta la larghezza che fa riferimento alla parola più estesa di una frase <br>
+		<b>max-content</b> rappresenta la larghezza che fa riferimento alla grandezza della testo della frase <br>
+		<b>auto</b> gestisce lo spazio restante
+	</p>
+
+	<p>Per capirci un pò di più non c'è di meglio che vedere qualche <a href="demo_min-max-content.html"> esempio </a></p>
+>>>>>>> c1885a4... Aggiunti esempi Grid layout.
+
+	<h4 id="grid-template-areas" >grid-template-areas</h4>
+	<p>
+Permette di nominare le aree grid definite con «grid-template-columns» e «grid-template-rows» in modo da rendere più comprensibile
+la visualizzazione della struttura della griglia. <br>
+Abbiamo già visto qualche esempio quando si è parlato delle <a href="#grid-area">grid area</a>
+	</p>
+
+	<h4>grid-template</h4>
+	<p>
+È una scorciatoia per definire in una singola dichiarazione «grid-template-columns», «grid-template-rows» e «grid-template-areas». <br>
+L'ordine è importante; quindi prima le righe poi le colonne ed infine le aree. 
+	</p>
+
+	<h4>grid-gap</h4>
+	<p>
+Il «gap» sta ad indicare la distanza di separazione che intercorre tra le linee grid orizzontali o verticali. <br>
+Il <span class="nota">grid-gap</span> è una scorciatoia per definire in una singola dichiarazione 
+<span class="nota">grid-row-gap</span> e <span class="nota">grid-column-gap</span>.
+	</p>
+	<p>
+Quindi da quello che si deduce, «grid-row-gap» serve a definire la distanza tra le aree orizzontali e «grid-column-gap» tra quelle verticali. <br>
+Da tener presente che tali distanze di separazione <b>non sono considerate all'inizio o alla fine del box grid</b>.
+	</p>
+	<p>
+La dichiarazione del «grid-gap» va scritta obbligatoriamente nel seguente ordine:
+	</p>
+	<pre>
+grid-gap: <‘grid-row-gap’> <‘grid-column-gap’>
+	</pre>
+	<p>
+Se viene passato solo un valore si presuppone che valga per entrambi; 
+quindi tale valore varrà sia per «grid-row-gap» che per «grid-column-gap». <br>
+Nel caso di due valori, bisogna separarli da uno spazio vuoto. 
+	</p>
+
+	<h4 id="grid-auto" >grid-auto-columns e grid-auto-rows</h4>
+	<p>
+Quando un'elemento è piazzato in un container grid che non rientra nei confini definiti con «grid-template-columns» e «grid-template-rows»
+possiamo controllarlo attraverso queste due proprietà. <br>
+Vedere la sezione <a href="#grid-imlicite">Grid esplicite ed implicite</a> ed anche altri esempi <a href="demo_grid-auto.html">qui</a>
+	</p>
+
+	<h4 id="grid-autoflow" >grid-auto-flow</h4>
+	<p>
+Il discorso è abbastanza complesso e lo si può capire soltanto dagli <a href="demo_grid-auto-flow.html">esempi</a>
+	</p>
+
+	<h4 id="grid">grid</h4>
+	<p>
+È la scorciatoia per definire tutte le proprietà grid in una unica dichiarazione: quelle <span class="nota">esplicite</span>
+(<b>grid-template-rows, grid-template-columns, grid-template-areas</b>), quelle <span class="nota"> implicite</span>
+(<b>grid-auto-rows, grid-auto-columns, grid-auto-flow</b>) e le <span class="nota">gap</span> (<b>grid-column-gap and grid-row-gap</b>). <br>
+Di seguito sono elencate tutte le proprietà ai loro valori iniziali (di default):
+	</p>
+	<pre>
+grid-template-rows: none
+grid-template-columns: none
+grid-template-areas: none
+grid-auto-rows: auto
+grid-auto-columns: auto
+grid-auto-flow: row
+grid-column-gap: 0
+grid-row-gap: 0
+	</pre>
+	<p>
+In una singola dichiarazione si possono anche solamente specificare le proprietà esplicite o quelle implicite; 
+le restanti saranno impostate ai loro valori di default.
+	</p>
+	<pre>
+.grid {
+    grid: 50px 75px / auto-flow;
+}
+<span class="grigio">la dichiarazione precedente è equivalente alle seguenti:</span>
+.grid {
+    grid-template-rows: 50px 75px;
+    grid-template-columns: none;           <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-template-areas: none;             <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-auto-rows: auto;                  <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-auto-columns: auto;
+    grid-auto-flow: column;                <span class="nota">can only set dense or not</span>
+    grid-column-gap: 0;                    <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-row-gap: 0;                       <span class="nota">cannot be set explicitly with this syntax form</span>
+}
+
+<span class="grigio">Mentre la seguente:</span>
+.grid {
+    grid: auto-flow dense / 30% 100px;
+}
+
+<span class="grigio">è equivalente alle seguenti:</span>
+.grid {
+    grid-template-rows: none;              <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-template-columns: 30% 100px; 
+    grid-template-areas: none;             <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-auto-rows: auto; 
+    grid-auto-columns: auto;               <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-auto-flow: row dense;             <span class="nota">can only set dense or not</span>
+    grid-column-gap: 0;                    <span class="nota">cannot be set explicitly with this syntax form</span>
+    grid-row-gap: 0;                       <span class="nota">cannot be set explicitly with this syntax form</span>
+}
+	</pre>
+
+<p>	Vedere questo <a href="demo_grid.html">esempio</a></p>
+
+</section>
+
+<section id="s3a">
+	<h3>Valori proprietà del grid container</h3>
+	<p>
+I valori delle proprietà del grid container sono definiti separati da spazi vuoti ed espressi con le unità usate nei CSS quali px, em, rem, % ecc... <br>
+Oltre a questi la specifica ne ha introdotto altri: l'unità <b>fr</b>, <b>min-content, max-content</b> e <b>auto</b>.
+	</p>
+
+	 <h4>fr</h4>
+	<p>L'unità «fr» divide automaticamente lo spazio rimanente. </p>
+	<pre>
+.box-grid {
+    width: 750px; border: 1px solid;
+    display: grid;
+    grid-template-columns: 150px 1fr 2fr;
+}
+
+#uno{
+    grid-column-start:1/1;			<span class="nota">** va bene anche 1/2</span>
+}
+#due{
+    grid-column-start:2/2;			<span class="nota">** va bene anche 2/3</span>
+}
+#tre{
+    grid-column-start:3/3;			<span class="nota">** va bene anche 3/4</span>
+}
+	</pre>
+
+	<p> <svg viewBox="0 0 770 135"><defs><path id="a8" d="M0 0h760v125H0z"/><mask id="b8" width="770" height="135" x="-5" y="-5"><path fill="#fff" d="M-5-5h770v135H-5z"/><use xlink:href="#a8"/></mask></defs><g fill="none" fill-rule="evenodd"><g transform="translate(5 5)"><use fill="#D8D8D8" xlink:href="#a8"/><use stroke="#595959" stroke-width="10" mask="url(#b8)" xlink:href="#a8"/></g><path stroke="#595959" stroke-width="5" d="M362.5 5l.12 125M157.5 5v125" stroke-linecap="square"/><text fill="#000" font-size="36" transform="translate(5 5)"><tspan x="21" y="72">150px</tspan></text><text fill="#000" font-size="36" transform="translate(5 5)"><tspan x="534" y="72">2fr</tspan></text><text fill="#000" font-size="36" transform="translate(5 5)"><tspan x="229" y="72">1fr</tspan></text><path stroke="#9012FE" stroke-width="2" d="M165 120h190m-179.2 3l-10.8-3 10.8-3m168.4 6l10.8-3-10.8-3m25.8 3h390m-379.2 3l-10.8-3 10.8-3m368.4 6l10.8-3-10.8-3" stroke-linecap="square"/><text fill="#000" font-size="18" transform="translate(5 5)"><tspan x="228" y="109">200px</tspan></text><text fill="#000" font-size="18" transform="translate(5 5)"><tspan x="534" y="109">400px</tspan></text></g></svg></p>
+	<p>
+Notiamo che se abbiamo una larghezza totale di 750px ed il primo &lt;div&gt; ha una larghezza definita di 150px,
+avremo una parte restante di 600px; di questa il terzo &lt;div&gt; occuperà il doppio del secondo
+	</p>    
+
+	 <h4 id="min-max_content">min-content, max-content, auto</h4>
+	<p>
+		<b>min-content</b> rappresenta la larghezza che fa riferimento alla parola più estesa di una frase <br>
+		<b>max-content</b> rappresenta la larghezza che fa riferimento alla grandezza della testo della frase <br>
+		<b>auto</b> gestisce lo spazio restante
+	</p>
+
+	<p>Per capirci un pò di più non c'è di meglio che vedere qualche <a href="demo_min-max-content.html"> esempio </a></p>
+
+</section>
+
+<section id="s4">
+	<h3>La parola chiave repeat</h3>
+
+	<p>
+La parola chiave «repeat» viene utilizzata per ripetere valori uguali. Un esempio è sempre meglio di tante parole
+	</p>
+	<pre>
+<span class="grigio">CSS</span>
+#grid-repeat {
+    display: grid;
+    grid-template-columns: repeat(2, 50px 1fr) 100px;
+    grid-gap: 5px;
+    box-sizing: border-box;
+    height: 200px;
+    width: 100%;
+    background-color: #8cffa0;
+    padding: 10px;
+}
+
+#grid-repeat > div {
+    background-color: #8ca0ff;
+    padding: 5px;
+}
+    
+<span class="grigio">HTML</span>
+&lt;div id="grid-repeat"&gt;
+    &lt;div&gt;
+        This item is 50 pixels wide.
+    &lt;/div&gt;    
+    &lt;div&gt;    
+        Item with flexible width.
+    &lt;/div&gt;    
+    &lt;div&gt;    
+        This item is 50 pixels wide.
+    &lt;/div&gt;    
+    &lt;div&gt;
+        Item with flexible width.
+    &lt;/div&gt;
+    &lt;div&gt;
+        Inflexible item of 100 pixels width.
+    &lt;/div&gt;
+&lt;/div&gt;    
+	</pre>
+
+	<div id="grid-repeat">
+		<div>
+			This item is 50 pixels wide.
+		</div>
+		<div>
+			Item with flexible width.
+		</div>
+		<div>
+			This item is 50 pixels wide.
+		</div>
+		<div>
+			Item with flexible width.
+		</div>
+		<div>
+			Inflexible item of 100 pixels width.
+		</div>
+	</div>
+
+	<p>
+Notando il «grid-template-columns», dove il «repeat» è stato definito, vediamo che il «repeat» ha creato due ripetizioni per il discorso colonne
+in cui ha definito una colonna di un valore fisso di 50px ed un'altra di valore flessibile usando «fr». 
+Un'altra colonna è stata definita al di fuori del «repeat» che avrà valore 100px. <br>
+In definitiva si avranno cinque colonne di cui una sarà di 100px (quella più a destra), due saranno di 50px
+ed altre due che si divideranno lo spazio rimasto. <br>
+In altre parole, senza il «repeat», è come se fosse stato:
+	</p>
+	<pre>
+grid-template-columns: 50px 1fr 50px 1fr 100px;
+	</pre>
+</section>
+
+<section id="s4a">
+	<h3 id="minmax" >repeat con auto-fill, auto-fit e minmax</h3>
+	<p>
+La parola chiave «repeat» può comprendere i parametri «auto-fill», «auto-fit» e la funzione «minmax()». <br>
+Vedere gli <a href="demo_auto-fill-fit_minmax.html">esempi</a>
+	</p>
+
+</section>
+
+<section id="s5">
+	<h3 id="grid-imlicite" >Grid esplicite ed implicite</h3> 
+	<p>
+Le <b>grid esplicite</b> sono quelle definite quando si impostano le proprietà «grid-template-rows», «grid-template-columns» e «grid-template-areas». <br>
+Ma se per esempio dovessimo definire una griglia con tre colonne e due righe possiamo oltremodo piazzare un suo elemento al di fuori di tale griglia.
+In questo caso il browser creerà una <b>grid implicita</b> per contenere tale elemento.
+	</p>
+	<pre>
+.grid-container {
+    display: grid;
+    grid-template-columns: 150px 150px 150px;          <span class="nota">tre colonne</span>
+    grid-template-rows: 150px 150px;                   <span class="nota">due righe</span> 
+}
+.item {
+    grid-column: 5 / 6;                                <span class="nota">parte dalla 5 per finire alla 6</span>
+    grid-row:  2 / 3;                                  <span class="nota">parte dalla 2 per finire alla 3</span>
+}
+	</pre>
+	<p>Avremo qualcosa del genere: </p>
+	<p>    <svg style="max-height:15em;" viewBox="0 0 841 386"><defs><path id="a5" d="M465 0h305v305H465z"/><mask id="c5" width="315" height="315" x="-5" y="-5"><path fill="#fff" d="M460-5h315v315H460z"/><use xlink:href="#a5"/></mask><path id="b5" d="M0 0h460v305H0z"/><mask id="d5" width="470" height="315" x="-5" y="-5"><path fill="#fff" d="M-5-5h470v315H-5z"/><use xlink:href="#b5"/></mask></defs><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="24" transform="translate(783 -7)"><tspan x="45.3" y="24">1</tspan></text><text fill="#000" font-size="24" transform="translate(783 -7)"><tspan x="45.3" y="177">2</tspan></text><text fill="#000" font-size="24" transform="translate(783 -7)"><tspan x="44.3" y="333">3</tspan></text><path stroke="#979797" stroke-width="3" d="M783 8.5h35m-35 155h35m-35 155h35"/><g transform="translate(8 11)"><use stroke="#4A90E2" stroke-width="10" mask="url(#c5)" stroke-dasharray="10" xlink:href="#a5"/><use fill="#D8D8D8" xlink:href="#b5"/><use stroke="#595959" stroke-width="10" mask="url(#d5)" xlink:href="#b5"/><path stroke="#595959" stroke-width="5" d="M307.5 0v305M0 152.5h460" stroke-linecap="square"/><path stroke="#4A90E2" stroke-width="5" d="M467.5 152.5h300" stroke-linecap="square" stroke-dasharray="5 9"/><path stroke="#595959" stroke-width="5" d="M152.5 0v305" stroke-linecap="square"/><path stroke="#4A90E2" stroke-width="5" d="M617.5 2.5v300" stroke-linecap="square" stroke-dasharray="5 9"/></g><path stroke="#979797" stroke-width="3" d="M5.5 321v35m155-35v35m155-35v35m155-35v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x=".3" y="64">1</tspan></text><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="157.3" y="64">2</tspan></text><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="310.3" y="64">3</tspan></text><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="464.3" y="64">4</tspan></text><path stroke="#979797" stroke-width="3" d="M625.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="619.3" y="64">5</tspan></text><path stroke="#979797" stroke-width="3" d="M780.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="774.3" y="64">6</tspan></text><path fill="#7ED321" fill-opacity=".75" d="M628 166h150v150H628z"/><text fill="#000" font-size="36" transform="translate(628 166)"><tspan x="33.294" y="84">.item</tspan></text></g></svg></p>
+
+	<p>
+Possiamo notare che le sei celle di colore grigio costituiscono la parte esplicita, definite con «grid-template-columns» e «grid-template-rows».
+Mentre avendo piazzato il nostro elemento nella quinta colonna (e seconda riga) il browser ha creato altre due colonne, oltre alle tre 
+precedentemente definite; ha quindi creato una griglia implicita per poter visualizzare tale elemento. <br>
+Se avessimo piazzato il nostro elemento nella sesta colonna (6/7), sarebbero state create tre colonne e cosi via.
+	</p>
+	<p>
+È anche possibile definire la grandezza delle celle implicite grazie alle proprietà <span class="nota">grid-auto-columns</span> e <span class="nota">grid-auto-rows</span>.
+Altrimenti il loro valore sarà «auto» ciò a dire che lo spazio di ogni cella sarà suddiviso equamente. <br>
+	</p>
+	<p>Osserviamo queto esempio in cui un grid container ha 10 elementi in esso:</p>
+	<pre>
+.grid {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 150px 150px;
+    grid-auto-columns: 50px 75px;
+    grid-auto-flow: column;
+}
+.item {
+    grid-column: 8;
+}
+	</pre>
+
+	<p>  <svg style="max-height:15em;" viewBox="0 0 856 386"><defs><path id="a12" d="M310 0h475v305H310z"/><mask id="c12" width="485" height="315" x="-5" y="-5"><path fill="#fff" d="M305-5h485v315H305z"/><use xlink:href="#a12"/></mask><path id="b12" d="M0 0h305v305H0z"/><mask id="d12" width="315" height="315" x="-5" y="-5"><path fill="#fff" d="M-5-5h315v315H-5z"/><use xlink:href="#b12"/></mask></defs><g fill="none" fill-rule="evenodd"><text fill="#000" font-size="24" transform="translate(798 -7)"><tspan x="45.3" y="24">1</tspan></text><text fill="#000" font-size="24" transform="translate(798 -7)"><tspan x="45.3" y="189">2</tspan></text><text fill="#000" font-size="24" transform="translate(798 -7)"><tspan x="44.3" y="333">3</tspan></text><path stroke="#979797" stroke-width="3" d="M798 8.5h35m-35 155h35m-35 155h35"/><g transform="translate(8 11)"><use stroke="#4990E2" stroke-width="10" mask="url(#c12)" stroke-dasharray="10" xlink:href="#a12"/><use fill="#D8D8D8" xlink:href="#b12"/><use stroke="#595959" stroke-width="10" mask="url(#d12)" xlink:href="#b12"/><path stroke="#595959" stroke-width="5" d="M0 152.5h305" stroke-linecap="square"/><path stroke="#4990E2" stroke-width="5" d="M312.5 152.5h475" stroke-linecap="square" stroke-dasharray="5 9"/><path stroke="#595959" stroke-width="5" d="M152.5 0v305" stroke-linecap="square"/><path stroke="#4990E2" stroke-width="5" d="M362.5 2.5v300m105-300v300m55-300v300m105-300v300m55-300v300" stroke-linecap="square" stroke-dasharray="5 9"/></g><path stroke="#979797" stroke-width="3" d="M5.5 321v35m155-35v35m155-35v35m55-35v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x=".3" y="64">1</tspan></text><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="157.3" y="64">2</tspan></text><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="310.3" y="64">3</tspan></text><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="363.3" y="64">4</tspan></text><path stroke="#979797" stroke-width="3" d="M475.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="469.3" y="64">5</tspan></text><path stroke="#979797" stroke-width="3" d="M530.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="524.3" y="64">6</tspan></text><path stroke="#979797" stroke-width="3" d="M635.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="630.3" y="64">7</tspan></text><path stroke="#979797" stroke-width="3" d="M690.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="687.3" y="64">8</tspan></text><path stroke="#979797" stroke-width="3" d="M795.5 321v35"/><text fill="#000" font-size="24" transform="translate(-2 321)"><tspan x="790.3" y="64">9</tspan></text><path fill="#7ED321" fill-opacity=".75" d="M693 11h100v150H693zM8 11h150v150H8zm0 155h150v150H8zM163 11h150v150H163zm0 155h150v150H163zM318 11h50v150h-50zm0 155h50v150h-50zM478 11h50v150h-50zm-105 0h100v150H373zm0 155h100v150H373z"/><text fill="#000" font-size="24" transform="translate(-2 -7)"><tspan x="714.204" y="99">.item</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="26.44" y="53">A</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="27.22" y="208">B</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="392.66" y="53">H</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="184.124" y="53">C</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="183.116" y="208">D</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="334.76" y="53">E</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="335.024" y="208">F</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="710.712" y="53">G</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="497.44" y="53">J</tspan></text><text fill="#284B00" font-size="24" transform="translate(-2 -7)"><tspan x="397.224" y="208">I</tspan></text></g></svg></p>
+	<p>
+In questo caso abbiamo piazzato un nostro elemento nell'ottava colonna e quindi il browser ha generato altre sei colonne, implicite, oltre alle due esplicite.
+Però abbiamo impostato la proprietà «grid-auto-columns» dandogli due valori (50px e 75px).<br>
+Con questo vogliamo indicare al browser di creare le colonne che siano in serie una di 50px e l'altra di 75px ed inoltre dobbiamo 
+indicargli anche la proprietà «grid-auto-flow» che sia appunto "column".
+	</p>
+	<p>
+Ho provato a fare questo questo esempio ma il risultato è stato diverso da quello mostrato 
+( <a href="demo_impliciti.html">vedi qui</a>  )
+	</p>
+</section>
+
+
+<h2>Piazzamento degli elementi nel grid container </h2>
+
+<section id="s6">
+	<h3>Proprietà relative agli elementi del grid container</h3>
+
+	<p>
+Le proprietà grid applicate al «container grid» sono usate per definire la struttura della griglia, mentre ci sono altre proprietà 
+che sono applicabili agli elementi che permettono di posizionarli all'interno del «container grid». Sono i seguenti: 
+	</p>
+	<dl>
+		<dt><b>grid-column-start, grid-column-end</b> e <b>grid-row-start, grid-row-end</b></dt>
+		<dd><b>grid-column and grid-row</b></dd>
+		<dd><b>grid-area</b></dd>
+	</dl>
+
+
+	<h4>grid-column-start, grid-column-end e grid-row-start, grid-row-end</h4>
+	<p>
+Queste quattro proprietà permettono di definire la grandezza dell'elemento grid e dove deve essere posizionato all'interno della griglia.<br> 
+In pratica definiscono le linee grid che formeranno i confini dell'area dell'elemento.
+	</p>
+
+	<h4>grid-column and grid-row</h4>
+	<p>
+Sono scorciatoie che definiscono le linee di partenza e di chiusura. <br> 
+«grid-row» è la scorciatoia per «grid-row-start» e  «grid-row-end»;
+«grid-column» è la scorciatoia per «grid-column-start» e «grid-column-end». <br>
+I valori sono separati da uno slash ( / ). Il primo valore indica la linea di partenza ed il secondo la linea di chiusura.
+	</p>
+
+	<h4>grid-area</h4>
+	<p>
+È una scorciatoia che imposta le linee che formano i confini dell'area dell'elemento (grid area). <br>
+Questa è una proprietà che conviene utilizzare in richiamo alla proprietà <a href="#grid-template-areas">grid-template-areas</a>
+definita nella definizione del «grid container»
+	</p>
+
+</section>
+
+<section id="s7">
+	<h3 id="grid-span" >Posizionamento degli elementi nel container grid</h3>
+	<p>
+Il piazzamento di un elemento all'interno della griglia dipende dal <b>grid position</b> e dallo <b>grid span</b>.<br>
+Il «grid position» può essere specificato con le proprietà dei CSS (o altrimenti sistemato dagli algoritmi del browser) mentre 
+il «grid span» determina quanti «grid track» l'elemento occupa. Di default è 1. <br>
+Ciò a dire che se abbiamo un grid-column-start = 1 e un grid-column-end = 3 vuol dire che il «grid span» è 2. <br>
+Alcuni esempi con «grid span» sono <a href="demo_grid-span.html">qui</a>
+
+	</p>
+
+</section>
+
+<section id="s8">
+	<h3 id="grid-ordinamento" >Ordinamento oggetti grid</h3>
+	<p>
+L'ordinamento delle aree grid viene risolto in base all'ordine che gli elementi hanno nel documento HTML. 
+Ad ogni modo è possibile cambiare tale disposizione HTML con le proprietà grid.  
+</p>
+<p>
+Per una migliore organizzazione e chiarezza per i designer è preferibile (nell'HTML) mettere in posizione superiore l'elemento &lt;main&gt;. 
+Però per una migliore usabilità (specie per gli utenti che non possono usare il mouse) conviene che sia l'elemento &lt;nav&gt; 
+ad essere in posizione superiore. <br>
+Grazie alle specifiche del «grid» possiamo ottenere entrambe le cose, nel senso che nell'HTML avremo l'elemento &lt;main&gt; 
+in una posizione superiore (possibilmente sotto l'header) ma la visualizzazione finale vedrà l'elemento &lt;nav&gt; sotto l'header. <br>
+Vedere <a href="demo_ordinamento.html">esempio</a>
+	</p>    
+
+</section>
+
+<section id="s9">
+	<h3 id="grid-sovrapposizione">Sovrapposizione di elementi grid</h3>
+	<p>
+Molteplici elementi possono essere posizionati nella stessa «grid cell». Li si può posizionare in modo che uno si sovrapponga all'altro. 
+Per far ciò non c'è bisogno di specificare lo «z-index»; per default quello che sta più in basso nell'HTML, apparirà sopra gli altri. <br>
+In questo <a href="demo_grid-sovrapposizione.html">esempio</a> si fa uso delle proprietà <span class="nota">justify-self</span> e <span class="nota">align-self</span> per 
+creare un tipo di svrapposizione.
+	</p>
+</section>
+
+<section id="s10">
+	<h3>Posizionamento assoluto degli elementi del grid container</h3>
+	<p>
+È possibile posizionare gli elementi del grid nel «grid container» in modo assoluto utilizzando la proprietà "position: relative". 
+Invece l'utilizzo della proprietà "position: absolute" su un elemento è sconsigliata in quanto lo porta fuori dal flusso 
+e non rientrerà nel layout del «grid container»
+	</p>
+	<p>
+Il posizionamento assoluto degli elementi del grid può essere ottenuto con le proprietà <span class="nota">grid-row</span> e <span class="nota">grid-column</span>
+ma ciò non gli permette di riempire l'intera cella ma di estendersi fino a mostrare il suo contenuto. <br>
+<em>top, right, bottom</em> e <em>left</em> possono essere usati come di solito.
+	</p>
+
+</section>
+
+
+
+<h2>Allineamento del grid container e dei suoi elementi</h2>
+<section id="s11">
+	<h3>Proprietà Allineamento</h3>
+
+	<p>
+La specifica del grid utilizza i termini <b>column-axis</b> e <b>row-axis</b> per descrivere le direzioni degli allineamenti. <br>
+Il "column-axis" fa riferimento all'asse di blocco (senso verticale) mentre il "row-axis" fa riferimento all'asse inline (senso orizzontale)
+	</p>
+	<p>
+Le proprietà che permettono di disporre il «grid container» e i suoi elementi sono le seguenti:
+	</p>
+		<dl>
+			<dt>justify-content</dt>
+			<dt>align-content</dt>
+			<dt>justify-items</dt>
+			<dt>align-items</dt>
+			<dt>justify-self</dt>
+			<dt>align-self</dt>
+		</dl>
+
+</section>
+
+<section id="s12">
+	<h3 id="justify-content">justify-content</h3>
+	<p>
+La proprietà «justify-content» ci permette di allineare il «grid container» nel senso orizzontale del «row-axis». 
+Questo può tornarci utile quando la larghezza del «grid container» è maggiore del totale della larghezza degli elementi interni. 
+O anche quando la larghezza non è definita e se il viewport è maggiore del totale della larghezza degli elementi interni. <br>
+I suoi possibili valori sono:
+	</p>
+	<pre>
+justify-content: center | start | end | space-between | space-around | space-evenly
+	</pre>    
+	<p>Vedi <a href="demo_justify-content.html"> esempi</a></p>
+
+</section>
+
+<section id="s13">
+	<h3 id="align-content">align-content</h3>
+	<p>
+La proprietà «align-content» ci permette di allineare il «grid container» nel senso verticale del «column-axis». 
+Questo può tornarci utile quando l'altezza del «grid container» è maggiore del totale dell'altezza degli elementi interni. 
+I suoi possibili valori sono:
+	</p>
+	<pre>
+align-content: center | start | end | space-between | space-around | space-evenly
+	</pre>    
+	<p>Vedi <a href="demo_align-content.html"> esempi</a> </p>
+
+</section>
+
+<section id="s14">
+	<h3 id="justify-items">justify-items</h3>
+	<p>
+La proprietà «justify-items» ci permette di spostare il contenuto di un elemento nel senso orizzontale del «row-axis». 
+Si comporta come la proprietà «text-align» ma agisce anche sulla larghezza dell'elemento, restringendola quando questa è 
+superiore alla larghezza del contenuto. <br>
+I suoi possibili valori sono:
+	</p>
+	<pre>
+justify-items: center | start | end | stretch
+	</pre>
+	<p>Vedi <a href="demo_justify-items.html"> esempi</a> </p>
+
+</section>
+
+<section id="s15">
+	<h3 id="align-items">align-items</h3>
+	<p>
+La proprietà «align-items» ci permette di spostare il contenuto di un elemento nel senso verticale del «column-axis». <br>
+I suoi possibili valori sono:
+	</p>
+	<pre>
+align-items: center | start | end | stretch
+	</pre>
+	<p>Vedi <a href="demo_align-items.html"> esempi</a> </p>
+
+</section>
+
+<section id="s16">
+	<h3 id="justify-self">justify-self</h3>
+	<p>
+La proprietà «justify-self» si applica agli elementi del grid e non al grid container. Il comportamento risultante è simile a quello 
+prodotto dal «justify-items». <br>
+Quindi la differenza sta nel fatto che in questo caso possiamo personalizzare il comportamento di ogni singolo elemento del 
+«grid container» e non tutti insieme <br>
+I suoi possibili valori sono:
+	</p>
+	<pre>
+justify-self: center | start | end | stretch
+	</pre>
+	<p>Vedi <a href="demo_justify-self.html"> esempi</a> </p>
+
+</section>
+
+<section id="s17">
+	<h3 id="align-self">align-self</h3>
+	<p>
+La proprietà «align-self» si applica agli elementi del grid e non al grid container. Il comportamento risultante è simile a quello 
+prodotto da «align-items». <br>
+Quindi la differenza sta nel fatto che in questo caso possiamo personalizzare il comportamento di ogni singolo elemento del 
+«grid container» e non tutti insieme <br>
+I suoi possibili valori sono:
+	</p>
+	<pre>
+align-self: center | start | end | stretch
+	</pre>
+	<p>Vedi <a href="demo_align-self.html"> esempi</a> </p>
+
+</section>
+
+
+<h2>Esempi vari </h2>
+
+<section id="s18">
+	<h3 id="grid-flex" >Esempio di grid e flex container</h3>
+
+	<p>In questo <a href="es_grid_flex.html">esempio</a>, la struttura principale è stata creata con «grid». <br> 
+In un elemento interno a tale struttura sono stati sistemati degli elementi con «flex»
+	</p>
+</section>	
+
+<section id="s19">
+	<h3>Griglia di immagini elastica</h3>
+	<p>
+In questo <a href="es_griglia-immagini_elastica.html">esempio</a>, con l'uso dei metodi «auto-fit» e «minmax», viene realizzata una griglia, contenente delle immagini, che si trasforma in modo elastico aumentando o diminuendo il numero delle colonne senza far uso delle "Media Query".
+	</p>	
+</section>
+
+<section id="s20">
+	<h3>Griglia con immagini di diverse dimensioni </h3>
+	<p>
+Anche in questo <a href="es_griglia_immagini-dense.html">esempio</a> è stata creata una griglia elastica contenente delle immagini ma con l'uso della proprietà «grid-auto-flow: dense». Diversamente dalla precedente le immagini non sono di uguali dimensioni ma sono comunque proporzionate in misura doppia in una o in ambo le dimensioni in modo da occupare interamente la «grid-area».
+	</p>
+</section>
+
+<section id="s21">
+	<h3>Esempio di Elasticità verticale di oggetti</h3>
+	<p>
+La particolarità di questo <a href="es_elasticita_verticale.html">esempio</a> è relativo al raggiungimento dell'elasticità della dimensione verticale (non soltanto orizzontale, come nell'esempio precedente) di un oggetto. Nel caso specifico l'oggetto è rappresentato da una immagine che tende a restringersi o allargarsi, in tutte e due le dimensioni, relativamente alla trasformazione del viewport.
+	</p>
+</section>
+
+<<<<<<< HEAD
+<section id="s22">
+	<h3>Esempio di elemento grid in elemento grid </h3>
+	<p>
+In questo <a href="es_grid-inside-grid.html">esempio</a> ho assegnato il «display: grid» sia all'elemento contenitore che ad un suo elemento interno.	
+	</p>
+</section>
+=======
+
+>>>>>>> c1885a4... Aggiunti esempi Grid layout.
+
+									<div id="freccia_sali"><div></div> </div> 
+
+
+
+<script type="text/javascript" src="../../../baseLocali.js"></script>
+
+<script type="text/javascript">
+// Scorrimento verso la sezione cliccata
+var select = document.querySelector('select.sezioni');
+select.addEventListener("change", function(){ 
+	var valSez = this.value;									// s3
+	var pattern = "#" + valSez;
+	var of = document.querySelector(pattern).offsetTop;
+	window.pageYOffset = of;
+	document.documentElement.scrollTop = of;
+	document.body.scrollTop = of;
+//	Togliere il focus dalla <select> e assegnarlo al documento 
+	window.focus();
+	document.documentElement.focus();
+	document.body.focus();
+},false);
+
+// Per lo scorrimento del documento, verso l'alto
+var obj = new ScrollPage('1000', 100, 'freccia_sali', 300);
+obj.showFreccia();
+obj.clickScroll();
+//bloccaPropagazione();	
+
+</script>
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
+

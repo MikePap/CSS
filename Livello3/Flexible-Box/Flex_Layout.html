@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> Flex Layout </title>
+<style type="text/css">
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); background:#CCC; margin:0 50px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); background:#CCC; margin:0 40px; }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); background:#CCC; margin:0 31px; }
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+.nota{ color:rgb(250,120,0);}
+.grigio{color:gray;}
+.azzurro{color:rgb(100,150,255);}
+.scuro{color:#333;}
+tt, em{color:#6a9999}
+.codice{ color:rgb(30,120,30);}		
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+th{
+color:#FFF; background:#333; 
+}
+
+/*	#################################################################	*/
+
+#box0{
+margin:10px 0;	width:100%;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+.box0A{
+border:1px solid #f00;
+-webkit-flex: auto;
+flex: auto;
+}
+.box0B{
+border:1px solid #0F0;
+-webkit-flex: 70%;
+flex: 2 1 auto;
+}
+
+
+/*	#################################################################	*/
+
+#flex-container {
+margin:10px 0;	width:80%;	
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+.flex-item1 {
+border:1px solid #f00;
+-webkit-flex: auto;
+flex: auto;
+}
+.flex-item2{
+border:1px solid #0f0;	
+-webkit-flex: auto;
+flex: auto;
+}
+
+/*	#################################################################	*/
+
+#box1{
+margin:10px 0;	width:100%;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+.box1A{
+border:1px solid #f00;
+-webkit-flex: auto;
+flex: auto;
+}
+.box1B{
+border:1px solid #0F0;
+-webkit-flex: 70%;
+flex: 70%;
+}
+
+/*	#################################################################	*/
+
+#box2{
+margin:10px 0;	width:100%;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+.box2A{
+border:1px solid #f00;
+-webkit-flex: 1;
+flex: 1;
+}
+.box2B{
+border:1px solid #0F0;
+-webkit-flex: 2;
+flex: 2;
+}
+
+/*	#################################################################	*/
+
+#box3{
+margin:10px 0;	width:100%;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+.box3A{
+border:1px solid #f00;
+-webkit-flex: auto;
+flex: auto;
+}
+.box3B{
+border:1px solid #0F0;		position:absolute; top:50px; right:10px;
+-webkit-flex: auto;
+flex: auto;
+}
+
+/*	#################################################################	*/
+
+nav > ul {
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+nav > ul > li {
+width:100px;
+
+}
+nav > ul > #login {
+		margin-left: auto;
+}
+
+/*	#################################################################	*/
+
+#box4{
+margin:10px 0;	width:100%; /*padding: 10px;*/
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+}
+.box4A{
+border:1px solid #f00;
+-webkit-flex: auto;
+flex: auto;
+}
+.box4B{
+border:1px solid #0F0;		
+-webkit-flex: 50%;
+flex: 50%;
+}
+.box4C{
+border:1px solid #00F;		
+-webkit-flex: auto;
+flex: auto;
+}
+
+/*	#################################################################	*/
+
+#box5{
+margin:10px 0;	width:100%; border:1px solid purple;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: column;
+flex-direction: column;
+}
+.box5A{
+border:1px solid #f00;
+-webkit-flex: auto;
+flex: auto;
+}
+.box5B{
+border:1px solid #0F0;		
+-webkit-flex: auto;
+flex: auto;
+}
+.box5C{
+border:1px solid #00F;		
+-webkit-flex: auto;
+flex: auto;
+}
+
+/*	#################################################################	*/
+
+#boxMisura{
+width: 700px; border: 1px solid;
+}
+
+#box6{
+margin:10px 0;	width:700px; border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: row no-wrap;
+flex-flow: row no-wrap;
+}
+#box6 > div{
+width: 200px; border:1px solid #f00;		
+}
+
+/*	#################################################################	*/
+
+#box7{
+margin:10px 0;	width:700px; border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: row wrap;
+flex-flow: row wrap;
+}
+#box7 > div{
+width: 200px; border:1px solid #f00;		
+}
+
+/*	#################################################################	*/
+
+#box8{
+margin:10px 0;	width:700px; border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: row wrap-reverse;
+flex-flow: row wrap-reverse;
+}
+#box8 > div{
+width: 200px; border:1px solid #f00;		
+}
+
+/*	#################################################################	*/
+
+#box9{
+margin:10px 0;	width:500px; height:350px; border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: column wrap;
+flex-flow: column wrap;
+}
+#box9 > div{
+width: 200px; height:100px;  border:1px solid #f00;		
+}
+
+/*	#################################################################	*/
+
+#box10{
+margin:10px 0;	width:500px; height:350px; border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: column nowrap;
+flex-flow: column nowrap;
+}
+#box10 > div{
+width: 200px; height:100px;  border:1px solid #f00;		
+}
+
+/*	#################################################################	*/
+
+#flexSolito {
+display: flex;
+flex-flow: row wrap;
+width: 300px; margin: 20px; background:#333;
+}
+.itemi {
+background:#666; border: 1px solid #fff; text-align:center;
+width: 80px;
+}
+
+
+div.flex {
+display: flex;
+flex-flow: row wrap;
+width: 300px; margin: 20px; background:#333;
+}
+.item {
+background:#666; border: 1px solid #fff; text-align:center;
+width: 80px;
+flex: auto;
+}
+
+</style>
+</head>
+<body>
+
+
+<h1>Flex Layout Box Model</h1>
+
+
+<p>
+Un <q>flex container</q> è un box generato da un elemento che ha proprietà <q>display</q> uguale a <b>flex</b> o <b>inline-flex</b>  
+<dl>
+	<dd><b>flex</b>: produce in un elemento la creazione di un box-flex di blocco </dd>
+	<dd><b>inline-flex</b>:	produce in un elemento la creazione di un box-flex inline</dd>
+</dl>	
+</p>
+
+<p>
+I valori accettati da flex (o inline-flex) sono: 
+<dl>
+	<dd><b>none</b>: equivalente a 0 0 main-size (width). </dd>
+	<dd><b>auto</b>: equivalente a 1 1 main-size</dd>
+	<dd><b>flex-grow</b>: </dd>
+	<dd><b>flex-shrink</b>: </dd>
+	<dd><b>flex-basis</b>: </dd>
+</dl>	
+</p>
+
+<span>Per quanto riguarda esempi su flex grow-shrink-basis <a href="grow-shrink-basis.html">vedere qui</a> </span>
+
+<div id="box0">
+	<div class="box0A">a</div> 
+	<div class="box0B">b bbbbbbbbbb</div> 
+</div> 
+
+
+<div id="flex-container">
+	<div class="flex-item1">flex: auto (50%)</div>
+	<div class="flex-item2">flex: auto (50%)</div>
+</div>
+
+
+<div id="box1">
+	<div class="box1A">flex: auto (diventa il 30%)</div> 
+	<div class="box1B">flex: 70%</div> 
+</div> 
+
+<div id="box2">
+	<div class="box2A">flex: 1</div> 
+	<div class="box2B">flex: 3 (triplo del primo)</div> 
+</div> 
+
+<p>
+Un <q>flex container</q> stabilisce un nuovo contesto di formattazione per il suo contenuto allo stesso modo di un 'contesto di blocco' ma anche nel caso di <q>display:flex</q>  non è un vero è proprio contesto di blocco tanto che le seguenti proprietà non sono considerate: 
+<ul>
+	<li>Multicolonne</li>
+	<li>float e clear</li>
+	<li>vertical-align</li>
+	<li>first-line e first-letter</li>
+</ul>
+</p>
+
+<h3>Elementi del flex container</h3>
+<p>
+Il testo che è contenuto in un flex container è automaticamente avvolto in un elemento flex ( <b>flex item</b> ). <br />
+Un elemento figlio che fa parte del flex container del genitore che viene posizionato con <em>absolute</em> fuoriesce dal contesto del flex container e va a posizionarsi rispettando il concetto di position:absolute. 
+<div id="box3">
+	<div class="box3A">box 1 (questo elemento prende tutta la larghezza perchè il secondo box (box2) ha position:absolute )</div> 
+	<div class="box3B">box 2 (ma questo elemento ha position:absolute )</div> 
+</div> 
+
+</p>
+
+
+<h3>Margin e padding nel flex container </h3>
+
+<p>
+Il valore di <em>auto</em> assegnato ad un margine assorbe lo spazio extra e può essere utilizzato per posizionare un elemento a parte; dall'esempio del seguente <em>ul</em> si capisce meglio: infatti il link 'login' è stato posizionato a destra semplicemente impostandogli <em>margin-left:auto</em>
+</p>
+
+
+<nav>
+	<ul>
+		<li><a href=/about>About</a>
+		<li><a href=/projects>Projects</a>
+		<li><a href=/interact>Interact</a>
+		<li id='login'><a href=/login>Login</a>
+	</ul>
+</nav>
+
+
+<h2>flex-flow</h2>
+
+<p>
+La proprietà <b>flex-flow</b> permette di definire contemporaneamente le proprietà <b>flex-direction</b> e <b>flex-wrap</b>   
+<pre>
+element { 
+	flex-flow: <'flex-direction'> || <'flex-wrap'>          
+}
+</pre>
+
+</p>
+
+<h3>Flex-direction</h3>
+
+<p>
+La proprietà <b>flex-direction</b> permette di definire come gli elementi del flex container devono essere piazzati. I valorei accettati sono quattro:
+<dl>
+	<dd><b>row</b>: sistema gli elementi nel modello <em>inline</em> cioè uno di fianco all'altro </dd>
+	<dd><b>row-reverse</b>: come <em>row</em> con la differenza che li inverte</dd>
+	<dd><b>column</b>: sistema gli elementi nel modello <em>blocco</em> cioè uno sotto l'altro </dd>
+	<dd><b>column-reverse</b>: come <em>column</em> con la differenza che li inverte </dd>
+</dl>	
+</p>
+
+
+<div id="box4">Container { flex-direcion: row; } 
+	<div class="box4A"> flex: auto</div> 
+	<div class="box4B">flex: 50%</div> 
+	<div class="box4C">flex: auto</div> 
+</div> 
+
+<br />
+
+<div id="box5">Container { flex-direcion: column; } (gli elementi figli diventano elementi di blocco )
+	<div class="box5A"> box 1</div> 
+	<div class="box5B">box 2</div> 
+	<div class="box5C">box 3</div> 
+</div> 
+
+<h3>Flex-wrap</h3>
+
+<p>
+La proprietà <b>flex-wrap</b> permette di definire se gli elementi del flex container debbano rimanere su una unica linea (blocco) o più linee. I valori possibili sono tre:
+<dl>
+	<dd><b>nowrap</b>: il flex container è una unica linea</dd>
+	<dd><b>wrap</b>: il flex container è multilinee </dd>
+	<dd><b>wrap-reverse</b>: come <em>wrap</em> con la differenza che l'ultimo elemento si scambia di posto col primo </dd>
+</dl>	 
+</p>
+
+<div id="boxMisura">box normale di blocco di larghezza width: 700px (uguale a tutti i successivi flex container) </div> 
+
+<div id="box6">
+	<div>box 1 </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 </div> 
+</div> 
+<span>
+Nell'esempio di sopra ( <b>flex-flow: row  nowrap</b> ) gli elementi figli del flex container hanno una width: 200px.   in questo caso succede che la loro <em>width</em> si ridimensiona per far in modo che tutti e quattro rientrano nella dimensione massima del genitore che di 700px. <br />
+Nell'esempio di sotto invece ( <b>flex-flow: row  wrap</b> )  l'ultimo elemento si sistema a capo perchè la larghezza del genitore è di 700px (mentre la loro totale è 800); come accadrebbe in un normale modello di blocco con proprietà <em>flow:left</em>
+</span>
+
+<div id="box7">
+	<div>box 1 </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 </div> 
+</div> 
+<span>
+Nell'esempio seguente  <b>flex-flow: row  wrap-reverse</b> ) succede come nel caso di <em>wrap</em> con la differenza che l'ultimo elemento prende il posto del primo
+</span>
+<div id="box8">
+	<div>box 1 </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 </div> 
+</div> 
+
+<p>
+I seguenti sono due esempi con <em>column</em> abbinato rispettivamente a <em>wrap</em> e <em>nowrap</em>. Qui il discorso è fatto sull'altezza del genitore che è di 350px mentre quella di ogni elemento figlio è di 100px (totale 400)
+</p>
+
+<div id="box9">
+	<div>flex-flow: column wrap </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 </div> 
+</div> 
+
+<div id="box10"> 
+	<div>	flex-flow: column nowrap </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 </div> 
+</div> 
+
+
+<h3> Flex Lines</h3>
+
+<p>
+Il flex container, come visto sopra, può essere creato in una sola linea o più linee a seconda dell'impostazione <em>nowrap</em> o <em>wrap</em>. Con impostato <em>wrap</em> si ha la multilinea. <br />
+Nell'esempio di sopra con <b>( flex-flow: row wrap )</b> si ha che il quarto elemento del flex container si vada a posizionare in una seconda linea perchè la larghezza totale degli elementi è superiore a quella del loro genitore. La larghezza (<em>width</em>) degli elementi non viene influenzata. 
+</p>
+
+<div id="flexSolito">
+	<div class='itemi'>1</div>
+	<div class='itemi'>2</div>
+	<div class='itemi'>3</div>
+	<div class='itemi'>4</div>
+</div>
+
+<p>
+Se invece a <b>tutti gli elementi del flex container</b> gli impostiamo <span class="nota"><b> flex: auto</b></span> abbiamo il seguente risultato:  
+</p>
+<div class="flex">
+	<div class='item'>1</div>
+	<div class='item'>2</div>
+	<div class='item'>3</div>
+	<div class='item'>4</div>
+</div>
+
+<p>Oppure con 5 elementi</p>
+
+<div class="flex">
+	<div class='item'>1</div>
+	<div class='item'>2</div>
+	<div class='item'>3</div>
+	<div class='item'>4</div>
+	<div class='item'>5</div>
+</div>
+<p>con 6 elementi </p>
+<div class="flex">
+	<div class='item'>1</div>
+	<div class='item'>2</div>
+	<div class='item'>3</div>
+	<div class='item'>4</div>
+	<div class='item'>5</div>
+	<div class='item'>6</div>
+</div>
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+</body>
+</html>

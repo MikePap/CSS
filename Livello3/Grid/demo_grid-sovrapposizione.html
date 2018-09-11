@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Sovrapposizione di elementi grid </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+.grid-container {
+  display: grid;  border: 1px solid; 
+  grid-template-columns: 150px 150px;
+  grid-template-rows: 150px 150px;
+}
+
+.grid-container > div{
+  border: 1px solid;
+}
+
+.grid__item {
+  max-width: 150px;
+}
+
+.a {
+  background-color: lime;
+  grid-row: 1 / span 2;
+  grid-column: 1 /span 2;
+  align-self: start;
+/*  justify-self: start;        questa è inutile perchè per default è start     */
+
+}
+
+.b {
+  background-color: skyblue;
+  grid-row: 1 / span 2;
+  grid-column: 1 /span 2;
+  justify-self: center;
+  align-self: center;
+
+}
+
+.c {
+  background-color: orange;
+  grid-row: 1 / span 2;
+  grid-column: 1 /span 2;
+  justify-self: end;
+  align-self: end;
+  
+}
+
+.box{
+width: 100px; height: 50px; border: 1px dotted; margin: 25px;  
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h1>Sovrapposizione di elementi grid</h1>
+
+<div class="grid-container">
+  <div class="grid__item a"><div class="box"></div>Here is some text. Text is inline.</div>
+  <div class="grid__item b"><div class="box"></div>Here is some text. Text is inline.</div>
+  <div class="grid__item c"><div class="box"></div>Here is some text. Text is inline.</div>
+</div>
+
+
+<div class="link-home">
+    <a href="Grid_layout.html#grid-sovrapposizione">Home Grid</a>
+</div>
+
+
+
+</body>
+</html>

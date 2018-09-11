@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>misure em</title>
+<style type="text/css">
+html,body,div,p,h1,h2,h3,h4,h5,input,textarea,select,span,ul,li,a,table,tr,th,td{margin:0;padding:0;}
+
+body{font-family: arial,sans-serif;font-size:62.5%; } 
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); padding:1em;} 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+pre{color:rgb(50,150,50); margin-left:10px; background:#e5e5e5; }
+
+p{
+padding: 0.3em 1em; 
+}
+
+#container{ width:65.8em;  background: #CCCCCC; margin:0 auto; text-align:left;}
+#box1{
+background: #00FF00; 
+}
+#box2{ 
+background:#ff0; padding:1em; font-size:1em;
+}
+#box3{ 
+background:#add8e6; padding:1em;  font-size:1em;
+}
+
+
+
+
+
+
+p.classe{ color:#000000; font-size:18px; margin:0;padding-top:1em; padding-bottom:1em; text-align: center;}
+
+.nota{
+color:red; 
+}
+.verde{
+color:green; 
+}
+
+.px{
+font-size:10px;
+}
+
+.em{
+font-size:1em;
+}
+
+.rem{
+font-size:1rem;
+}
+
+.def{
+font-size:100%;
+}
+
+.def2{
+font-size:16px;
+}
+
+.meglio{
+font-size:15px; font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+			<h1>em</h1>
+
+<p>
+<span class="nota">A quanti pixel corrispondono gli em?</span><span class="verde"> Dipende dalla dimensione di base del font.</span><br /> 
+<b>Un em corrisponde a 16px se si è impostato un font del 100%</b> a livello dei selettori html e body. Pertanto, una larghezza massima di 62.5em è uguale in pixel a 62.5x16, quindi 1000px. <br />
+Per un body con un font-size del 76% significa avere 1 em uguale a 12.16px. In altre parole se facciamo il 76% di 16 abbiamo 12.16
+</p>
+
+<div id="box1"><p class="classe">60 em corrispondono a 730px <br /> 1em => 12.166666 px <br />1px => 0.0821 em  </p></div>
+
+<br />
+
+<p>
+Una tecnica utile è quella di impostare il font-size del &lt;body&gt; al 62.5% in modo da avere che <b>1px corrisponda ad 1em</b> (come fatto in questo documento).
+</p>	
+
+<pre class="meglio">  
+16(px) : 100 = 1(em) : 76(%)		<span class="nota">--> 1em = 12.16px  </span>
+
+16 : 100 = 1 : 62.5			<span class="nota">--> 1em = 10px  </span>
+
+16 : 100 = 1 : 100			<span class="nota">--> 1em = 16px (un body con font al 100% corrisponde a 16px)</span>
+</pre>
+
+
+
+
+
+
+<div id="box2">
+
+Il font-size di questo box è impostato a 1em e quindi a 62.5% (ereditato dal body) 
+
+	<p class="px">paragrafo con font impostato ad 10px </p>
+	<p class="em">paragrafo con font impostato ad 1em </p>
+Come si può vedere i 3 font hanno la stessa dimensione 
+</div> 
+
+		<h1>rem</h1>
+
+<div id="box3">
+<p class="em">paragrafo con font impostato ad 1em. Il &lt;body&gt; è impostato a 62.5% </p>
+<p class="def">paragrafo con font impostato con percentuale al 100%. Uguale al precedente </p>
+<p class="rem">paragrafo con font impostato ad  1rem. Non subisce la riduzione fatta al &lt;body&gt; e quindi è come se fosse di 16px    </p>
+<p class="def2">paragrafo con font impostato ad 16px (uguale al precedente)  </p>
+
+</div> 
+
+<p class="">Il rem è supportato in tutti i browsers. Per IE dalla 9</p>
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

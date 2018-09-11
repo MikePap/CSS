@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>menu particolare </title>
+<style type="text/css">
+
+/*@import url(http://fonts.googleapis.com/css?family=Lato);*/
+
+body {
+font-family:'lato'; background-color:#E2E2E2; 
+}
+div.wrapper {
+height:100%; width:100%; padding-top: 15%; padding-left: 30%; border:1px solid; 
+}
+div.circle, .hold{
+-webkit-transition: transform 2s; 
+transition: transform 2s;
+} 
+.hold{
+position:absolute; width:300px; height:300px; clip:rect(0px,200px,200px,100px); 
+}
+.menu {
+position:absolute; width:300px; height:300px; clip:rect(0px,100px,200px,0px); border-radius:150px; 
+}
+.menu.fill {
+transform:rotate(180deg) !important; -webkit-transform: rotate(180deg) !important; 
+}
+#home {
+transform:rotate(0deg);
+-webkit-transform:rotate(0deg);
+}
+#home .menu {
+background-color:#255D74; transform:rotate(60deg); -webkit-transform:rotate(60deg);
+}
+#about {
+transform:rotate(60deg); -webkit-transform:rotate(60deg);
+}
+#about .menu {
+background-color:#DA353B; transform:rotate(60deg); -webkit-transform:rotate(60deg); 
+}
+#contact {
+transform:rotate(120deg); -webkit-transform:rotate(120deg); 
+}
+#contact .menu {
+background-color:#F89F44; transform:rotate(60deg); -webkit-transform:rotate(60deg);
+}
+#links {
+transform:rotate(180deg); -webkit-transform:rotate(180deg);
+}
+#links .menu {
+background-color:#78302C; transform:rotate(60deg); -webkit-transform:rotate(60deg);
+}
+#bio {
+transform:rotate(240deg); -webkit-transform:rotate(240deg); 
+}
+#bio .menu {
+background-color:#002B55; transform:rotate(60deg); -webkit-transform:rotate(60deg);  
+}
+#store {
+transform:rotate(300deg); -webkit-transform:rotate(300deg); 
+}
+#store .menu {
+background-color:#207C6B; transform:rotate(60deg); -webkit-transform:rotate(60deg); 
+}
+a{
+color: #FFF;
+left: 122px; position: absolute; top: 10px; font-size:24px;
+}
+a.contact {
+left:110px
+}
+a.bio {
+left:130px
+}
+a.store {
+left:125px;
+}
+.menu:hover, a:hover {
+cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="circle">
+
+		<div id="home" class="hold">
+			<div class="menu"></div>
+			<a class="home">home</a>
+		</div><!--home-->
+
+		<div id="about" class="hold">  
+			<div class="menu"></div>
+			<a class="about">about</a>
+		</div><!--about-->
+		<div id="contact" class="hold">
+			<div class="menu"></div>
+			<a class="contact">contact</a>
+		</div><!--contact-->
+		
+		<div id="links" class="hold">
+			<div class="menu"></div>
+			<a class="links">links</a>
+		</div><!--links-->
+		
+		<div id="bio" class="hold">
+			<div class="menu"></div>
+			<a class="bio">bio</a>
+		</div><!--bio-->
+		
+		<div id="store" class="hold">
+			<div class="menu"></div>
+			<a class="store">store</a>
+		</div><!--store-->
+
+	<div><!--circle-->
+
+<div><!--wrapper-->
+
+<!--
+		
+
+
+
+-->
+
+
+
+
+</body>
+</html>

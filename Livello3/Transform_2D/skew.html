@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>skew</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+
+
+div{
+margin:100px 0 50px 200px;
+width:200px;
+height:75px;
+background-color:red;
+border:1px solid black;
+}
+
+/* NON SERVONO PIU' PER OPERA E FIREFOX E IE10
+-moz-transform:skewX(30deg); 
+-o-transform:skewX(30deg); 
+*/
+
+
+#div1{
+-moz-transition:500ms ease-in;		/* Firefox 4 */
+-webkit-transition:500ms ease-in;		/* Safari and Chrome */
+/* notare che qui sta indicato il metodo 'transition' per cui avrà effetto sia nel mouseover che nel mouseout a differenza del #div2 che sta indicato solo nell'hover */
+}
+#div1:hover{
+transform:skewX(30deg);
+-webkit-transform:skewX(30deg);		/* Safari and Chrome */
+-ms-transform:skewX(30deg);			/* IE 9*/
+}
+
+div#div2:hover{
+transform:skewX(-30deg);
+-webkit-transform:skewX(-30deg);		/* Safari and Chrome */
+-ms-transform:skewX(-30deg);			/* IE 9*/
+-moz-transition:300ms ease-in;		/* Firefox 4 */
+-webkit-transition:300ms ease-in;		/* Safari and Chrome */
+/* da notare che qui sta indicato il metodo 'transition'  per cui l'effettosi produrrà solo nel mouseover e non nel mouseout a  differenza del '#div' */
+}
+
+div#div3{
+transform:skewY(30deg);
+-webkit-transform:skewY(30deg);		/* Safari e Chrome */
+-ms-transform:skewY(30deg);			/* IE 9 */
+}
+
+div#div4:hover{
+transform:skew(20deg,20deg);
+-webkit-transform:skew(20deg,20deg);		/* Safari e Chrome */
+-ms-transform:skew(20deg,20deg);			/* IE 9*/
+-moz-transition:300ms ease-in;		/* Firefox 4 */
+-webkit-transition:300ms ease-in;		/* Safari and Chrome */
+}
+
+div#div5:hover{
+transform:skewX(20deg);
+-moz-transition:500ms ease-in;		/* Safari and Chrome */
+-moz-transform-origin:200%;			/* Firefox */
+}
+
+
+#p1{
+position:absolute; top:20px; right:200px; width:200px; height:100px; background:#00F; z-index:2;
+}
+#p1:hover{
+background:transparent;
+right:169px;
+border-style: solid;	/* da notare che l'altezza non è dichiarata'	*/ 
+border-color: #00F transparent;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 0px 31px 69px;		/* top:0 i bordi laterali sono entrambi di 28px ma 'transparent' e bottom:80px   */ 
+-moz-transition:200ms ease-in;		/* Firefox */
+}
+
+#p11{
+position:absolute; top:20px; right:200px; width:200px; height:100px; background:#0F0; z-index:1;
+}
+
+
+#p2{
+position:absolute; top:250px; right:200px; width:150px; height:100px; background:purple; z-index:2;
+}
+#p2:hover{
+background:transparent;
+right:80px;			/* 80 => 200-120	(la width - il valore del bordo destro)*/
+top:219px;			/* 219 => 250-31	*/
+border-style: solid;	/* da notare che l'altezza non è dichiarata'	*/ 
+border-color: transparent purple;	/* significa che il colore dei bordi sono 'gray' x top e bottom e 'transparent' x right e left */
+border-width: 31px 120px 31px 0;		/* top:0 i bordi laterali sono entrambi di 28px ma 'transparent' e bottom:80px   */ 
+-moz-transition:200ms ease-in;		/* Firefox */
+}
+
+#p22{
+position:absolute; top:250px; right:200px; width:150px; height:100px; background:#0F0; z-index:1;
+}
+
+
+
+
+</style>
+<script type="text/javascript" src="../../../../jQuery/jquery-1.7.1.min.js"> </script>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Transform_2D/skew.html -->
+<body>
+
+<h1>skew</h1>
+<p class="nota">Parametro che permette di modificare l'angolazione dell'elemento</p>
+
+
+
+<dl>
+	<dt>E' possibile modificare anche solo una delle due angolazioni con i metodi:</dt>
+		<dd>skewX(angolo)</dd>
+        <dd>skewY(angolo)</dd>
+</dl>
+
+
+<div id="div1">div 1 <br /> da normale <br /> a skewX(30deg)  </div>
+
+<div id="div2">div 2 <br />da normale <br /> a skewX(-30deg)  </div>
+
+<div id="div3">div3 (cliccami)<br /> da skewY(30deg) <br /> a skewY(-30deg) </div>
+
+<div id="div4">div 4 <br /> da normale a <br />skew (20deg,20deg)</div>
+
+<div id="div5">div 5 <br /> da normale a <br /></div>
+
+
+<p id="p1"></p>
+<p id="p11">hello</p>
+
+
+<p id="p2"></p>
+<p id="p22">hello</p>
+
+
+
+
+<script  type="text/javascript">
+
+var div3 = document.getElementById('div3');
+div3.addEventListener('click', 
+function(){
+	var poss = window.getComputedStyle(this).transform;		
+//	var pos = document.defaultView.getComputedStyle(this, null)['transform'];				// uguale al precedente
+//	la restituzione del valore di 'transform' è dato in 'matrix'. Il problema è che ogni browser da un matrix differente 
+alert(poss[5]);
+ 
+	if(pos == "matrix(1, 0.57735, 0, 1, 0, 0)"){					// questo matrix viene da firefox 
+		this.style.transform = "skewY(-30deg)";
+		this.transition = "1s ease-in";
+	}else{
+		this.style.transform = "skewY(30deg)";
+		this.transition = "1s ease-in";
+	}
+
+}, false);
+
+/*
+jQuery(document).ready(function(){
+
+/*
+$("#div3").click(function(){
+$(this).css({"transform":"skewY(-30deg)", "transition":"1s ease-in"  });
+});
+*/
+/*
+$("#div3").toggle(
+function () {
+$(this).css({"transform":"skewY(-30deg)", "transition":"200ms ease-in"  });
+},
+function () {
+$(this).css({"transform":"skewY(30deg)", "transition":"200ms ease-in"  });
+}
+); // toggle 
+
+}); // chiude ready
+*/ 
+</script>
+
+
+
+
+
+<br />
+<br />
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>clip path  </title>
+<meta name="viewport" content="width=device-width">
+<link type="text/css" rel="stylesheet" href="../../baseLocali.css" />
+
+
+<style type="text/css">
+
+.img1{
+height: 336px;
+width: 1024px;
+-webkit-clip-path: polygon(10px 10px, 900px 20px, 800px 300px, 50px 260px);
+clip-path: polygon(10px 10px, 900px 20px, 800px 300px, 50px 260px);
+}
+
+.img2{
+height: 336px;
+width: 1024px;
+-webkit-clip-path: url(#svgPath2) ;
+clip-path: url(#svgPath2);
+}
+
+
+.esagono{
+height: 336px;
+width: 1024px;
+-webkit-clip-path: url(#clip-svg-demo);
+clip-path: url(#clip-svg-demo);
+}
+
+
+
+.img3{
+height: 336px;
+width: 1024px;
+-webkit-clip-path: url(#svgPath3);
+clip-path: url(#svgPath3);
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>clip-path</h1>
+
+<p>
+Il clipping (o ritaglio) è l’operazione che permette di visualizzare una precisa porzione di un elemento di una pagina web, nascondendo la parte esterna all’area individuata. Può essere effettuata su qualsiasi elemento HTML, e su qualsiasi elemento grafico o container SVG. <br />
+La proprietà clip-path è definita nell’ambito del CSS Masking Module Level 1. Il valore che questa può assumere potrà essere il riferimento ad un elemento SVG &lt;clipPath&gt; , o una delle quattro forme base CSS (CSS shapes). <br />
+La soluzione delle forme base non richiede il ricorso ad elementi SVG, ma la semplice definizione di un tracciato definito dalle funzioni <span class="nota">circle(), ellipse(), inset() </span>(rettangoli) e  <span class="nota">polygon(). </span> <br />
+Al momento, nessuno dei maggiori browser fornisce supporto completo alle CSS shapes, sebbene la nuova funzionalità sia già parzialmente <span class="nota"> supportata da Chrome.</span>
+</p>
+
+
+<img class="img1" src="../../grafic/riviera.jpg" alt="riviera" />
+
+
+<h2>SVG clipPath</h2>
+
+<p>
+In alternativa alle forme base, il valore di clip-path può essere costituito da un riferimento ad un elemento SVG &lt;clipPath&gt;. <br />
+Viene inserita un’immagine nel documento con relativo settaggio degli stili CSS; la proprietà <q>clip-path</q> viene collegata ad un elemento SVG  tramite il suo attributo <em>id</em>. Infine si colloca l'elemento SVG nel &lt;body&gt; con relativa impostazione di una forma che determinerà la maschera sull'immagine    <br />
+</p>
+
+<img class="img2" src="../../grafic/riviera.jpg" alt="riviera" />
+
+<svg width="0" height="0">
+	<defs>
+		<clipPath id="svgPath2" clipPathUnits="userSpaceOnUse">
+			<circle cx="100" cy="140" r="80" stroke="#000000"  />
+			<circle cx="180" cy="60" r="30" stroke="#000000"  />
+			<circle cx="280" cy="130" r="90" stroke="#000000"  />
+			<circle cx="420" cy="220" r="60" stroke="#000000"  />
+			<circle cx="600" cy="180" r="150" stroke="#000000"  />
+			<circle cx="880" cy="120" r="100" stroke="#000000"  />
+		</clipPath>
+	</defs>
+</svg>
+
+<p>
+C'è un problema con l'attributo <span class="nota">clipPathUnits</span>. Dovrebbe essere valido il valore <span class="nota">userSpaceOnUse</span>, che è il valore di default; in Firefox va bene mentre Chrome non lo accetta
+</p>
+
+<p>
+Nell'esempio seguente, di un poligono esagonale, ho assegnato all'attributo <span class="nota">clipPathUnits</span> il valore di <span class="nota">objectBoundingBox</span> utilizzando i valori decimali; in questo modo va bene in Chrome ed anche in Firefox 
+
+</p>
+
+<img class="esagono" src="../../grafic/riviera.jpg" alt="riviera" />
+
+<svg width="0" height="0">
+	<defs>
+		<clipPath id="clip-svg-demo" clipPathUnits="objectBoundingBox">
+			<polygon points="0.25 0, 0.75 0, 1 0.5, 0.75 1, 0.25 1, 0 0.5" />
+		</clipPath>
+	</defs>   
+</svg>
+
+
+
+
+<h3>Applicazione di clip-path al testo</h3>
+
+<p>
+La specifica colloca l’elemento <b>&lt;text&gt;</b> tra gli elementi grafici SVG. Come tale, questo può essere utilizzato per generare un’area di clipping su un qualsiasi elemento visualizzato come blocco. La logica è esattamente la stessa degli esempi precedenti  <br />
+<span class="nota"> E' supportato solo da Firefox </span>
+
+</p>
+
+
+<img class="img3" src="../../grafic/riviera.jpg" />
+
+<svg height="0" width="0">
+	<defs>
+		<clipPath id="svgPath3">
+			<text
+				x="100"
+				y="240"
+				textLength="824"
+				lengthAdjust="spacing"
+				font-family="Helvetica"
+				font-size="240px"
+				font-weight="bold">
+				Nisyros
+			</text>
+		</clipPath>
+	</defs>
+</svg>
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>

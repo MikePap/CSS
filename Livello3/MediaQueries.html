@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Media Queries </title>
+<style type="text/css">
+html,body,h1,h2,h3,p,dl,dt,dd,pre,ul, embed{ margin:0; padding:0; }
+h1{ color: #00F; font-size:31px; margin-left:100px; padding:10px; }
+h2{color:rgb(50,150,100); font-size:25px; margin-left:50px; padding:10px; }
+h3{ color:rgb(200,0,100); font-size:20px; margin-left:31px; padding:10px;}
+p{ padding:5px; }
+dl{margin-left:20px;}
+dt{ color:#039; margin-bottom:5px;}
+dd{ color:#06F; margin-left:10px; }
+li{margin-left:31px;}
+.nota{ color:#F66;}
+.codice{ color:#060}
+pre{color:rgb(50,150,50); margin-left:5px; padding:5px; width:90%; background:rgb(230,230,230);  border:1px solid #CCC; }
+
+</style>
+</head>
+<body>
+
+<h1>Media Queries</h1>
+<p> <a href="http://www.w3.org/TR/2012/REC-css3-mediaqueries-20120619/">Media Queries dal w3C</a> &nbsp; &nbsp; &nbsp; &nbsp;
+<a href="http://www.html.it/tag/responsive-design/">Responsive Design dal sito HTML.it</a>
+</p>
+<p class="nota">Una media query consiste nella dichiarazione di un tipo di media e di zero o più espressioni che verifichino le condizioni di validità o non validità delle caratteristiche di un certo media. <br />
+</p>
+<p>
+Nell'esempio seguente in cui con l'elemento <q>link</q> colleghiamo un foglio di stile al documento viene definito l'attributo <b>media</b>: 
+<pre>
+&lt;link rel="stylesheet" media="screen and (color)" href="colore.css" /&gt; 
+</pre>
+<p>
+Tale attributo indica che il foglio di stile sarà rivolto al media <q>screen</q> che rappresenta lo 'schermo del computer' ed inoltre con il metodo <q>and</q> è stata aggiunta una seconda espressione <q>color</q> che vuole indicare il colore relativo al pc. In definitiva la media query indica che il foglio di stile sarà valido soltanto per uno schermo di computer a colori.
+</p>
+
+<h2>Tipi di media</h2>
+<dl>
+	<dt>Una media query prevede una lista di tipi di media cosi come definiti in HTML4:</dt>
+	<dd><b>all</b>: applica il CSS a tutti i tipi di dispositivi di visualizzazione. Viene assunta se non è dichiarato nessun tipo  </dd>
+	<dd><b>screen</b>: schermo di computer</dd>
+	<dd><b>print</b>: pagina stampata </dd>
+	<dd><b>projection</b>: presentazioni e proiezioni</dd>
+	<dd><b>speech</b>: dispositivi a sintesi vocale</dd>
+	<dd><b>braille</b>: supporti basati sull’uso del braille</dd>
+	<dd><b>embossed</b>: stampanti braille</dd>
+	<dd><b>handheld</b>: dispositivi mobili con schermo piccolo e in genere dotati di browser con limitate capacità grafiche</dd>
+	<dd><b>tty</b>: dispositivi a carattere fisso come i terminali</dd>
+	<dd><b>tv</b>: visualizzazione su schermi televisivi.</dd>
+</dl>	
+
+<h3>Operatori logici</h3>
+<p class="nota">
+Sempre stando alla specifica, una media query è un’espressione logica che può essere vera o falsa. È vera se soddisfa tutte le condizioni espresse nelle query.
+Per costruire query complesse si può fare ricorso a operatori logici come <b>and - not - only</b>  
+</p>
+Nell'esempio seguente il CSS sarà valido solo per schermi di computer che <b>non</b> siano a colori 
+<pre>
+media="screen and (not color)"
+</pre>
+Nell'esempio seguente il CSS sarà valido solo per gli schermi a colori; lo scopo è quello di non considerare i vecchi browser
+<pre>
+media="only screen and (color)"
+</pre>
+Più media query possono essere raggruppate in una lista separandole con una virgola:
+<pre>
+media="screen and (color), projection and (color)"
+</pre>
+<span class="nota">Attenzione: se una o più delle media queries della lista sono vere allora è 'true' l'intera lista altrimenti è 'false'  </span>
+
+<h3>Come e dove dichiarare una media query</h3>
+
+<p>
+Ci sono tre modi per dichiarare una media query. <br />
+Il primo è (vedi sopra) quella di inserire la media query all'interno dell'elemento <q>link</q>. 
+</p>
+<p>L'altro metodo è quello di inserirla all'interno di un foglio di stile:
+<pre>
+@media screen and (color) {
+/* qui vanno le regole CSS */
+}
+</pre>  
+</p>
+<p>
+Infine, si può importare un CSS specifico attraverso una media query usando la direttiva <b>@import</b> all’interno di un altro foglio di stile: 
+<pre>
+@import url(colore.css) screen and (color);
+</pre>
+</p>
+
+<h2>Caratteristiche dei media</h2>
+<p class="nota">Le media queries hanno delle caratteristiche che sono importanti per poter sfruttare le sue potenzialità: <br />
+<q>width</q>, <q>height</q>, <q>device-width</q>, <q>device-height</q>, <q>device-aspect-ratio</q>,  <q>color</q>, <q>color-index</q>, <q>monochrome</q>, <q>resolution</q>, <q>orientation</q>, <q>aspect-ratio</q>, <q>scan</q>, <q>grid</q>
+</p>
+
+<h3>width</h3>
+<p>La <q>width</q> designa la larghezza dell’area di visualizzazione del documento. Su un normale browser web essa è rappresentata dal viewport (* vedi 2° esempio) e non ha nulla a che vedere con le dimensioni dello schermo del dispositivo. <br />
+I valori di width possono essere espressi con qualunque unità di misura.
+</p>
+<pre>
+@media screen and (width: 400px) {
+/* regole CSS */
+}
+</pre>
+<p>
+può essere preceduta dai prefissi <b>min- e max-</b>, ottenendo così <b>min-width</b> e <b>max-width</b>. È proprio così che esplica tutta la sua utilità, specie nella realizzazione di layout. <br />
+La seguente espressione, per esempio, applica un certo stile quando le dimensioni sono comprese tra 400px e 1024px:
+<pre>
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+/* regole CSS */
+}
+</pre>
+<span class="nota">
+* Per capire il discorso del <q>Viewport</q> in base all'applicazione della definizione fatta sopra è opportuno restringere la dimensione della larghezza della finestra (col mouse) per vedere la differenza che la regola produce. Differente è il discorso con la caratteristica <q>Device-width</q> (vedi sotto). 
+</span>
+
+</p>
+
+<h3>height</h3>
+
+<p>
+<q>height</q> designa l’altezza dell’area di visualizzazione del documento. Come nel caso di width può essere definita con i prefissi <b>min- (min-height) e max- (max-height)</b>.
+</p>
+
+<h3>device-width</h3>
+<p>
+<q>device-width</q> indica la larghezza dell’intera area di rendering di un dispositivo. Su un computer o su un dispositivo mobile si intende la larghezza dell’intero schermo del dispositivo, non semplicemente quindi dell’area di visualizzazione del documento! <br />
+Accetta i prefissi <q>min- (min-device-width) e max- (max-device-width)</q>.
+<pre>
+&lt;link rel="stylesheet" @media screen and (device-width: 800px) href="esempio.css" type="text/css" /&gt; 
+</pre>
+Nell'esempio di sopra il CSS sarà valido solo per pc che visualizzazno una larghezza esatta di 800 px.
+</p>
+
+<h3>device-height</h3>
+<p>Descrive l’altezza dell’intera area di rendering di un dispositivo. Accetta i prefissi min- e max-.
+</p>
+
+<h3>orientation</h3>
+<p>
+Questa caratteristica può avere due valori: <b>portrait</b> quando l'altezza del dispositivo è uguale o maggiore alla larghezza e <b>landscape</b> nel caso contrario. 
+<pre>
+&lt;link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="es1.css" type="text/css" /&gt; 
+&lt;link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="es2.css" type="text/css" /&gt; 
+</pre>
+</p>
+
+<h3>aspect-ratio</h3>
+<p>
+Definisce il rapporto tra la larghezza (width) e l’altezza (height) dell’area di visualizzazione di un documento. Può assumere i prefissi min- e max-. <br />
+I valori si esprimono attraverso due numeri interi separati dal simbolo /: 3/4, 16/9, etc.
+</p>
+
+<h3>device-spect-ratio</h3>
+<p>
+Descrive il rapporto tra la larghezza (device-width) e l’altezza (device-height) dell’area di rendering di un dispositivo. Può assumere i prefissi min- e max-.
+<pre>
+@media screen and (device-aspect-ratio: 16/9) {
+/* regole CSS */
+}
+</pre>
+Nell'esempio di sopra è mostrata una media query con una regola CSS che si applica solo a schermi con un rapporto di 16/9.
+</p>
+
+<h3>color</h3>
+<p>
+Tecnicamente questa caratteristica indica il numero di bit per ciascuna componente colore sul dispositivo di output. color infatti può assumere come valori dei numeri interi, assumendo che 0 designa un dispositivo che non supporta il colore. <br />
+Nella pratica, comunque, salvo che non si abbiano esigenze molto specifiche, si può usare nella sua forma più semplice, andando così a indirizzare i CSS ai dispositivi che supportano il colore:
+<pre>
+@media all and (color) {
+/* regole CSS */
+}
+</pre>
+</p>
+le regola di sopra equivarrebbe alla seguente: 
+<pre>
+@media all and (min-color: 1) { … }
+</pre>
+
+<h3>color-index</h3>
+<p>
+Descrive il numero di colori presenti nella tavolozza supportata da un certo dispositivo. Può assumere i prefissi min- e max-. <br />
+<pre>
+&lt;link rel="stylesheet" media="all and (min-color-index: 256)" href="colore.css" /&gt; 
+</pre>
+Secondo questa media query, il foglio di stile colore.css sarà applicato su dispositivi che supportano come minimo una tavolozza di 256 colori.
+</p>
+
+<h3>monochrome</h3>
+<p>
+Indica il numero di bit per pixel su un dispositivo monocromatico (a scala di grigi). <br />
+I seguenti due esempi sono una dimostrazione di come la regola può essere associata a un dispositivo monocromatico
+<pre>
+@media all and (monochrome) { … }
+@media all and (min-monochrome: 1) { … }
+</pre>
+</p>
+
+<h3>resolution</h3>
+<p>
+Descrive la risoluzione (ovvero la densità di pixel) del dispositivo di output. I valori della risoluzione possono essere espressi in dpi (punti per pollice) oppure in dpcm (punti per centimetro). Può assumere i prefissi min- e max-. <br />
+il seguente esempio indica che il CSS è valido per i dispositivi che hanno una risoluzione minima di 300 punti per pollice
+<pre>
+@media print and (min-resolution: 300dpi) {
+/* regole CSS */
+}
+</pre>
+</p>
+
+<h3>scan</h3>
+<p>
+Si tratta di una caratteristica valida per gli schermi televisivi, quindi per il tipo di media <q>tv</q> . Indica il tipo di scansione, interlacciata o progressiva. I valori possono essere <b>progressive</b>  oppure <b>interlace</b> .
+<pre>
+@media tv and (scan: progressive) { … }
+</pre>
+</p>
+
+<h3>grid</h3>
+<p>
+Indica se il dispositivo è di tipo bitmap oppure ‘a griglia’, come certi terminali monocromatici e gli schermi per cellulari con un solo font.
+</p>
+
+<h2>Tecniche di utilizzo</h2>
+
+<h3>Simulare la pseudoclasse :hover su dispositivi touch</h3>
+<p>
+Nello sviluppo per dispositivi touch screen non sono disponibili alcuni dei tradizionali eventi del mouse, ad esempio non è possibile personalizzare gli stati di un link scatenati dal rollover dell’utente su di esso. Con qualche riga di codice Javascript si può simulare la pseudoclasse <q>:hover</q>, utilizzando una classe apposita nel foglio di stile CSS e gli eventi <b>onTouchStart</b> e <b>onTouchEnd</b>, rispettivamente molto simili ai corrrispondenti <q>onMouseOver e onMouseOut</q> delle interfacce tradizionali.
+<pre>
+/* Javascript */
+$('a').bind('touchstart', function(event){
+    $(this).addClass('hover');
+}).bind('touchend', function(event){
+    $(this).removeClass('hover');
+});
+</pre>
+<pre>
+
+/* CSS */  
+nav li a:hover, 
+nav li a:focus,
+nav li a:active,
+nav li a.hover { 
+/* stili personalizzati */ 
+}
+</pre>
+</p>
+
+<h3>Nascondere la barra del browser</h3>
+<p>
+Su un piccolo schermo come quello di un iPhone, la barra degli indirizzi di Safari Mobile occupa un’altezza di circa 60px, uno spazio verticale recuperabile altrimenti sottratto ai contenuti. Quindi, applicando il seguente codice Javascript, quando un visitatore apre la pagina del sito è possibile nascondere la toolbar di default:
+<pre>
+hideUrlBar = function () {
+    !pageYOffset && !location.hash && setTimeout(function () {
+        window.scrollTo(0, 1);
+    }, 1000);
+};
+ 
+$(document).ready(function() {
+    var deviceAgent = navigator.userAgent.toLowerCase();
+    var iOSdevice = deviceAgent.match(/(iphone|ipod)/);
+    if (iOSdevice) {
+        hideUrlBar();
+    }
+});
+</pre>
+</p>
+
+<h3>slideshow e gallery</h3>
+<p>
+Implementare uno slideshow di immagini in un layout dinamico comporta che esso sia in grado di adattarsi all’ambiente in cui viene visualizzato e in cui deve interagire. <br />
+Ci sono alcuni plugin per l'occasione: 
+<dl>
+	<dt><a href="http://www.woothemes.com/flexslider/">Flexslider</a>    </dt>
+	<dt><a href="http://www.photoswipe.com/">Photoswipe</a> </dt>
+	<dt><a href="http://neteye.github.com/touch-gallery.html">neteye touch-gallery</a>  </dt>
+</dl>	
+</p>
+
+<h3>Inizializzazione di una chiamata da un numero</h3>
+
+<p>
+Molti browser per il mobile sono in grado di riconoscere automaticamente i numeri di telefono. Quindi se presenti, come semplice testo, cliccandoci sopra si apre un alert che ci chiede se procedere con la chiamata. Ma non sapendo se tutti i browser supportano tale meccanismo è meglio mettersi al sicuro con questa soluzione: 
+<pre>
+
+&lt;a href="tel:+3906123456789"&gt;+3906123456789&lt;/a&gt; 
+</pre>
+
+</p>
+<p>
+Il testo è racchiuso in un elemento &lt;a&gt;  che usa lo schema di URI tel: (un po’ come lo schema mailto: per gli indirizzi di posta elettronica). La sintassi è <b> tel:numero_di_telefono.</b> <br />
+Il vantaggio principale di questa soluzione è che potremmo sostituire il testo del numero di telefono con qualsiasi cosa, anche con un pulsante <q>Chiamami</q>  per fare un semplice esempio:
+<pre>
+&lt;a href="tel:+3906123456789"&gt; Chiamami &lt;/a&gt;  
+</pre>
+</p>
+
+<h3>Geolocalizzazione</h3>
+<p>
+Il discorso della <q>geolocalizzazione</q> sul mobile permette di offrire all'utente diverse soluzioni interessanti. Una soluzione accattivante è quella di offrire all'utente una lista di luoghi di interesse in base alla sua posizione. Il seguente script offre 5 voci di Wikipedia relative a 5 luoghi di interesse che si trovano nel raggio di 10km sfruttando prima di tutto la <b>Geolocation API</b> di HTML5 per individuare le coordinate di posizione dell’utente e successivamente le API <b>Wikipedia di Geonames</b> per ricavare i luoghi: 
+<pre>
+var output = document.getElementById('luoghi');
+if (document.documentElement.clientWidth < 768) {
+window.onload = function() {
+navigator.geolocation.getCurrentPosition( 
+  function(o) {
+    if( o.coords && o.coords.latitude && o.coords.longitude ) {
+      var s = document.createElement('script');
+      s.src = 'http://api.geonames.org/findNearbyWikipediaJSON?lat='+
+      o.coords.latitude + '&lng=' + o.coords.longitude + 
+      '&radius=10&maxRows=5&username=codepo8&callback=wiki&lang=it';
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  },
+ 
+  function(error){
+    var errors = [ 'none', 'permission denied', 'position unavailable', 
+    'timeout' ];
+    output.innerHTML = '<li>Errore: ' + errors[ error.code ] + '</li>';
+  },
+ 
+  {enableHighAccuracy: true, timeout: 27000} 
+  );
+  return false;
+  }
+  };
+ 
+  function wiki( o ) {
+    if( o.status ) {
+    out = '<li>Problemi con Wikipedia</li>';
+  } 
+ 
+  if(o.geonames && o.geonames.length > 0) {
+    out = '';
+    for(var i=0;i<o.geonames.length;i++){
+    var now = o.geonames[i];
+    out += '<li>'+
+    '<a href="http://' + now.wikipediaUrl + '">' + now.title+ '</a>'+
+    '</li>';
+  }
+  } else {
+    out += '<li>Non ho trovato niente<//li>';
+  }
+ 
+  output.innerHTML = out;
+}
+</pre>
+
+</p>
+<p>
+Con il seguente markup HTML: 
+<pre>
+
+&lt;div id="around"&gt; 
+&lt;h2&gt; Around you &lt;/h2&gt;  
+&lt;ul id="luoghi"&gt; 
+&lt;/ul&gt; 
+&lt;/div&gt; 
+
+</pre>
+
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br />
+
+
+
+</body>
+</html>

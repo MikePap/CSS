@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>even_odd</title>
+<style type="text/css">
+h1{ font-size:24px; margin: 50px 200px; background: #00FF99; }
+h3{ font-size:16px; color:purple; }
+
+.codice{ color:#060;}
+.nota{ color:#F60;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+
+table tr td:nth-child(odd){ background:#CCC; color: #990000;;}
+
+div p:nth-child(even){ color:red;}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/pseudo classi/even_odd.html  -->
+<body>
+
+<h1>even_odd</h1>
+
+<p class="nota">
+Le parole chiavi "even" e "odd" identificano rispettivamente gli indici pari e dispari dell'elemento specificato. <br />
+Qui vale lo stesso discorso fatto in "nth-child_01.html" a riguardo dell'indice all'interno del genitore. Se i "p" non fossero racchiusi all'interno del div allora sarebbe considerato come genitore la "root" (document.body) 
+</p>
+<p class="codice">Funziona in tutti i browser tranne IE &lt; 9  </p>
+
+
+
+<table border="1">
+		<tr>
+        	<td>uno</td>
+            <td>due</td>
+            <td>tre</td>
+            <td>quatro</td>
+            <td>cinque</td>
+            <td>sei</td>
+         </tr>
+         <tr>
+         	<td>primo</td>
+            <td>secondo</td>
+            <td>terzo</td>
+            <td>quarto</td>
+            <td>quinto</td>
+            <td>sesto</td>
+</table>
+
+<div>
+<p>par 1</p>
+<p>par 2</p>
+<p>par 3</p>
+<p>par 4</p>
+<p>par 5</p>
+<p>par 6</p>
+</div>
+
+
+
+
+
+
+</body>
+</html>

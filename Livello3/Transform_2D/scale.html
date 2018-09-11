@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>scale</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+div{
+width:200px;
+height:75px;
+margin:50px;
+background-color:red;
+border:1px solid black;
+}
+
+#div1:hover{
+margin:100px;			/* serve altrimenti se ne va per i cazzi suoi 	*/
+transform:scale(2,2);					/* raddoppio di entrambe le dimensioni */
+-webkit-transform:scale(2,4);			/* Safari and Chrome */
+-ms-transform:scale(2,4);				/*IE 9 */
+-moz-transition:500ms ease-in;		/* Firefox */
+-webkit-transition:500ms ease-in;		/* Safari and Chrome */
+}
+
+#div2:hover{
+transform:scaleY(2);				/* raddoppio di altezza */
+-webkit-transform:scaleY(2);			/* Safari and Chrome */
+-ms-transform:scaleY(2);			/*IE 9 */
+-moz-transition:500ms ease-in;		/* Firefox */
+-webkit-transition:500ms ease-in;		/* Safari and Chrome */
+}
+
+
+#div3:hover{
+transform:scaleX(0.5);				/* dimezzamento larghezza */
+-webkit-transform:scaleX(0.5);		/* Safari and Chrome */
+-ms-transform:scaleX(0.5);			/*IE 9 */
+-moz-transition:500ms ease-in;		/* Firefox */
+-webkit-transition:500ms ease-in;		/* Safari and Chrome */
+-moz-transform-origin:right;			/* Firefox */
+}
+
+
+@keyframes fade-in-right {
+	from {
+		opacity: 0;
+		transform: translateX(-15px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes grow-left {
+	from {
+		transform: scaleX(1);
+	}
+	to {
+		transform: scaleX(2);
+	}
+}
+
+#div4:hover{
+/*transform: scaleX(0);*/
+transform-origin: left;
+animation-delay: 0.5s;			/* animation-delay non va dichiarato prima di "animation"	*/	
+animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+}
+
+
+#div5:hover{
+/*
+opacity: 0;
+animation: fade-in-right ease 0.4s forwards;
+*/
+/*transform: scaleX(0);*/
+transform-origin: left;
+animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s forwards;
+animation-delay: 0.5s;			/* questa è la giusta posizione per dichiarare animation-delay, cioè dopo "animation"	*/
+}
+
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Transform_2D/scale.html -->
+<body>
+
+
+<h1>scale</h1>
+<p class="nota">Proprietà che permette di modificare le dimensioni (larghezza e altezza ) di un elemento</p>
+<p><b>Note:</b> Internet Explorer does not support the transform property.</p>
+
+<dl>
+	<dt>E' possibile modificare anche solo una delle due dimensioni con i metodi:</dt>
+		<dd>scaleX(n)</dd>
+        <dd>scaleY(n)</dd>
+</dl>
+
+
+<div id="div1">div 1 <br /> da normale a <br /> raddoppio dimensioni </div>
+
+<div id="div2">div 2 <br /> da normale a <br /> raddoppio altezza  </div>
+
+<div id="div3">div 3 <br /> da normale a <br /> dimezzo larghezza </div>
+
+<div id="div4">div 4. Da  notare la differenza del ritardo col div successivo </div>
+
+<div id="div5">div 5 <br />Io si che ritardo bene </div>
+
+
+
+
+{"ease":".25,.1,.25,1","linear":"0,0,1,1","ease-in":".42,0,1,1","ease-out":"0,0,.58,1","ease-in-out":".42,0,.58,1"}
+
+
+
+
+</body>
+</html>

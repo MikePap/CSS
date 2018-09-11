@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>element~element</title>
+<style type="text/css">
+h1{ margin: 50px 400px; background: #0C6; }
+
+.codice{ color:#060;}
+.nota{ color:#F60;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+/* h1~ul{background:red;} */
+/* in questo caso essendo l'elemento <h1> il primo elemento del documento farà si che tutti gli elementi <ul> abbiano il background red	*/
+
+h2~ul{background:red;}  
+/* qui invece avranno il background red solo gli elementi <ul> susseguenti all'elemento <h2>	*/
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Selettori/element~element.html  -->
+<body>
+
+
+<h1>element~element</h1>
+
+<p class="nota">Indica ogni elemento preceduto da quello specificato dopo il 'tilde'. <br />
+Il tilde si ottiene => AltGr + ^ in Ubuntu mentre in windows alt + 126 oppure 0126 </p>
+
+<div>A div element.</div>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<p>The first paragraph.</p>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<h2>Another list</h2>
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+
+
+
+</body>
+</html>

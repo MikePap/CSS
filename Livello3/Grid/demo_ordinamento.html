@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Ordinamento elementi grid </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+body { 
+  display: grid;
+  grid: "header header"
+        "nav nav"
+        "content sidebar"
+        "footer footer";
+
+  grid-template-columns: 1fr 25%; 
+}
+
+
+header { 
+  grid-area: header;
+  height: 10vh;
+  background: green;
+}
+nav { 
+  grid-area: nav; 
+  height: 20vh;
+  background: lightblue;
+}
+footer { 
+  grid-area: footer;
+  background: red; 
+  height: 10vh;
+}
+aside{
+  background: orange;
+  height: 40vh;
+}
+main{
+  background: yellow;
+  height: 60vh;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+ <h3>Ordinamento di oggetti del grid</h3>
+</header>
+
+<main>
+    <h4> main</h4>
+<p>Come si può vedere, l'elemento &lt;main&gt; appare sotto all'elemento &lt;nav&gt; ma nel codice HTML è il contrario. <br>
+L'elemento &lt;main&gt; è posizionato sotto l'elemento &lt;header&gt; ma volendo lo si può anche posizionare più in alto, 
+in modo da avere il contenuto di &lt;main&gt;, che è generalmente molto più complesso, in una posizione più identificabile e gestibile.
+</p>
+<p>
+Questo cambiamento lo si è potuto attuare nei CSS intervenendo sulla proprietà «grid-area». 
+Un esempio simile è stato fatto in questa <a href="demo_grid-area.html">demo</a> 
+</p>    
+
+</main>
+
+<nav>
+    <p>nav</p>
+    <div class="link-home">
+    <a href="Grid_layout.html#grid-ordinamento">Home Grid</a>
+</div>
+
+</nav>
+
+<aside>
+    aside
+</aside>
+
+<footer>footer</footer>
+
+
+
+
+</body>
+</html>

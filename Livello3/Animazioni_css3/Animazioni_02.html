@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Animazioni 02  </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+.grigio{color:gray;}
+.azzurro{color:rgb(50,100,255);}
+.scuro{color:#333;}
+
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+
+
+
+/* Impostazione di animazione all'interno della regola "@keyframes"	*/
+@keyframes prima_anim {
+from {background:red;}
+to {background:yellow;}
+}
+
+@-webkit-keyframes prima_anim {			/* Chrome */
+from {background:red;}
+to {background:yellow;}
+}
+
+@keyframes seconda_anim{
+from{height:100px;}
+to{height:500px;}
+}
+
+@-webkit-keyframes seconda_anim{			/* Chrome	*/
+from{height:100px;}
+to{height:500px;}
+}
+
+
+#divo{
+width:100px;
+height:100px;
+margin:20px;
+background:red;
+}
+
+
+
+</style>
+<script type="text/javascript" src="../../../jQuery/jQuery-1.6.min.js"> </script>
+</head>
+<body>
+
+<h1>Animazioni CSS3 con Javascript (jQuery)</h1>
+
+<h3>Animazioni secondo esempio</h3>
+
+<script  type="text/javascript">
+jQuery(document).ready(function(){
+//$("h1").css("color", 'red');
+
+//$("#divo").css({"animationName":"myfirst", 'animationDuration':'3s'});
+//$("#divo").css({"animation":" myfirst 5s linear 2s infinite alternate"});
+// Animazione di nome "myfirst" di durata di 5 secondi con andamento lineare che parte con 2 secondi di ritardo e procede all'infinito in modo alternato 
+
+$('#start').click(function(){
+$("#divo").css({"animation":" prima_anim 5s linear 2s infinite alternate"});
+$("#divo").css({"animation":" seconda_anim 5s linear 2s infinite alternate"});
+}); // cliock
+
+$('#pausa').click(function(){
+$("#divo").css("animationPlayState", "paused");
+}); // click 
+
+$('#riprendi').click(function(){
+$("#divo").css("animationPlayState", "running");
+}); // click 
+
+}); // chiude ready 
+</script>
+
+
+<button id="start">Start Animation</button>
+<button id="pausa">Stop Animation</button>
+<button id="riprendi">Restart Animation</button>
+
+<div id="divo"></div> 
+
+<p>
+L'animazione può iniziare soltanto con il pulsante <q>Start Animation</q>. 
+Qualora l'animazione venga fermata con il pulsante <q>Stop Animation</q> la si può far ripartire soltanto con il pulsante <q>Restart Animation</q> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

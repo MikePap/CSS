@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>demo auto-fill auto-fit e minmax</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+
+div div{
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: green;
+	padding: 0.2em;
+}
+
+div div:nth-child(even){ background-color:lime;}
+
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+/* repeat con fr	*/
+div.repeat-fr{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* repeat e auto-fill */
+div.autofill{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fill, 100px);
+}
+
+
+/* auto-fill con minmax	*/
+div.autofill-minmax{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr) );
+}
+
+/* auto-fit con minmax	*/
+div.autofit-minmax{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr) );
+}
+
+
+/* minmax	*/
+div.minmax{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: minmax(300px, 700px) 1fr 1fr;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h1>Repeat con auto-fill, auto-fit e minmax</h1>
+
+<h3>Repeat con fr</h3>
+<p>
+Esempio semplice di costituzione di struttura con tre colonne con l'uso di «fr»: <span class="nota">repeat(3, 1fr)</span> 
+</p>
+
+<div class="repeat-fr">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+</div> 
+
+<h3>auto-fill</h3>
+<p>
+Nel seguente esempio ho impostato <span class="nota">repeat(auto-fill, 100px)</span> assegnando, in tal modo, una dimensione fissa per ogni elemento. Succede che se la finestra (viewport) è inferiore alla somma delle loro larghezze più il gap (in questo caso 650px) l'ultimo o gli ultimi elementi si posizionano in basso a formare nuove righe. Se invece la finestra è maggiore di 650px rimane uno spazio vuoto tra l'ultimo elemento e il bordo destro del viewport.
+</p>
+
+<div class="autofill">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+</div> 
+
+<h3>auto-fill e minmax</h3>
+<p>
+In questa esempio ho impostato <span class="nota">repeat(auto-fill, minmax(100px, 1fr))</span>. Rispetto al precedente la differenza sostanziale si nota quando il viewport è inferiore ai nostri 650px. In questo caso la larghezza degli elementi aumenta in modo tale che non rimanga spazio vuoto tra l'ultimo elemento e il bordo destro del viewport. <br>
+Quando il viewport è maggiore di 650px, invece, noto una leggera differenza di larghezza totale degli elementi, rispetto al precedente esempio   (che non so spiegare). Rimane il fatto che rimane sempre uno spazio vuoto dopo l'ultimo elemento e il bordo destro del viewport.
+</p>
+
+<div class="autofill-minmax">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+</div> 
+
+
+<h3>auto-fit e minmax</h3>
+<p>
+In questo caso ho definito <span class="nota">repeat(auto-fit, minmax(100px, 1fr)</span>. L'uso di «auto-fit» mi permette di eliminare la restrizione di 100px quando il viewport è maggiore dei nostri 650px. Ciò a dire che, in tal caso, la larghezza degli elementi aumenta fino ad riempire la larghezza del viewport. Mentre quando il viewport è inferiore ai 650px la loro larghezza rimane sempre 100px e i vari elementi si dispongono su più righe.
+</p>
+<div class="autofit-minmax">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+</div> 
+
+
+<h3>minmax</h3>
+<p>
+In questo esempio ho impostato <span class="nota">minmax(300px, 700px) 1fr 1fr</span>, definendo in tal modo il «minmax» soltanto alla prima colonna. Ciò comporta che tale colonna assumerà un valore che varia dai 300px fino ad un massimo di 700px e le altre due colonne si divideranno lo spazio rimasto. <br>
+In altre parole se il viewport assume una larghezza inferiore ai 300px il browser visualizzerà la barra di scorrimento orizzontale per dare visualizzazione anche alle altre due colonne tralasciando la prima colonna a 300px; se il viewport, per esempio, si porta a 500px la prima colonna sarà larga qualcosa in meno di 500px in quanto relativa al contenuto presente negli altri due elementi. A quanto pare la specifica, in quest'ultimo caso, interviene anche sull'altezza dell'elemento. 
+</p>
+
+<div class="minmax">
+	<div>1</div>
+	<div>2 (sono nella seconda colonna)</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+</div> 
+
+
+<br /><br />
+<nav>
+    <div class="link-home">
+    <a href="Grid_layout.html#minmax">Home Grid</a>
+</div>
+
+<br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>
+

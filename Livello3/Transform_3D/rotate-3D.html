@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>rotate 3d  </title>
+<style type="text/css">
+body{
+padding:10px;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); margin:0 50px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); margin:0 40px; }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); margin:0 31px; }
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+.nota{ color:rgb(250,120,0);}
+.grigio{color:gray;}
+.azzurro{color:rgb(100,150,255);}
+.scuro{color:#333;}
+tt, em{color:#6a9999}
+.codice{ color:rgb(30,120,30);}		
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+
+div {
+width: 100px; height: 75px; margin:20px; padding:10px; background-color: red; border: 1px solid black;
+}
+
+div#div1:hover {
+-webkit-transform: rotateX(180deg);				/* Chrome, Safari, Opera */
+-moz-transform: rotateX(180deg);
+-ms-transform: rotateX(180deg);					/*	IE9 dalla 10 non più necessario	*/
+transform: rotateX(180deg); 
+
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+
+div#div2:hover {
+-webkit-transform: rotateY(180deg);				/* Chrome, Safari, Opera */
+-moz-transform: rotateY(180deg);
+-ms-transform: rotateY(180deg);					/*	IE9 dalla 10 non più necessario	*/
+transform: rotateY(180deg); 
+
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+
+/*
+div#div3:hover {
+-webkit-transform: rotateZ(180deg);				
+-moz-transform: rotateZ(180deg);
+-ms-transform: rotateZ(180deg);					
+transform: rotateZ(180deg); 
+-moz-transition:500ms ease-in;		
+-webkit-transition:500ms ease-in;
+-ms-transition:500ms ease-in;
+transition:500ms ease-in;
+}
+*/
+
+
+</style>
+</head>
+<body>
+
+<h1>rotazione in 3D</h1>
+
+
+
+<div id="div1">Hello. Rotazione asse X</div>
+
+<div id="div2">Hello. Rotazione asse Y</div>
+
+<div id="div3">Hello. Rotazione asse Z</div>
+
+
+
+<script type="text/javascript">
+
+var div3 = document.getElementById('div3');
+div3.addEventListener('mouseover', function (){
+//	this.style['-webkit-transform'] = "rotateZ(180deg)";				// x safari
+	this.style['transform'] = "rotateZ(180deg)";
+//	this.style['-webkit-transition'] = "500ms ease-in";				// x safari
+	this.style['transition'] = "500ms ease-in";
+}, false);
+
+div3.addEventListener('mouseleave', function (){
+//	this.style['-webkit-transform'] = "rotateZ(0deg)";					// NON FUNZIONA con safari
+	this.style['transform'] = "rotateZ(0deg)";
+//	this.style['-webkit-transition'] = "500ms ease-in";				// NON FUNZIONA con safari
+	this.style['transition'] = "500ms ease-in";
+}, false);
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

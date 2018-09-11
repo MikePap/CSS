@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> background-origin </title>
+<style type="text/css">
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); margin-left:31px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);   }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); margin:1em;}
+.nota{color:#F00;}
+.codice{color:rgb(20,150,10);}
+
+div{
+border:10px solid black;
+padding:35px;
+background-image:url('../../../../Immagini/igp.gif');
+background-repeat:no-repeat;
+background-position:left top;
+}
+#div1{
+background-origin:border-box;
+}
+
+#div2{
+background-origin:padding-box;
+}
+
+#div3{
+background-origin:content-box;
+}
+
+</style>
+</head>
+<body>
+
+<h1>background-origin (CSS3)</h1>
+
+<p class="nota">Supportato nei 5 maggiori browser: Firefox, Chrome, Opera Safari e IE (per IE vale il solito discorso: dalla versione 9 in poi )  </p>
+
+<p class="nota">Con questa proprietà si può specificare l'<q>area di posizionamento</q>  in cui posizionare l'immagine. L'area di posizionamento fa riferimento al <q>box-model</q>. Le aree del box-model sono la zona <q>contenuto </q> la zona <q>padding</q> e la zona <q>bordo</q>.<br />
+Le parole chiavi da utilizzare sono quindi: <b>content-box, padding-box (default), o border-box</b>. 
+</p>
+
+
+<p class='codice'>background-origin:border-box</p>
+<div id="div1">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+</div>
+
+
+<p class='codice'>background-origin:padding-box</p>
+<div id="div2">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+</div>
+
+
+
+<p class='codice'>background-origin:content-box</p>
+<div id="div3">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+</div>
+
+
+
+
+</body>
+</html>

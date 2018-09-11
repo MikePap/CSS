@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> grid e flex </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+
+body { 
+    display: grid;
+    grid: "header"
+          "nav"
+          "content"
+          "footer";
+
+    grid-template-columns: 100%; 
+
+}
+
+
+header { 
+    grid-area: header;
+    height: 10vh;
+    background: green;
+}
+header h3{
+    color: white;
+}
+nav { 
+  grid-area: nav; 
+  height: 15vh;
+  background: lightblue;
+}
+footer { 
+    grid-area: footer;
+    background: red; 
+    height: 10vh;
+}
+aside{
+    grid-area: sidebar;
+    background: orange;
+    height: 40vh;
+    display: none;    
+}
+main{
+    grid-area: content;    
+    background: yellow;
+    height: 65vh;
+    padding: 1em;
+}
+
+/*   flex     */
+div.flex {
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%; margin: 20px; background:#333;
+}
+.item {
+    background:#666; border: 1px solid #fff; text-align:center;
+    width: 30%; height: 20vh;
+    flex: auto;
+}
+
+@media screen and (min-width: 480px){ 
+
+
+} /* fine 480px  */ 
+
+
+@media screen and (min-width: 768px){ 
+body { 
+  display: grid;
+  grid: "header header"
+        "nav nav"
+        "content sidebar"
+        "footer footer";
+
+  grid-template-columns: 1fr 25%; 
+}
+aside{
+    display: block;
+}
+
+} /*  fine 768px    */ 
+
+
+@media screen and (min-width: 1024px){
+
+body { 
+  display: grid;
+  grid: "header header"
+        "nav nav"
+        "sidebar content"
+        "footer footer";
+
+  grid-template-columns: 25% 1fr; 
+}
+
+
+
+} /* fine 1024px */
+
+@media screen and (min-width: 1270px){
+
+
+} /* fine 1270px */
+
+@media screen and (min-width: 1300px){
+
+
+} /* fine 1300px */
+
+
+
+</style>
+</head>
+<body>
+
+<header>
+ <h3>Esempio con grid e flex container</h3>
+</header>
+
+<main>
+
+    <div>Questi elementi sono stati sistemati in un <b>flex</b> container </div>
+
+    <div class="flex">
+        <div class='item'>1</div>
+        <div class='item'>2</div>
+        <div class='item'>3</div>
+        <div class='item'>4</div>
+        <div class='item'>5</div>
+    </div>
+
+</main>
+
+<nav>
+    <div class="link-home">
+    <a href="Grid_layout.html#grid-flex">Home Grid</a>
+</div>
+
+</nav>
+
+<aside>
+    <p>Io sono un ballerino, mi sposto di posizione con il mio amico di fianco. <br> Prova ad allargarmi e restringermi  </p>
+</aside>
+
+<footer>
+    <p>
+        Questa struttura è stata creata con la specifica <b>grid</b>
+    </p>
+</footer>
+
+
+
+</body>
+</html>
+
+
+<!--
+
+
+@media screen and (min-width: 480px){ 
+
+
+}/* 
+
+
+@media screen and (min-width: 768px){ 
+
+
+} /*
+
+
+@media screen and (min-width: 1024px){
+
+
+
+}/*
+
+@media screen and (min-width: 1270px){
+
+
+}/*
+
+@media screen and (min-width: 1300px){
+
+
+} /*
+
+-->
+

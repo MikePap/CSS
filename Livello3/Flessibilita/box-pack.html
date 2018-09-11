@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-pack </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+
+
+div
+{
+width:350px;
+height:100px;
+border:1px solid black; background:#009999;
+  
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;   
+-moz-box-pack:end;
+-moz-box-align:center;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+
+/* W3C */
+display:box;
+box-orient:horizontal;
+box-pack:center;
+box-align:center;
+}
+
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-pack.html  -->
+<body>
+
+<h1>box-pack</h1>
+<p>
+The box-pack property specifies where child elements of a box are placed when the box is larger than the size of the children. <br />
+This property specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes.
+
+<p class="nota">Specifica l'allineamento in orizzontale dei figli all'interno del box dell'elemento specifico</p>
+
+<dl>
+	<dt>Accetta 4 parametri:</dt>
+    	<dd><b>start</b>: posizionamento a partire da sinistra</dd>
+        <dd><b>end</b>: posizionamento a partire  da destra</dd>
+        <dd><b>center</b>: posizionamento centrale </dd>
+        <dd><b>justify</b>: lo spazio extra è diviso per ogni figlio</dd>
+</dl>
+
+
+<div>
+<p>Center me!</p>
+</div>
+
+<p><b>Note:</b> The box-pack and the box-align properties are not supported in IE or Opera.</p>
+
+
+
+</p>
+
+
+
+
+
+
+
+</body>
+</html>

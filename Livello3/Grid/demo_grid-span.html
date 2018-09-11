@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> grid span </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+.grid {
+    width: 300px;       margin: 2em;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+}
+
+.item1 {
+  grid-row-start: span 1;
+  grid-column-start: span 2;
+  background-color: lightblue;
+}
+
+.item2 {
+ 
+	grid-row: 1 / span 2;
+	grid-column: 2 / span 1;
+
+
+/*	E' come se fosse il seguente	*/
+/*
+	grid-row-start: 1;		grid-row-end: span 2;
+	grid-column-start: 2;	grid-column-end: span 1;
+*/
+
+  background-color: lightblue;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Esempi con il grid span</h1>
+
+<div class="grid">
+    <div class="item1"> </div>
+</div>
+
+<p>
+In questo secondo esempio di uso dello «grid span» è utilizzato «grid-row» invece che «grid-row-start» e «grid-row-column»
+</p>
+
+<div class="grid">
+    <div class="item2"> </div>
+</div>
+
+
+
+
+
+<div class="link-home">
+    <a href="Grid_layout.html#grid-span">Home Grid</a>
+</div>
+
+
+</body>
+</html>

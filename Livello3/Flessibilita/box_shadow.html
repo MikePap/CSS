@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box shadow</title>
+<style type="text/css">
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);}
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+
+h1{ display: inline; text-align:center; margin-left:150px;  
+box-shadow:8px 8px 10px grey; 
+}
+
+div{ float:left;  width:300px; height:120px; margin:31px; padding:5px; }
+
+.box1{  background:#993300; border:1px solid black; 
+box-shadow:-8px 10px 0 grey; /* il terzo valore se viene omesso è come se fosse uguale a zero come in questo caso */
+}
+
+.box2{  background:#0066CC;  
+box-shadow:8px 8px 12px black; 
+}   
+.box3{ background:#999900; border:1px solid #000; 
+box-shadow:inset 8px 8px 8px grey; 
+}
+.box4{ background: #009933;
+box-shadow: -10px -10px 30px red; 
+}
+
+.box5{ background:#660033; border:2px solid; color:#FFF;  
+box-shadow: 15px -10px 15px black;
+}
+
+.box6{ background:#FF3399; border:1px solid #FFFF00; 
+box-shadow:inset -8px -18px 12px grey; 
+}
+
+.box7{ 
+background:rgb(100,100,220); 
+box-shadow: 0px 18px 10px 8px grey; 
+}
+
+
+
+</style>
+<script type="text/javascript" src="../../JQUERY/jQuery-1.4.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('dd').css('color', 'blue');
+
+$('.box6').css('box-shadow','inset -8px -18px 12px grey');
+
+
+}); // chiude ready 
+</script>
+
+</head>
+<body>
+
+<h1>box-shadow</h1>
+<h3>Creazione di ombre sugli elementi. Internet Explorer è l'unico browser che non supporta box-shadow. </h3>
+<p class="codice">
+box-shadow: inset h-shadow v-shadow blur spread color ;
+</p>
+
+<dl>
+	<dd><b>inset</b> è <em>opzionale</em> e se specificato indica che l'ombra sarà interna all'elemento</dd>
+	<dd> <b>h-shadow</b> fa riferimento alle coordinate offset left or right(per il <em>right</em> il valore deve essere negativo)</dd>
+	<dd> <b>v-shadow</b> fa riferimento alle coordinate offset top or bottom(per il <em>top</em> il valore deve essere negativo)</dd>
+	<dd> <b>blur</b> è <em>opzionale</em> e specifica il valore della opacità dell'ombra</dd>
+	<dd><b>spread</b> è opzionale e rappresenta la grandezza dell'ombra </dd>
+    <dd> <b>color</b> specifica il colore dell'ombra</dd>
+</dl>
+
+<div class="box1">
+box1=> -8px 10px 0 grey 
+</div>
+
+<div class="box2">
+box2 => 8px 8px 12px black
+</div>
+
+<div class="box3">
+box3 => inset 8px 8px 8px grey
+</div>
+
+<div class="box4">
+box4 => -10px -10px 30px red
+</div>
+
+<div class="box5">
+box5 => 15px -10px 15px black <br />
+border => 2px solid bianco
+</div>
+
+<div class="box6">
+box6 => inset -8px -18px 12px grey <br />
+border => 1px solid giallo
+</div>
+
+<div class="box7">
+box7 => 0px 18px 10px 8px grey <br />
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

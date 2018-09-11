@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Ordinare gli elementi </title>
+<style type="text/css">
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); background:#CCC; margin:0 50px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); background:#CCC; margin:0 40px; }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); background:#CCC; margin:0 31px; }
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+.nota{ color:rgb(250,120,0);}
+.grigio{color:gray;}
+.azzurro{color:rgb(100,150,255);}
+.scuro{color:#333;}
+tt, em{color:#6a9999}
+.codice{ color:rgb(30,120,30);}		
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+th{
+color:#FFF; background:#333; 
+}
+
+
+#box1{
+margin:10px 0;	width:900px;  border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: row nowrap;
+flex-flow: row nowrap;
+}
+#box1 > div{
+width: 200px;   border:1px solid #f00;		
+}
+
+
+#box2{
+margin:10px 0;	width:900px;  border:3px solid black;
+display: -webkit-flex;
+display: flex;
+-webkit-flex-flow: row nowrap;
+flex-flow: row nowrap;
+}
+#box2 > div{
+width: 200px;   border:1px solid #f00;		
+}
+#box2 > div:last-child{
+order: -1;
+}
+
+
+header{
+width: 900px; /*height:150px;*/ margin: 0 auto; padding: 20px; background:rgb(220,220,220); text-align:center;
+}
+
+footer{
+width: 900px; margin: 0 auto; padding: 20px; background:rgb(200,200,200); text-align:center;
+}
+
+#main { 
+width: 900px; margin: 0 auto; 
+display: flex; 
+}
+#main > article { 
+width:500px; height:300px; padding:10px;  background:#333; color:#ff0;
+order: 2; min-width: 12em; /* ### flex:1; Questa impostazione non l'ho capita: infatti non influenza   */
+}
+#main > nav{ 
+width:150px; height:300px; padding:10px;  background:#555; color:#fff;
+order: 1; width: 200px; 
+}
+#main > aside { 
+width:250px; height:300px; padding:10px;  background:#888; color:#fff;
+order: 3; width: 200px; 
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+<h1>Ordinamento elementi flex (order) </h1>
+
+<p>
+Gli elementi di un flex container, normalmente sono visualizzati nell'ordine in cui sono dichiarati nell'HTML. La proprietà <b>order</b> può essere utilizzata per cambiare quest'ordine. <br />
+<span class="nota">E' supportato da firefox e da Opera, Chrome (col prefisso 'webkit'), IE10 (col prefisso 'ms'). Safari ancora no </span>  
+</p>
+
+<div id="box1">
+	<div>box 1 </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 </div> 
+</div> 
+
+<div id="box2">
+	<div>box 1 </div> 
+	<div>box 2 </div> 
+	<div>box 3 </div>
+	<div>box 4 (order: -1)</div> 
+</div> 
+
+<p>
+Il seguente è un esempio classico che si presenta quando si vuole strutturare il documento con l'elemento &lt;header&gt; al top, il &lt;footer&gt; al basso e un il contenuto al centro con uno o due sezioni laterali. Lasciando inalterati l' &lt;header&gt; e &lt;footer&gt; consideriamo solo il contenuto centrale con due elementi laterali 
+</p>
+
+<header> <h3>Elemento header</h3> </header>
+
+<div id='main'>
+	<article> 
+		<h3>Elemento &lt;article&gt; </h3> 
+		<p>
+Questo elemento &lt;article&gt; insieme agli altri due elementi laterali &lt;nav&gt; e &lt;aside&gt; stanno all'interno del &lt;div&gt; genitore 'main' a cui si impostato 'display: flex'. <br />
+All'interno del codice HTML è posto per comodità e praticità  prima degli altri due però ci appare centralmente grazie all'impostazione della proprietà <br />
+ order: 2
+		</p>
+	</article>
+	<nav> <h3>Elemento &lt;nav&gt;</h3> <br /> 	( Barra di navigazione ) <br /> order: 1 </nav>
+	<aside> <h3>Elemento &lt;aside&gt;</h3> <br />	( Spazio  pubblicità ) <br /> order: 3 </aside>
+</div>
+
+<footer> <h3>Elemento footer</h3>  </footer>
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+</body>
+</html>

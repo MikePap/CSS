@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Centrare in orizzontale  e verticale</title>
+<style type="text/css">
+html,body,div,p,h1,h2,h3,h4,h5,input,textarea,select,span,ul,li,a,table,tr,th,td{margin:0;padding:0;}
+html, body{ margin:0; padding:0;}
+body{
+font-family: 'Lato', sans-serif;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);} 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+
+#container{
+position:fixed; /*margin:10px auto;*/ width:80%; height:400px; padding:10px; background:#bbeeed; z-index:999;
+margin: auto;
+top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center {
+width: 50%;
+height: 40%;
+overflow: auto;
+margin: auto; padding:10px;
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+background:#ff0;
+}
+
+#divo{
+width:50%; height:31%; background:rgba(255,0,0,0.4);
+margin: auto;
+position: absolute;
+left: auto; right: 10px; bottom:0; top:0;
+text-align: right;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>Centramento orizzontale e verticale di elementi</h1>
+
+
+<div id="container">
+	<span class="nota">
+Volendo impostare il div container al centro del viewport (sia orizzontalmentre che verticalmente) bisogna posizionarlo con <q>position:fixed</q> e assegnargli uno <q>z-index</q>  molto alto.  
+ </span>
+<p class="codice">
+Images work too! Apply the class/style to the image itself and set <q>height: auto</q> ; like you would with a responsively-sized image to let it resize with the container.Note that height: auto; works for images, but causes a regular content block to stretch to fill the container unless you use the variable height technique. It's likely that because browsers have to calculate the height for the image rendered image, so margin: auto; ends up working as if you'd declared the height in all tested browsers.
+</p>
+<p>
+<a href="http://codepen.io/shshaw/full/gEiDt#Fixed">Vedere qui</a>	
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent bibendum, lorem vel tincidunt imperdiet, nibh elit laoreet felis, a bibendum nisl tortor non orci. Donec pretium fermentum felis, quis aliquet est rutrum ut. Integer quis massa ut lacus viverra pharetra in eu lacus. Aliquam tempus odio adipiscing diam pellentesque rhoncus. <br />
+Curabitur a bibendum est. Mauris vehicula cursus risus id luctus. Curabitur accumsan venenatis nibh, non egestas ipsum vulputate ac. Vivamus consectetur dolor sit amet enim aliquet eu scelerisque ipsum hendrerit. Donec lobortis suscipit vestibulum. <br />
+Nullam luctus pellentesque risus in ullamcorper. Nam neque nunc, mattis vitae ornare ut, feugiat a erat. Ut tempus iaculis augue vel pellentesque.
+</p>
+
+	<div class="Absolute-Center">
+Mentre per centrare (sia orizzontalmente che verticalmente un divo dentro il suo genitore) bisogna assegnargli <q>margin:auto</q>  e <q>position:absolute</q> e impostare <q>top, left, bottom, right</q> uguale a zero. <br />
+Funziona con tutti i nuovi browser e per IE dalla versione 8. 
+		<div id="divo"></div> 
+	</div> 
+
+</div> 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

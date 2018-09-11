@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Elemento picture  </title>
+<style type="text/css">
+body{
+font-family: 'Lato', sans-serif;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);} 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+code, pre{ color:rgb(50,150,50);  background:rgb(220,220,220); padding:10px;}
+tt, em{color:#6a9999}
+.grigio{color: grey;}
+.blu{color:#00f;}
+
+dl{margin-left:20px;}
+dt{ color:#039; margin-bottom:5px;}
+dd{ color:#06F; margin-left:10px; }
+
+</style>
+</head>
+<body>
+
+
+
+<h1>Elemento picture</h1>
+
+<p>
+L'elemento &lt;picture&gt; da la possibilità di offrire la miglior immagine all'utente in base alla grandezza dello schermo o alla risoluzione del dispositivo. <br />
+L'elemento &lt;picture&gt; non è altro che un elemento contenitore che contiene altri due elementi che sono il noto  &lt;img&gt; e il nuovo &lt;source&gt; ma non contiene attributi.
+</p>
+
+<pre>
+&lt;picture&gt;
+	&lt;source&gt;
+	&lt;img&gt;
+&lt;/picture&gt;
+</pre>
+
+<h2>L'elemento &lt;source&gt; </h2>
+
+<p>
+L'elemento  &lt;source&gt; può contenere quattro attributi di cui uno obbligatorio (<b>srcset</b>) e tre opzionali (<b>media, sizes, type</b>)
+</p>
+<dl>
+	<dd><b>srcset</b>: serve a specificare uno o più (separate da una virgola) risorse (immagini)  </dd>
+	<dd><b>media</b>: accetta una valida 'media query' (es: <tt>"(min-width: 800px)"</tt>) </dd>
+	<dd><b>sizes</b>: serve a specificare la grandezza (width) per l'immagine specificata in <tt>srcset</tt> o più di una separate da virgola </dd>
+	<dd><b>type</b>: accetta un MYME type (es: <tt>type="image/webp" or type="image/vnd.ms-photo"</tt>) </dd>
+</dl>
+
+
+
+
+<h2>L'elemento &lt;img&gt; </h2>
+
+<p>
+L'elemento &lt;img&gt; definito all'interno dell'elemento &lt;picture&gt; funziona solo come un'alternativa. Cioè serve a specificare una immagìne di default che il browser caricherebbe in caso che non supporti l'elemento &lt;picture&gt; e quindi quello specificato nell'elemento &lt;source&gt;.
+</p>
+
+
+<h3> &lt;picture&gt; in azione </h3>
+
+<pre>
+&lt;picture&gt;
+	&lt;source srcset="mobile.png"&gt;
+	&lt;source media="(min-width: 480px)" srcset="tablet.png"&gt;
+	&lt;source media="(min-width: 1024px)" srcset="desktop.png"&gt;
+	&lt;img src="tablet.png" alt="A photo of London by night"&gt;
+&lt;/picture&gt;
+</pre>
+
+<p>
+L'esempio di sopra è abbastanza chiaro: viene definita una immagine base e due differenti, una per uno schermo almeno di 480px e l'altra per uno schermo almeno di 1024px ed infine una immagine alternativa (inserita in &lt;img&gt;) nel caso il browser non suppoortasse l'elemento &lt;picture&gt;
+</p>
+
+<pre>
+&lt;picture&gt;
+	&lt;source srcset="mobile.png, mobile-hd.png 2x"&gt;
+	&lt;source media="(min-width: 480px)" srcset="tablet.png, tablet-hd.png 2x"&gt;
+	&lt;source media="(min-width: 1024px)" srcset="desktop.png, desktop-hd.png 2x"&gt;
+	&lt;img src="tablet.png" alt="A photo of London by night"&gt;
+&lt;/picture&gt;
+</pre>
+
+<p>
+In questo secondo esempio si è specificata più di un URL per l'attributo <tt>srcset</tt>. Alla seconda immagine è stata aggiunta la stringa <b>2x</b>, separata da uno spazio, che vuole indicare un monitor ad alta risoluzione (tipo Retina). Pertanto il browsere dopo aver scelto l'immagine in base alla grandezza dello schermo (in base alla media query) sceglierà fra le due quella che meglio soddisfa il dispositivo (se quella 'Retina' a 2px o quella normale).
+</p>
+
+<p>
+L'esempio di sotto è uguale al precedente ma un pò più dettagliato in quanto supporta più risoluzioni di schermo. 
+</p>
+
+
+<pre>
+&lt;picture&gt;
+
+	&lt;source
+		media="(min-width: 650px)" 
+		srcset="images/kitten-stretching.png,
+			images/kitten-stretching@1.5x.png 1.5x,  
+			images/kitten-stretching@2x.png 2x"
+	&gt;
+
+	&lt;source
+		media="(min-width: 465px)" 
+		srcset="images/kitten-sitting.png,
+			images/kitten-sitting@1.5x.png 1.5x
+			images/kitten-sitting@2x.png 2x"
+	&gt;
+
+	&lt;img
+		src="images/kitten-curled.png" 
+		srcset="images/kitten-curled@1.5x.png 1.5x,
+			images/kitten-curled@2x.png 2x"
+			alt="a cute kitten"
+	&gt;
+
+&lt;/picture&gt;
+</pre>
+
+<p>
+L'esempio seguente invece imposta anche l'attributo <tt>sizes</tt> che intende, in questo caso, che l'immagine sia l'80% del <tt>viewport</tt>
+</p>
+
+<pre>
+&lt;picture&gt;
+
+	&lt;source
+		media="(min-width: 800px)" 
+		sizes="80vw"
+		srcset="lighthouse-landscape-640.jpg 640w,
+			lighthouse-landscape-1280.jpg 1280w,
+			lighthouse-landscape-2560.jpg 2560w"
+	&gt;
+
+	&lt;img
+		src="lighthouse-160.jpg" alt="lighthouse"
+		sizes="80vw"
+		srcset="lighthouse-160.jpg 160w,
+			lighthouse-320.jpg 320w,
+			lighthouse-640.jpg 640w,
+			lighthouse-1280.jpg 1280w"
+	&gt;
+
+&lt;/picture&gt;
+</pre>
+
+<p>
+Qui ci sono alcune osservazioni da fare. Sono state definite diverse immagini sia per l'elemento &lt;source&gt; che per &lt;img&gt;. Nell'elemento &lt;source&gt; sono state definite tre immagini che il browser sceglierà di utilizzare se la larghezza dello schermo supera gli 800px. Negli altri casi (&lt; 800px )  al browser toccherà di scegliere tra le quattro immagini definite nell'elemento &lt;img&gt;. Inoltre se il browser non dovesse supportare l'elemento &lt;picture&gt; saranno quest'ultime ad essere scelte anche quando lo schermo è maggiore di 800px.
+</p>
+
+<p>
+Nell'esempio seguente si è aggiunto l'attributo <tt>type</tt> a voler indicare al browser di caricare un'immagine di formato differente, in questo caso <q>WebP</q>
+</p>
+
+<pre>
+&lt;picture&gt;
+
+	&lt;source type="image/webp" srcset="images/butterfly.webp" &gt;
+
+	&lt;img src="images/butterfly.jpg" alt="a butterfly" &gt;
+
+&lt;/picture&gt;
+</pre>
+
+
+<h3>L'elemento &lt;picture&gt; con SVG </h3>
+
+<p>
+L'utilizzo dell'elemento &lt;picture&gt; può diventare utile quando si vogliono utilizzare immagini SVG perchè permette di definire un'immagine alternativa, da definire nell'elemento &lt;img&gt;, qualora il browser non supporti l'SVG. Ovviamente se non supporta le immagini SVG è probabile che non supporti l'elemento &lt;picture&gt; e in tal caso si dovrebbe usare il polyfill <q>Picturefill</q> descritto in seguito.
+</p>
+
+<pre>
+&lt;picture&gt;
+
+	&lt;source type="image/svg+xml" srcset="banner.svg" &gt;
+
+	&lt;img 
+		sizes="(min-width: 640px) 80vw, 100vw"
+		srcset="banner-300.jpg 300w,
+			banner-400.jpg 400w,
+			banner-700.jpg 700w,
+			banner-1200.jpg 1200w,
+			banner-1600.jpg 1600w,
+			banner-2000.jpg 2000w"
+		src="banner-default-fallback.jpg"
+		alt="Banner description"
+	&gt;
+
+&lt;/picture&gt;
+</pre>
+
+
+
+
+<h3>Utilizzo del	polyfill <q>Picturefill</q></h3>
+
+<p>
+Scaricare la versioner del polyfill da: <a href="https://github.com/scottjehl/picturefill">github</a> ed inserire lo script nel tag &lt;head&gt;. E' consigliato inserire l'attributo <tt>async</tt> nello script. Se fatto ciò bisogna inserire prima dello script una riga di codice JavaScript che crei l'elemento &lt;picture&gt; per i browser vecchi
+</p>
+
+<pre>
+&lt;script type="text/javascript"&gt;
+	document.createElement( "picture" );
+&lt;/script&gt;
+
+&lt;script src="picturefill.js" async &gt;&lt;/script&gt;
+</pre>
+
+
+<p>
+La versione 9 di Internet explorer da qualche problema, nell'uso di questo polyfill, che si risolve circondando l'elemento &lt;source&gt; con l'elemento &lt;video&gt; usando i commenti condizionali come nell'esempio successivo
+</p>
+<pre>
+&lt;picture&gt;
+	&lt;!--[if IE 9]&gt;&lt;video style="display: none;"&gt;&lt;![endif]--&gt;
+	&lt;source srcset="examples/images/extralarge.jpg" media="(min-width: 1000px)"&gt;
+	&lt;source srcset="examples/images/large.jpg" media="(min-width: 800px)"&gt;
+	&lt;!--[if IE 9]&gt;&lt;/video&gt;&lt;![endif]--&gt;
+&lt;/picture&gt;
+</pre>
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+</body>
+</html>
+

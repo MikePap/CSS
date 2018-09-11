@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>clip  </title>
+<style type="text/css">
+html,body,h1,h2,h3,p,dl,dt,dd,pre,ul, embed{ margin:0; padding:0; }
+h1{ color: #00F; font-size:31px; margin-left:100px; padding:10px; }
+h2{color:rgb(50,150,100); font-size:25px; margin-left:50px; padding:10px; }
+h3{ color:rgb(200,0,100); font-size:20px; margin-left:31px; padding:10px;}
+p{ padding:5px; }
+dl{margin-left:20px;}
+dt{ color:#039; margin-bottom:5px;}
+dd{ color:#06F; margin-left:10px; }
+li{margin-left:31px;}
+.nota{ color:#F66;}
+.codice{ color:#060}
+pre{color:rgb(50,150,50); margin-left:5px; }
+
+#box{
+/*position:relative; margin:10px auto; width:300px; height:100px; border:1px solid;*/
+/*overflow:visible;  QUESTA IMPOSTAZIONE NON INFLUISCE SUL RISULTATO DEL 'clip'  */		
+position:absolute; width:300px; height:100px; border:1px solid; background-color:yellow;
+clip:rect(10px,150px,50px,50px);	/* stando posizionato a 10 dal top, 150 da destra, 50 dal basso e 50 da sinistra avrà ...
+un'altezza di 40 (=> 100-10-50) e una larghezza di 100 (=> 300-150-50) 	*/
+overflow:visible;	/*QUESTA IMPOSTAZIONE NON INFLUISCE SUL RISULTATO DEL 'clip'	*/
+}
+
+
+#imm{
+position:relative; margin-top:100px; margin-left:50px;
+}
+
+#imma{
+position:absolute; top: 450px; left:450px;
+clip:rect(0px,60px,100px,0px);
+clip:rect(0px 60px 100px 0px);	/* IE6 e IE7 */
+/*overflow:visible;	QUESTA IMPOSTAZIONE NON INFLUISCE SUL RISULTATO DEL 'clip'	*/
+}
+
+#box2{
+position:absolute; width:200px; height:300px; top:500px; left:150px; background:#CCC;
+}
+
+#foto{
+position:absolute; 
+clip:rect(0px, 100px, 80px, 10px);
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>clip</h1>
+
+<p>La proprietà <b>clip</b> permette di specificare le dimensioni di un elemento (div, immagine, ecc..) che devono essere visibili. In pratica permette di tagliare l'elemento in modo che vengano visualizzate sole le dimensioni volute. <br />
+Attenzione al fatto che <b>la posizione dell'elemento deve essere assoluta</b>; nel caso che l'elemento (vedi &lt;box&gt;) sia posizionato con 'position:relative' la proprietà non ha effetto. Vedere nei commenti la differenza di codice per IE6 e IE7  <br /> 
+<span class="nota">Attenzione però che la proprietà <q>clip</q> non ha effetto se è impostato la proprietà <q>overflow</q> a <q>hidden</q> (questo è quanto affermato sul  <a href="http://www.w3schools.com/cssref/pr_pos_clip.asp">sito</a> ) MA NON E' VERO, FUNZIONA LO STESSO  </span>. <br />
+<span class="codice">E' una proprietà dei CSS2 e quindi funziona anche nelle versioni precedenti a IE9 </span>
+</p>
+
+<dl>
+	<dt>Ha quattro valori impostabili</dt>
+	<dd><b>auto</b>: (default) Indica che non sarà applicato nessun clipping </dd>
+	<dd><b>initial</b>: imposta la proprietà al valore iniziale </dd>
+	<dd><b>inherit</b>: eredita la proprietà dal suo genitore</dd>
+	<dd><b>shape </b>: taglia l'elemento. L'unico valore possibile è <b>rect(top, right, bottom, left)</b>  </dd>
+</dl>	
+
+
+<dl>
+	<dt><b>rect</b> richiede 4 valori da impostare: 'top', right, 'bottom' e 'left'  </dt>
+	<dd><b>top</b>: taglia la parte che va dal margine superiore al valore indicato (es: 10px; elimina 10px dalla parte superiore) </dd>
+	<dd><b>right</b>: taglia la parte che va dal valore indicato al margine destro (es:150px; lascia 150px ed elimina la parte restante) </dd>
+	<dd><b>bottom</b>: taglia la parte che va dal valore indicato fino al margine inferiore (es:50px; lascia 50px ed elimina la parte restante)</dd>
+	<dd><b>left</b>: taglia la parte che va dal margine sinistro fino al valore indicato (es:50px; elimina 50px dal margine sinistro)</dd>
+	
+</dl>	
+
+<div id="box">
+Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
+Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
+</div> 
+
+
+<img id='imma' src="../../grafic/riviera.jpg" width="250" height="165" />
+
+<br /><br /><br /><br />
+<button id="clicca">Cambia foto</button>
+
+<div id="box2">
+	<img id="foto" src="../../grafic/ramses.jpg" alt="" title="" />
+</div> 
+
+
+
+<script type="text/javascript">
+
+var foto = document.getElementById('foto');
+var pulsante = document.getElementById('clicca');
+
+pulsante.addEventListener('click', 
+function(){
+	var stile = window.getComputedStyle(foto).clip;
+	if(stile === 'auto'){
+		foto.style.clip = 'rect(0,100px,80px,10px)';
+		this.textContent = 'Foto grande';
+	}else{
+		foto.style.clip = 'auto';
+		this.textContent = 'Foto piccola';
+	}
+}, false);
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+</body>
+</html>

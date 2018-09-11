@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> Animazioni</title>
+<style type="text/css">
+h1{ color:#006600;}
+h2{color:#2366b7  } 
+h3{ color:#663333;}
+pre{ color:rgb(20,150,30); font-weight:bold; background:rgb(230,230,230); padding:10px}
+dt{ color: #34817f; margin-bottom:5px; margin-left:31px;}		/* #6c47a2; */
+dd{ color:#0066FF; margin-left:20px;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+
+/* Impostazione di animazione all'interno della regola "@keyframes"	*/
+
+@keyframes myfirst{
+from {background:red;}
+to {background:yellow;}
+}
+@-webkit-keyframes myfirst 		/* Chrome */
+{
+from {background:red;}
+to {background:yellow;}
+}
+
+
+@keyframes seconda{
+from{opacity:0.2}
+to{opacity:1}
+}
+
+
+
+#divo{
+width:100px;
+height:100px;
+background:red;
+animation: myfirst;
+/*animation:myfirst 5s;*/
+-webkit-animation:myfirst 5s; 		/* Chrome */
+opacity:1;
+}
+
+
+#divo:hover{
+myfirst;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>Animazioni con  CSS3</h1>
+<p class="nota">Al momento funziona in tutti i browser.  In IE dalla versions 10; soltanto per Chrome c'è bisogno della parola chiave <q>webkit</q>.  </p>
+<p>
+Le animazioni con i CSS3 vanno create all'interno della regola <b>@keyframes</b>. Dopodichè è possibile richiamare tali impostazioni in qualsiasi elemento tramite la parola chiave <b>animation</b>. <br />
+</p>
+<p>
+Nella parola chiave <q>animation</q> si possono racchiudere tutte le proprietà delle animazioni ad eccezione della proprietà <q>animation-play-state</q>.
+<pre>
+animation: name duration timing-function delay iteration-count direction fill-mode;
+</pre>
+</p>
+
+<p>
+Le proprietà delle animazioni sono le seguenti e vanno specificate nel seguente ordine: 	   
+</p>
+<dl>
+	<dd><b>animation-name</b>: specifica il nome dell'animazione creata nella regola <q>@keyframes</q> </dd>
+	<dd><b>animation-duration</b>: specifica il tempo di durata dell'animazione che può essere spresso in secondi(es:3s). Il valore di default è 0. </dd>
+	<dd><b>animation-timing-function</b>: specifica l'andamento dell'animazione. Si possono utilizzare dei valori predefiniti che sono:
+		<dl>
+			<dt><b>linear</b>: l'animazione ha la stessa velocità dall'inizio alla fine </dt>
+			<dt><b>ease</b>: che è il valore di default ha una velocità più lenta all'inizio e alla fine e più forte nel mezzo </dt>
+			<dt><b>ease-in</b>: l'animazione ha una partenza lenta per poi aumentare velocità </dt>
+			<dt><b>ease-out</b>: al conrario di <q>ease-in</q> ha una finale più lento </dt>
+			<dt><b>ease-in-out</b>: ha una partenza ed un finale più lento; sembra uguale a <q>ease</q> </dt>
+			<dt><b>cubic-bezier(n,n,n,n)</b>: è possibile specificare i desiderati valori impostando dei valori da 0 ad 1   </dt>
+		</dl>	 
+	</dd>
+	<dd><b>animation-delay</b>: è opzionale e specifica il tempo di ritardo dell'inizio animazione in secondi come per <q>animation-duration</q> </dd>
+	<dd><b>animation-iteration-count</b>: specifica quante volte un animazione deve essere ripetuta. Lo si può indicare impostando un valore numerico oppure la si può impostare con <q>infinite</q> che sottointende che<b></b>
+	 non deve avere fine </dd>
+	
+	<dd><b>animation-direction</b>: specifica se l'animazione può avere un senso alternato; i due valori impostabili sono:
+	<dl>
+		<dt><b>normal</b>: che è il valore di default sottointende che l'animazione ha un percorso normale</dt>
+		<dt><b>alternate</b>: definisce un che l'animazione debba rifare il percorso anche in senso opposto cioè al contrario del suo senso iniziale </dt>
+	</dl>		  
+	 </dd>
+	<dd><b>animation-fill-mode</b>: specifica la posizione che l'elemento assumerà a fine animazione o se l'animazione viene interrotta. (<a href="Animazioni_06.html">vedi qui</a>) 
+		<dt><b>none</b>: l'animazione non applicherà nessuno stile</dt>
+		<dt><b>forwards</b>: a fine animazione l'elemento animato rimarrà posizionato nel punto finale dell'animazione(simile a 'fill=freeze' nei SVG)  </dt>
+		<dt><b>backwards</b>: a fine animazione l'elemento animato rimarrà posizionato nel punto iniziale dell'animazione</dt>
+		<dt><b>both</b>: .... </dt>
+		<dt><b>inherit</b>: eredita la proprietà dal genitore </dt>
+	</dd>
+	<dd><b>animation-play-state</b>: può fermare e far riprendere l'animazione impostando rispettivamente i seguenti valori: <b>paused</b> e <b>running</b></dd>
+			
+</dl>	
+
+
+
+
+<p>
+Ognuna delle suddette proprietà descritte ha una sua sintassi per Javascript: <br />
+<b>object.style.animation="mia_animazione 5s infinite"</b> <br />
+<b>object.style.animationName="mia_animazione"</b><br />
+<b>object.style.animationDuration="3s"</b><br />
+<b>object.style.animationTimingFunction="linear"</b><br />
+<b>object.style.animationDelay="2s"</b><br />
+<b>object.style.animationIterationCount=3</b><br />
+<b>object.style.animationDirection="alternate"</b><br />
+<b>object.style.animationFillMode = "forwards"</b> <br />
+<b>object.style.animationPlayState="paused"</b><br />
+
+
+Tutte le proprietà in unica dichiarazione: animation: test 1s 2s 3 alternate backwards;
+
+</p>
+
+
+
+<h3>Prefissi browser</h3>
+<pre>
+#box {
+	-webkit-animation: NAME-YOUR-ANIMATION 5s infinite; /* Safari 4+ */
+	-moz-animation:    NAME-YOUR-ANIMATION 5s infinite; /* Fx 5+ */
+	-o-animation:      NAME-YOUR-ANIMATION 5s infinite; /* Opera 12+ */
+	animation:         NAME-YOUR-ANIMATION 5s infinite; /* IE 10+ */
+}
+</pre>
+
+<h3>Molteplici step</h3>
+<p>
+<pre>
+@keyframes fontbulger {
+	0% {
+		font-size: 10px;
+	}
+	30% {
+		font-size: 15px;
+	}
+	100% {
+		font-size: 12px;
+	}
+}
+
+#box {
+	animation: fontbulger 2s infinite;
+}
+</pre>
+quando invece ci sono dei valori uguali in uno o più step su usa la virgola
+<pre>
+@keyframes fontbulger {
+	0%, 100% {
+		font-size: 10px;
+	}
+	50% {
+		font-size: 12px;
+	}
+}
+</pre>
+</p>
+
+<h3>Combinazione animazione con  "transform" </h3>
+<pre>
+@keyframes infinite-spinning {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+</pre>
+
+<h3>Animazioni multiple </h3>
+<p>
+Vedere esempio nel file <q>Animazione_04.html</q> 
+<pre>
+.animate-this {
+	animation: first-animation 2s infinite, 
+	another-animation 1s;
+}
+</pre>
+</p>
+
+<h3>steps()</h3>
+<p>
+La funzione <q>steps()</q> stabilisce quanti keyframe inserire nello spazio di tempo dell'animazione (vedere il file 'Animazione_05.html').
+<pre>
+@keyframes move {
+	from{ top: 0; left: 0; }
+	to{ top: 100px; left: 100px; }
+}
+
+.move {
+	animation: move 10s steps(10) infinite alternate;
+}
+</pre>
+
+</p>
+
+
+
+<br /><br /><br />
+
+
+<div id="divo"></div> 
+
+<script type="text/javascript">
+
+var obj = document.getElementById('divo');
+
+obj.style.animation="myfirst 5s infinite"; 
+//obj.style.animation="myfirst 5s infinite"; 
+
+//obj.style.animation="seconda 3s"; 
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

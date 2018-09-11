@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-flex</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+.codice{ color:#006600;}
+
+div{
+display:-moz-box; 					/* Firefox */
+display:-webkit-box; 				/* Safari and Chrome */
+display:box;
+width:500px;
+border:1px solid black;
+}
+
+#p1{
+-moz-box-flex:1.0;					/* Firefox */
+-webkit-box-flex:1.0;				/* Safari and Chrome */
+-ms-box-flex:1.0;						/* IE 10	*/
+box-flex:1.0;
+border:1px solid red;
+}
+
+#p2{ 
+-moz-box-flex:2.0;		/* Firefox (qui sarà il quadruplo di 'p1') */
+-webkit-box-flex:2.0;		/* Safari and Chrome (qui sarà il doppio di 'p1') */
+-ms-box-flex:2.0;			/* IE 10	*/
+box-flex:2.0;			/* Regola generale (qui sarà il doppio di 'p1')	*/
+border:1px solid blue;
+}
+
+</style>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-flex.html  -->
+<body>
+
+<h1>box-flex</h1>
+<p class="nota">Proprietà che specifica se i figli all'interno del box dell'elemento siano flessibli nelle dimensioni. <br />
+Accetta come unico argomento il valore (relativo): se per esempio un figlio ha un "box-flex" di 2  vuol dire che è doppio di un'altro figlio con "box-flex" di 1</p>
+<p>
+Necessitano del prefisso: Firefox =>moz, Chrome-Safari-Opera => webkit e IE fino alla 11 ancora No (bastardooooo) 
+
+</p>
+
+
+
+<div>
+	<p id="p1">Hello</p>
+	<p id="p2">W3Schools</p>
+</div>
+
+
+<p class="codice">
+<b>Tip</b>: Elements that are flexible can shrink or grow as the box shrinks and grows. Whenever there is extra space in a box, flexible elements are expanded to fill that space.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

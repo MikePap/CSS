@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>focus e tabindex  </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+
+
+</style>
+</head>
+<body>
+
+<h1>focus e tabindex</h1>
+
+<p>
+Per default molti elementi HTML non possono ottenere il <q>focus</q>, però grazie all'attributo <b>tabindex</b> glie lo si può attribuire e allo stesso tempo gli si può cambiare l'ordine 
+<pre>
+&lt;a href="http://www.w3schools.com/" tabindex="2"&gt; W3Schools &lt;/a&gt; 
+&lt;a href="http://www.google.com/" tabindex="1"&gt; Google &lt;/a&gt; 
+&lt;a href="http://www.microsoft.com/" tabindex="3"&gt; Microsoft &lt;/a&gt; 
+</pre>
+Nell'esempio il primo ad ottenerre il 'focus' sarà il secondo link per poi passare al primo ed infine al terzo link
+
+
+</p>
+
+<p>
+	<a href="http://www.w3schools.com/" tabindex="2">W3Schools</a><br>
+	<a href="http://www.google.com/" tabindex="1" autofocus>Google</a><br>
+	<a href="http://www.microsoft.com/" tabindex="3">Microsoft</a>
+</p>
+
+
+<h3>Autofocus</h3>
+
+
+<div>
+Specifica che l'elemento debba ottenere il focus al caricamento della pagina. <br /><br />
+	<input type="text" autofocus>
+</div> 
+
+
+<h3>document.activeElement</h3>
+<p>
+Con JavaScript per ottenere l'elemento che ha il focus 
+<pre>
+document.activeElement.tagName				<span class="nota">// INPUT</span>
+</pre>
+</p>
+
+
+
+<script type="text/javascript">
+
+
+
+console.log(document.activeElement.tagName);
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title> Griglia di immagini elastica </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+
+main { 
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 5px;
+	
+	margin: 50px auto;	
+}
+img{
+	display: block;
+	box-shadow: -1px 0px 0px rgba(0,0,0,0.06);
+	width: 100%;		/*	In questo caso le immagini devono avere le stesse dimensioni	*/		
+
+}
+
+
+
+</style>
+</head>
+<body>
+
+<h2>Griglia di immagini elastica</h2>
+
+<p>
+La griglia seguente si trasforma in modo elastico aumentando o diminuendo il numero delle colonne; questo grazie all'uso di «auto-fit» e «minmax» i quali ci permettono di avere un numero di immagini per riga in base alla larghezza del «viewport». <br />
+Ciò a dire, per esempio, che se il «viewport» è largo più di 400px e meno di 600px avremo due immagini per riga perchè abbiamo impostato a «minmax» un minimo di 200px; il secondo parametro (1fr) collegato ad «auto-fit» fanno si che se la larghezza del «viewport» è di 500px la larghezza delle due immagini diventi di 250px cosi ad aumentare fino a quando il «viewport» avrà una larghezza di 600px e in tal caso si avranno tre immagini per riga con una larghezza di 200px ... e cosi via
+</p>
+
+
+<main>
+
+	<img src="../../../Immagini/molitura_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/molitura_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/molitura_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/raccolta_08.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/trasporto_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/Estrazione_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/gramolatura_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_04.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/lavaggio_06.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_01.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_02.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_03.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_05.jpg" alt="description" title="tool tip" />
+	<img src="../../../Immagini/ulivo_07.jpg" alt="description" title="tool tip" />
+
+</main>
+
+
+
+
+
+
+</body>
+</html>

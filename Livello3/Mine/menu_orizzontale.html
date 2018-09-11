@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> barra orizzontale con transition</title>
+<style type="text/css">
+html,body,div,p,h1,h2,h3,h4,h5,input,textarea,select,span,ul,li,a,table,tr,th,td{margin:0;padding:0;}
+html, body{ margin:0; padding:0;}
+body{
+font-family: 'Lato', sans-serif;
+}
+
+h1{ margin:10px 20px; color: #00F; font-weight: 100; font-size:31px; }
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150); background-color:rgb(200,200,0); border: 1px solid #999999;  }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+.sposta{margin-left:10px;}
+
+/*  	*/
+
+nav{
+display:block; position:absolute; top:150px; left:150px; width: 750px; height:60px; border: 1px solid; 
+}
+ul{
+list-style: none;
+}
+ul.dropdown{ 
+position:absolute; bottom:0; left:0; width: 100%; 
+}
+ul.dropdown li{ 
+font-weight: bold; float: left; width: 180px; position: relative; background: #ccc; /*border-right:1px solid;*/
+}
+
+ul.dropdown a:hover{ 
+color: #000; 
+}
+ul.dropdown li a { 
+display:block; padding: 20px 8px; color: #34495e; position: relative; z-index:2; text-align: center; text-decoration: none; font-weight: 300;
+}
+ul.dropdown li a:hover{ 
+background: #3498db; position: relative; color: #fff;
+}
+ul.dropdown ul{ 
+display:block; position: absolute;  top:-50px;  left: 0; width: 180px; z-index: 1; opacity:0;
+/* Impostando un top maggiore (es:-350px) per avere un effetto discendente più netto e gradevole si vede  il menù scendere dall'alto, anche con la opacità che da 0 va a 1; con questo valore di top:50px si evita il problema ma l'effetto deiscendente è meno netto  */
+}
+ul.dropdown ul li { 
+font-weight: normal; background: #f6f6f6; color: #000; border-bottom: 1px solid #ccc; 
+}
+ul.dropdown ul li a{ 
+display: block; color: #34495e !important; background: #eee !important;
+} 
+ul.dropdown ul li a:hover{
+display: block; background: #3498db !important;   color: #fff !important;
+} 
+
+/* ########  impostazione effetto  ########## */
+
+li.drop:hover > ul{
+top:58px; opacity:1; 
+/*display:block;*/ 
+-webkit-transition: top  400ms ease-in, opacity 600ms linear 200ms ;		/* x safari	*/
+-ms-transition: top  400ms ease-in, opacity 600ms linear 200ms ;			/* IE	*/
+transition: top  400ms ease-in, opacity 500ms linear 200ms ;
+}
+
+
+
+/* Per far apparire le freccette che indicano che c'è un sottomenù   */
+.drop > a{
+  position: relative;
+}
+
+.drop > a:after{
+content:""; position: absolute; right: 10px; top: 40%;
+border-left: 5px solid transparent; border-top: 5px solid #333; border-right: 5px solid transparent;
+z-index: 999;
+}
+
+.drop > a:hover:after{
+content:"";
+border-left: 5px solid transparent; border-top: 5px solid #fff; border-right: 5px solid transparent;
+}
+
+
+</style>
+</head>
+<body>
+
+<h1>barra di menù orizzontale con transition</h1>
+
+<p class="nota sposta">
+L'effetto di transizione è eseguito sull'opacità e sul posizionamento <q>top</q> dell'elemento menù &lt;ul.sub_menu&gt;. Per avere un effetto discendente del menù netto e più gradevole bisogna impostare un <q>top</q> maggiore però in questo modo non riesco ad evitare il fatto di vedere il menù scendere da sopra, anche con una opacità che da 0 va a 1. Ciò lo si potrebbe fare solo in caso che la barra di navigazione fosse posizionata in alto. <br />
+In questo caso il valore di <q>top</q> è inferiore per cui l'effetto discendente è meno marcato ma si evita il problema.   
+</p>
+
+<nav>
+<ul class="dropdown">
+	<li class="drop"><a href="#">Really Tall Menu</a>
+		<ul class="sub_menu">
+			<li><a href="#">Lorem</a></li>
+			<li><a href="#">Ipsum</a></li>
+			<li><a href="#">Dolor</a></li>
+			<li><a href="#">Lipsum</a></li>
+        	</ul>
+	</li>
+	<li class="drop"><a href="#">Kinda Tall Menu</a>
+		<ul class="sub_menu">
+        		<li><a href="#">Lorem</a></li>
+			<li><a href="#">Ipsum</a></li>
+			<li><a href="#">Dolor</a></li>
+			<li><a href="#">Lipsum</a></li>
+			<li><a href="#">Opossum</a></li>
+		</ul>
+	</li>
+	<li class="drop"><a href="#">Average Menu</a>
+		<ul class="sub_menu">
+			<li><a href="#">Lorem</a></li>
+			<li><a href="#">Ipsum</a></li>
+			<li><a href="#">Dolor</a></li>
+		</ul>
+	</li>
+	<li><a href="#">No Menu</a></li>
+</ul><!--dropdown-->
+</nav>
+
+
+
+
+</body>
+</html>

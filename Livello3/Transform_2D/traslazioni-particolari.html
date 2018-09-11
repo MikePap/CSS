@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>traslazioni particolari</title>
+<style type="text/css">
+html,body{margin:0; padding:0; }
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+
+
+
+#p1{
+position:absolute; top:120px; left:300px; width:200px; height:100px; text-align:center; background:rgba(0,0,255,1); z-index:3;
+}
+#p1:hover{
+/*z-index:1;	Funziona male per cui sono ricorso a jquery 	*/
+background:transparent;
+left:269px;					/* 269 => 300-31 (dal valore della left viene sottratto il valore del bordo superiore o inferiore ) 	*/
+border-style: solid;	
+border-color: #00F transparent;	/* significa che il colore dei bordi sono '#00F' x top e bottom e 'transparent' x right e left */
+border-width: 0px 31px 69px;		/* top:0 - i bordi laterali sono entrambi di 31px ma 'transparent' e bottom:69px   */ 
+-moz-transition:200ms ease-in;		/* Firefox */
+-webkit-transition:200ms ease-in;		/* chrome e safari */
+-ms-transition:200ms ease-in;			/* IE10 */
+transition:200ms ease-in;		
+}
+/* ATTENZIONE: per far scomparire il testo del div#p1 sono dovuto ricorrere a jquery 	*/
+#p11{
+position:absolute;top:120px; left:300px; width:200px; height:100px; background:#0F0; z-index:2;
+}
+
+
+#p2{
+position:absolute; top:120px; right:400px; width:150px; height:100px; background:purple; z-index:2;
+}
+#p2:hover{
+background:transparent;
+right:270px;			/* 270 => 400-130	(dal valore di right viene sottratto il valore del bordo destro)*/
+top:100px;				/* 100 => 120-20 	(dal valore di top viene sottratto del bordo superiore )*/
+border-style: solid;	/* da notare che l'altezza non è dichiarata'	*/ 
+border-color: transparent purple;	/* significa che il colore dei bordi sono 'transparent' x top e bottom e 'purple' x right e left */
+border-width: 20px 130px 20px 0;		/*    */ 
+-moz-transition:100ms ease-in;		/* Firefox */
+-webkit-transition:100ms ease-in;		/* chrome e safari */
+-ms-transition:100ms ease-in;		/* IE10 */
+transition:100ms ease-in;		
+}
+
+#p22{
+position:absolute; top:120px; right:400px; width:150px; height:100px; background:#0F0; z-index:1;
+}
+
+
+#p3{
+position:absolute; top:320px; right:500px; width:150px; height:100px; background:red; z-index:2;
+}
+#p3:hover{
+background:transparent;
+right:350px;				/* 350 => 500-150	(dal valore di right viene sottratto il valore del bordo destro)*/
+border-style: solid;	
+border-color: transparent red;	/* significa che il colore dei bordi sono 'transparent' x top e bottom e 'red' x right e left */
+border-width: 0px 150px 0px 0;		/* top:0 i bordi laterali   */ 
+-moz-transition:100ms ease-in;		/* Firefox */
+-webkit-transition:100ms ease-in;		/* chrome e safari */
+-ms-transition:100ms ease-in;		/* IE10 */
+transition:100ms ease-in;		
+}
+
+#p33{
+position:absolute; top:320px; right:500px; width:150px; height:100px; background:#0F0; z-index:1;
+}
+
+
+</style>
+<script type="text/javascript" src="../../../../jQuery/jquery-1.8.2.min.js"> </script>
+</head>
+
+<body>
+
+
+<h1>traslazioni particolari</h1>
+
+<p class="nota">vedere file sulle <a href="../forme_geom-css3.html">forme geometriche</a></p>
+
+
+<div id="p1"><p>passami sopra</p></div> 
+<div id="p11">Hello</div> 
+
+<div id="p2"></div> 
+<div id="p22">Ciao bello</div> 
+
+
+<div id="p3"></div> 
+<div id="p33">Ciao bello</div> 
+
+
+<script  type="text/javascript">
+
+var p1 = document.getElementById('p1');
+p1.addEventListener('mouseover', function(){
+	this.children[0].style['display'] = 'none';				// il paragrafo figlio del <div id='p1'>
+}, false);
+
+p1.addEventListener('mouseleave', function(){
+	this.children[0].style['display'] = 'block';
+}, false);
+
+
+/*
+jQuery(document).ready(function(){
+//$("h1").css('color', 'red');
+
+$("#p1").on({
+mouseenter: function(){
+$('p', this).hide();
+},
+mouseleave: function(){
+$('p', this).show();
+}
+});
+
+}); // chiude ready 
+*/
+
+</script>
+
+
+
+<!--
+http://localhost/BookPHP/CSS_Example/Livello3/Transform_2D/traslazioni-particolari.html
+
+-->
+
+
+
+</body>
+</html>

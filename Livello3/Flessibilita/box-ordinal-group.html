@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>box-ordinal-group</title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+.codice{ color:#006600;}
+
+.box{
+width:70%;
+display:-moz-box;					/* Firefox */
+display:-webkit-box;				/* Safari and Chrome */
+display:box;
+border:1px solid black;
+}
+.ord1{
+margin:5px;
+-moz-box-ordinal-group:3;			/* Firefox */
+-webkit-box-ordinal-group:3;			/* Safari and Chrome */
+box-ordinal-group:3;
+}
+.ord2{
+margin:5px;
+-moz-box-ordinal-group:2;			/* Firefox */
+-webkit-box-ordinal-group:2;			/* Safari and Chrome */
+box-ordinal-group:2;
+}
+
+</style>
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Flessibilita/box-ordinal-group.html  -->
+<body>
+
+
+<h1>box-ordinal-group</h1>
+<p class="nota">Proprietà che stabilisce l'ordine di visualizzazione dei figli all'interno del box dell'elemento. <br />
+Accetta un'unico argomento (integer)che definisce il valore di visualizzazione </p>
+
+
+<div class="box">
+<div class="ord1">First in source</div>
+<div class="ord2">Second in source</div>
+<div class="ord2">Third in source</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

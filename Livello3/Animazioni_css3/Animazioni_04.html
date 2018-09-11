@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Animazioni 04  </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+code, pre{ color:rgb(20,150,30); font-weight:bold;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color: #F60;}
+.codice{ color:#060;}
+ul{}
+ul li{ list-style-type:circle; font-size:0.7em; }
+.grigio{color:gray;}
+.azzurro{color:rgb(50,100,255);}
+.scuro{color:#333;}
+
+#divo{
+width:100px;
+height:100px;
+background:red;
+opacity:0.2;
+animation: primaAnimazione 3s infinite, secondaAnimazione 3s;
+-webkit-animation: primaAnimazione 5s infinite, secondaAnimazione 3s; 	
+}
+
+@keyframes primaAnimazione{
+from{opacity:0.2}
+to{opacity:1}
+}
+@-webkit-keyframes primaAnimazione{
+from{opacity:0.2}
+to{opacity:1}
+}
+
+@keyframes secondaAnimazione{
+from{width:100px;}
+to{width:500px;}
+}
+@-webkit-keyframes secondaAnimazione{
+from{width:100px;}
+to{width:500px;}
+}
+
+
+</style>
+
+<script type="text/javascript" src="../../../../jQuery/jQuery-1.9.1.min.js"> </script>
+
+</head>
+
+<script  type="text/javascript">
+var obj = document.getElementById('divo');
+
+//obj.style.animation="myfirst 5s infinite"; 
+//obj.style.animation="myfirst 5s infinite"; 
+
+
+</script>
+
+<body>
+
+<h3>Animazioni quarto esempio</h3>
+
+
+<div id="divo"></div>
+ 
+
+
+
+
+
+
+
+
+</body>
+</html>
+

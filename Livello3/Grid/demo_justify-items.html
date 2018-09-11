@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<title>Esempi con justify-items </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+<style type="text/css">
+.link-home{
+margin: 2em;    
+text-align: center;    
+}
+
+#grid {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+/*    grid-template-rows: 100px ;*/
+
+    justify-content: center;
+/*  align-content: space-around;*/
+/*  justify-items: center;*/
+
+}
+
+#grid1 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    justify-items: strech;
+}
+#grid2 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    justify-items: start;
+}
+#grid3 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    justify-items: end;
+}
+#grid4 {
+    height: 100px;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(3, 200px)  ;
+
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.item1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: skyblue;
+}
+.item2 {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background-color: skyblue;
+}
+.item3 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: lightcoral;
+}
+
+
+</style>
+</head>
+<body>
+
+<h3>Esempio senza "justify-items" </h3>
+
+<div id="grid">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>justify-items: stretch </h3>
+<p>"stretch" è il default, per cui non cambia niente. La larghezza dell'elemento non è modificata </p>
+<div id="grid1">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>justify-items: start </h3>
+<p>Qui si nota la prima differenza. La larghezza dell'elemento si restringe fino a racchiudere il contenuto ma spostandosi verso sinistra.<br>
+Ma solo se la larghezza del contenuto è inferiore  alla larghezza dell'elemento
+</p>
+<div id="grid2">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>justify-items: end </h3>
+<div id="grid3">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+<h3>justify-items: center </h3>
+<div id="grid4">
+    <div class="item1">Ciao io sono il primo </div>
+    <div class="item2">Io sono il secondo ma mi vedete terzo </div>
+    <div class="item3">Ciao belli </div>
+</div>
+
+
+
+<div class="link-home">
+    <a href="Grid_layout.html#justify-items">Home Grid</a>
+</div>
+
+
+</body>
+</html>

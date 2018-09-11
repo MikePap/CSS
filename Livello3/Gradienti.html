@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Gradienti </title>
+<style type="text/css">
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+
+div{ float:left; margin:30px; padding:5px; width:200px; height:150px; border:1px solid; }
+
+#box1{ 
+background: linear-gradient(top, blue, white);			/* GENERALE */
+background: -moz-linear-gradient(top, blue, white);		/* per FIREFOX  */
+background:-webkit-linear-gradient(top, blue, white); 	/* per CHROME E SAFARI */
+}
+#box2{ background: -moz-linear-gradient(left, blue, white);}
+#box3{ background: -moz-linear-gradient(left top, blue, white);}
+#box4{ background: -moz-linear-gradient(left 20deg, blue, white);}
+#box5{ background: -moz-linear-gradient(left 0deg, red, white);}
+#box6{ background: -moz-linear-gradient(left 0deg, white, red);}
+#box7{ background: -moz-linear-gradient(left 45deg, red, white);} /* left 180deg, red, white => NON FUNZIONA*/
+#box8{ background: -moz-linear-gradient(left -90deg, red, white);}
+#box9{ background: -moz-linear-gradient(top, blue, white 80%, orange);}
+#box10{ background: -moz-linear-gradient(top, blue, white 40%, orange);}
+#box11{ background: -moz-linear-gradient(left, rgba(255,0,0,0.5), rgba(0,0,255,1));}
+#box12{ background: -moz-linear-gradient(bottom, red, orange, yellow, green, blue); }
+
+#box13{ background: -moz-radial-gradient(red, yellow, #1E90FF); 
+background: radial-gradient(red, yellow, #1E90FF);
+background: -webkit-radial-gradient(red, yellow, #1E90FF); 
+}
+#box14{ background: -moz-radial-gradient(red 5%, yellow 25%, #1E90FF 50%); }
+
+#box15{ background: radial-gradient(bottom left, circle, red, yellow, #1E90FF); }
+#box15{ background: -moz-radial-gradient(bottom left, circle, red, yellow, #1E90FF); }
+#box15{ background: -webkit-radial-gradient(bottom left, circle, red, yellow, #1E90FF); }
+
+#box16{ background: -moz-radial-gradient(bottom left, ellipse, red, yellow, #1E90FF);}
+#box16{ background: -webkit-radial-gradient(bottom left, ellipse, red, yellow, #1E90FF); }
+#box16{ background: -o-radial-gradient(bottom left, ellipse, red, yellow, #1E90FF); }
+#box16{ background: radial-gradient(bottom left, ellipse, red, yellow, #1E90FF); }
+}
+
+
+#box17{ background:
+-moz-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+-webkit-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+-o-radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+radial-gradient(ellipse closest-side, red, yellow 10%, #1E90FF 50%, white);
+}
+
+#box18{ background: -moz-radial-gradient(ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white);}
+#box19{ background: -moz-radial-gradient(red, yellow, #1E90FF); }
+
+#box20{ background: -moz-radial-gradient(contain, red, yellow, #1E90FF);}
+
+#box21{  background: -moz-repeating-radial-gradient(black, black 5px, white 5px, white 10px);  }
+#box22{ background: -moz-repeating-linear-gradient(top left -45deg, red, red 5px, white 5px, white 10px); }
+#box23{ background: -moz-linear-gradient(right, rgba(255,255,255,0), rgba(255,255,255,1)), url(http://demos.hacks.mozilla.org/openweb/resources/images/patterns/flowers-pattern.jpg); }
+#box24{ background: -moz-linear-gradient(right, rgba(255,0,0,0), rgba(255,255,255,1)), url(../../grafic/riviera.jpg);}
+
+
+
+</style>
+
+</head>
+<!--http:localhost/BookPHP/CSS_Example/Livello3/Gradienti.html-->
+
+<body>
+
+<h1>Gradienti</h1>
+<dl>
+    <dd>I gradienti possibili che CSS3 ci permette di realizzare sono: <b>lineare e radiale</b>. Al momento sono supportati solo da Mozilla con l'uso del prefisso "-moz-" e da altri quali Chrome con l'uso del prefisso 'webkit' all'interno della proprietà "background-image" o "background"</dd>
+    <dd><span class="nota"><b>lineare:</b>  linear-gradient( [point || angle,]? stop, stop [, stop>]* )</span></dd>
+    <dd><b>point</b> rappresenta il punto di partenza del gradiente. Può essere specificato in pixel o in percentuale o con <em>left, center, top, bottom, right</em></dd>
+    <dd><b>angle</b> rappresenta la direzione angolare del gradiente. Nei CSS l'angolo può avere 3 differenti unità: <em>deg(gradi), grad, rad </em>. 90 deg sta per 90 gradi. Tale valore può essere aggiunto al <q>point</q></dd>
+    <dd><b>stop</b> è un valore che può essere aggiunto accanto al valore di colore, come percentuale da 0% a 100%, a specificare dove tale colore deve fermarsi </dd>
+    <dd><span class="nota"><b>radiale:</b> radial-gradient([bg-position || angle,]? [shape || size,]? color-stop, color-stop[, color-stop]*);</span></dd>
+    <dd>In confronto alla lineare c'è la possibilità di specificare la <em>forma</em> (cerchio o ellisse) e la <em>grandezza</em> (closest-side, closest-corner, farthest-side, farthest-corner, contain or cover)</dd>
+</dl>
+
+
+
+<div id="box1">box1{ background: <br /> -moz-linear-gradient <br />(top, blue, white); }</div>
+<div id="box2">left, blue, white</div>
+<div id="box3">left top, blue, white</div>
+<div id="box4">left 20deg, blue, white</div>
+<div id="box5">left 0deg, red, white</div>
+<div id="box6">left 0deg, white, red</div>
+<div id="box7">left 45deg, red, white</div>
+<div id="box8">left -90deg, red, white</div>
+<div id="box9">top, blue, white 80%, orange</div>
+<div id="box10">top, blue, white 40%, orange</div>
+<div id="box11">left, rgba(255,0,0,0.5),<br /> rgba(0,0,255,1)</div>
+<div id="box12">bottom, red, orange, yellow, green, blue </div>
+<div id="box13">-moz-radial-gradient<br />(red, yellow, #1E90FF)</div>
+<div id="box14">red 5%, yellow 25%, #1E90FF 50%</div>
+<div id="box15">bottom left, circle, red, yellow, #1E90FF</div>
+<div id="box16">bottom left, ellipse, red, yellow, #1E90FF</div>
+<div id="box17">ellipse closest-side, red, yellow 10%, #1E90FF 50%, white</div>
+<div id="box18">ellipse farthest-corner, red, yellow 10%, #1E90FF 50%, white</div>
+<div id="box19">red, yellow, #1E90FF</div>
+<div id="box20">contain, red, yellow, #1E90FF</div>
+<div id="box21">black, black 5px, white 5px, white 10px</div>
+<div id="box22">top left -45deg, red, red 5px, white 5px, white 10px</div>
+<div id="box23">right, rgba(255,255,255,0), <br />rgba(255,255,255,1), <br /> url(immagine)</div>
+<div id="box24">right, rgba(255,0,0,0), <br />rgba(255,255,255,1),<br /> url(immagine)</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

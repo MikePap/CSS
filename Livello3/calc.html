@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>calc  </title>
+<style type="text/css">
+body{
+font-family: 'Lato', sans-serif;
+}
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250);} 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);}
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20);}
+
+.nota{ color:rgb(250,120,0);}
+.codice{ color:rgb(30,120,30);}
+code, pre{ color:rgb(50,150,50);}
+tt, em{color:#6a9999}
+.grigio{color: grey;}
+.blu{color:#00f;}
+
+
+div.box1 {
+width: 90%; /* questa definizione è per i browser che non supportano 'calc()' (nel caso si tratta di un valore approssimativo)	*/
+width: calc(100% - 180px);	
+border: solid black 1px; background-color: #e7e7e7;  padding: 6px; text-align: center;
+}
+
+div.box2 {
+width: 66%;		/* questa definizione è per i browser che non supportano 'calc()' (nel caso si tratta di un valore approssimativo)	*/
+width: calc((100% * 2) / 3);
+margin-top: 20px; border: solid black 1px; background-color: #e7e7e7;  padding: 6px;  text-align: center;
+}
+
+
+div.container {
+	margin: 20px auto;
+	max-width: 1040px; 		/* 1170px grid + 40px padding */
+	padding: 20px;
+	width: 90%;
+	border: solid black 1px;
+	background-color: #e7e7e7;
+	overflow:auto;
+}
+ 
+div.content {
+	width: calc(100% - 300px - 20px);
+	float: left;
+	background: #bcf0a1;
+	border: 1px solid black;
+}
+ 
+div.sidebar {
+	width: 300px;
+	float: right;
+	background: #78bbee;
+	border: 1px solid black;
+}
+
+</style>
+</head>
+<body>
+
+<h1>calc()</h1>
+<p>E' una nova funzione definita all'interno del modulo delle  <q>unità di misure</q> dei CSS che permette di effettuare calcoli matematici per tutte quelle proprietà che sono definite con le unità di misura. <em>calc()</em> riesce a gestire anche più unità di misura nella stessa dichiarazione 
+</p>
+<pre>
+margin: calc(200px + 40px);
+width: calc(100% - 2.5em);
+width: calc(((100% / 12) * 8) - 5%);
+</pre>
+<p>
+Riguardo alla sintassi c'è da ricordare che ci sono alcune cose che producono errori
+</p>
+<pre>
+calc(200px+40px);					<span class="nota">errore (non c'è spazio intorno all'operatore)</span>
+calc (1em + 7px);					<span class="nota">errore (cè spazio tra 'calc' e la parentesi)</span>	
+calc(50% / 0);						<span class="nota">errore (la divisione per zero non funziona)</span>
+</pre>
+
+<p>
+<span class="nota">Supportato in tutti i maggiori browser. Per IE dalla versione 9</span>. Per garantire il supporto ai vecchi browser il metodo più semplice ed efficace  è quello di fare anche una seconda impostazione 
+</p>
+<pre>
+width: 98% calc(100% - 2.5em);
+</pre>
+
+
+<br /><br /><br />
+
+<div class="box1">box 1: width: calc(100% - 180px);	 </div> 
+
+<div class="box2">box 2: width: calc((100% * 2) / 3);   </div> 
+
+<br /><br />
+
+<div class="container">
+	<div class="content">sono content fluido</div> 
+	<div class="sidebar">io rimango sempre fisso </div> 
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

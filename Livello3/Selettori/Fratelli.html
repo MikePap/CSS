@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Fratelli </title>
+<style type="text/css">
+h1{ margin: 20px 200px; background: #0C6; }
+
+.codice{ color:#060;}
+.nota{ color:#F60;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+
+
+
+/* tilde => Alt + 126 */
+
+h2 + h3{ color:red;} /* si riferisce soltanto all'elemento prossimo escludendo gli altri */
+
+div ~ span{ color:blue;} /* si riferisce a tutti gli elementi "span" che seguono il "div" */
+/* In Ubuntu il tilde si ottiene AltGr + ^ */
+
+</style>
+
+</head>
+<!--  http://localhost/BookPHP/CSS_Example/Livello3/Selettori/Fratelli.html  -->
+<body>
+
+<h1>Fratelli</h1>
+
+<p>
+Per la ricerca del primo fratello di un elemento si ricorre al segno <b>+</b>, per cui si avrà che: <br />
+<span class="nota">h2 + h3 {color:red;} </span> assegnerà il colore rosso solo al primo &lt;h3&gt;  della eventuale lista che segue &lt;h2&gt; <br />
+mentre per la ricerca di tutti i fratelli si ricorre al segno <b>tilde ~</b><br />
+<span class="nota"> h2 ~ h3 {color:red;} </span>  assegnerà il colore rosso a tutti i fratelli &lt;h3&gt;  della lista che segue &lt;h2&gt;  
+</p>
+
+
+
+<h2>Sono H2</h2>
+<h3>Sono il primo H3 </h3>
+<h3>Sono il secondo H3 </h3>
+<h3>Sono il terzo e ultimo H3  della serie</h3>
+
+
+
+<div></div>
+<p>par</p>
+<span>span 1</span>
+<span>span 2</span>
+<pre>pre</pre>
+
+
+
+
+
+
+</body>
+</html>

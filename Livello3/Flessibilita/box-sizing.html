@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title> box-sizing  </title>
+<style type="text/css">
+html,body{ margin:0; padding:0; }
+h1{ color:#006600;}
+h3{ color:#663333;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{ color:#FF6666;}
+.codice{ color:#060}
+pre{color:rgb(50,150,50); margin-left:5px; }
+
+/*
+LA DICHIARAZIONE SEGUENTE ASSEGNA IL "box-sizing:border-box" A TUTTI GLI ELEMENTI DEL DOCUMENTO UTILIZZANDO IL SELETTORE UNIVERSALE *
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+*/
+
+/* Nella seguente si assegna il "box-sizing:border-box" soltanto agli elementi 'p' dell'elemento 'container'    */
+#container p{
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+
+
+#container p {width: 50%;} 
+p#par1 {
+background: #abe2ff;
+float: left;
+padding: 40px; 
+} 
+p#par2 {
+background: #d2fe90;
+float: right;
+padding: 40px; 
+}
+
+/*content-box*/
+</style>
+</head>
+<body>
+
+<h1>box-sizing</h1>
+
+<p>
+La proprietà <q>box-sizing: border-box</q> da la possibilità di gestire il <q>padding</q>  e il <q>border</q> di un elemento. Può accettare 3 valori: <b>content-box - border-box - inherit </b>. Sappiamo che la larghezza (allo stesso modo dell'altezza) di un elemento sono dipendenti anche dal 'padding' e dal 'border' nel senso che la larghezza totale di un elemento è data dal valore della 'width' più il valore di entrambi; questo è il caso semplice che si ha passando come valore <b>content-box</b>. Se invece si asssegna <b>border-box</b> la 'width' assegnata all'elemento sarà quella totale, cioè compresa anche di 'padding' e 'border' eventualmente definiti. Gli svuluppatori più esperti consigliano di inserirlo nei CSS per tutti gli elementi utilizzando il selettore universale <b>*</b> nel modo seguente: 
+<pre>
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+}
+</pre>
+E' supportato in tutti i browser. Per quanto riguarda IE è supportato in IE 8 ma non so per i precedenti
+</p>
+
+
+
+<div id="container">
+<p id="par1">
+In questo esempio il &lt;div&gt; container contiene due elementi paragrafo che occupano ognuno il 50% del container. Quest'ultimi oltre ad avere una <q>width</q> appunto del 50% hanno entrambi un padding di 40px. Dato ciò la <q>width</q> totale del container, che siccome non è stata dichiarata si presuppone sia il 100%, diverrebbe maggiorata del padding degli elementi paragrafo. Ciò non avviene grazie al fatto che alla proprietà <q>box-sizing</q> è stato assegnato il valore <q>border-box</q>      
+</p>
+
+<p id="par2">
+In questo esempio il &lt;div&gt; container contiene due elementi paragrafo che occupano ognuno il 50% del container. Quest'ultimi oltre ad avere una <q>width</q> appunto del 50% hanno entrambi un padding di 40px. Dato ciò la <q>width</q> totale del container, che siccome non è stata dichiarata si presuppone sia il 100%, diverrebbe maggiorata del padding degli elementi paragrafo. Ciò non avviene grazie al fatto che alla proprietà <q>box-sizing</q> è stato assegnato il valore <q>border-box</q>      
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+

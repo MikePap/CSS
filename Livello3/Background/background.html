@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>proprietà background  </title>
+<style type="text/css">
+h1{ font-size:24px; font-weight:bold; color:rgb(50,50,250); margin-left:31px; } 
+h2{ font-size:18px; font-weight:bold; color:rgb(250,50,150);   }
+h3{ font-size:14px; font-weight:bold; color:rgb(200,20,20); margin:1em;}
+dt{ color:#003399; margin-bottom:5px;}
+dd{ color:#0066FF;}
+.nota{color:#F00;}
+.codice{color:green;}
+
+</style>
+</head>
+<body>
+
+<h1>background</h1>
+
+<p class="nota">Imposta tutte le proprietà del <q>background</q> in un'unica dichiarazione   
+<pre class="codice">
+body{
+background: #00ff00 url('smiley.gif') no-repeat fixed center;
+} 
+</pre>
+</p>
+
+<dl>
+	<dt>Le proprietà di <q>background</q> sono: </dt>
+	<dd>color</dd>
+	<dd>image</dd>
+	<dd>position</dd>
+	<dd>size</dd>
+	<dd>repeat</dd>
+	<dd>origin</dd>
+	<dd>clip</dd>
+	<dd>attachment</dd>
+</dl>	
+
+<p>
+IE8 e precedenti non supportano il <b>background image multiplo</b>, cioè la possibilità di impostare più immagini all'interno di un elemento. <br />
+Il valore <q>inherit</q> non è supportato da IE7 e precedenti. IE8 richiede il !DOCTYPE, mentre IE9 lo supporta. <br />
+Non è importante se non sono impostate tutte le proprietà: <span class="codice"> background: #f00 url(smiley.gif);</span> è permesso ugualmente. 
+</p>  
+
+
+</body>
+</html>
