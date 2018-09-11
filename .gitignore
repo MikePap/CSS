@@ -1,0 +1,3 @@
+# ignora tutti i file che finiscono con tilde (~)
+*~
+/Livello3/Grid/prova.html
