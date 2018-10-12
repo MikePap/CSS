@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<title>Esempio smartphone  </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../baseLocali.css" />
+
+<style type="text/css">
+
+
+/* Smartphone 1 */
+
+.smartphone1, .smartphone2 {
+	height: 300px;
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	margin: 50px;
+	border: 5px solid rgb(111,41,97);
+	border-radius: .5em;
+}
+
+.smartphone1 > div:nth-child(2) {
+	flex: 1;
+	padding: 10px;
+}
+
+.smartphone1 > div:nth-child(1), .smartphone1 > div:nth-child(3) {
+	padding: 10px;
+	background-color: rgba(111,41,97,.3);
+}
+
+
+/*	Smartphone 2	*/
+
+.smartphone2 > div:nth-child(1) {
+	flex: 1;
+	padding: 10px;
+	background-color: rgba(111,41,97,.3);
+
+}
+.smartphone2 > div:nth-child(2) {
+	flex: 2;
+	padding: 10px;
+}
+
+.smartphone2 > div:nth-child(3) {
+/*	flex: 2;*/
+	padding: 10px;
+	background-color: rgba(111,41,97,.3);
+}
+
+
+p.info {
+	border: 1px solid #ccc;
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+<div class="smartphone1">
+
+	<div>This is my header</div>
+  
+	<div> This is my content.</div>
+  
+	<div>This is my footer</div>
+
+</div>
+
+
+<p class="info">Cambiando i valori di «flex» ai vari elementi interni si possono ottenere altezze differenti per ogni elemento difficilmente ottenibili con altre soluzioni </p>
+
+
+<div class="smartphone2">
+
+	<div>This is my header</div>
+  
+	<div> This is my content.</div>
+  
+	<div>This is my footer</div>
+
+</div>
+
+
+
+
+
+</body>
+</html>
